@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hồ Sơ Khách Hàng</title>
+    <title>Sản Phẩm</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <!-- Bootstrap -->
@@ -22,9 +22,8 @@
     <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
     <link rel="stylesheet" href="../assets/css/basic.css">
     <link rel="stylesheet" href="../assets/css/product.css">
-    <link rel="stylesheet" href="../assets/css/navBarUser.css">
 </head>
-<body style="background-color: #f5f5f5;">
+<body>
 <!-- HEADER -->
 <header>
     <!-- TOP HEADER -->
@@ -147,8 +146,9 @@
         <!-- container -->
     </div>
     <!-- /MAIN HEADER -->
-   </header>
-   <!-- /HEADER -->
+</header>
+<!-- /HEADER -->
+
 <!-- NAVIGATION -->
 <nav id="navigation">
     <!-- container -->
@@ -172,125 +172,186 @@
     <!-- /container -->
 </nav>
 <!-- /NAVIGATION -->
-
-<div class="content">
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
     <div class="container">
-        <div class="row ">
-            <div class="col-md-3">
-                <div class="nav_left">
-                    <div class="profile">
-                        <img src="../assets/img/AnhTin.jpg" alt="" class="img-fluid rounded-circle">
-                        <h1 class="text-light">Nguyễn Hoài Tín</h1>
-                    </div>
-                    <br/>
-                    <nav id="navbar" class="nav-menu navbar">
-                        <ul>
-                            <li><a href="#" class="nav-link scrollto " > <span>Đơn Hàng</span></a></li>
-                            <li><a href="#" class="nav-link scrollto "> <span>Hồ Sơ</span></a></li>
-                            <li><a href="#" class="nav-link scrollto " > <span>Quản Lý Sản Phẩm</span></a></li>
-                            <li><a href="#" class="nav-link scrollto "> <span>Quản Lý Đơn Hàng</span></a></li>
-                            <li><a href="#" class="nav-link scrollto " > <span>Quản Lý Khách Hàng</span></a></li>
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-3">
+                <!-- aside Widget -->
+                <div class="aside">
+                    <h3 class="aside-title">Danh Mục</h3>
+                    <div class="checkbox-filter">
 
-                        </ul>
-                    </nav>
-                </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-1">
+                            <label for="category-1">
+                                <span>	</span>
+                                Giấy In - Photo
 
-            </div>
-            <div class="col-md-9">
-                <!-- Phần Sữa -->
-                <div class="content-form">
-                    <div class="content-form-top">
-                        <h4 class="content-form-title">Thông Tin Của Tôi</h4>
-                        <span>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+                            </label>
+                        </div>
 
-                    </div>
-                    <div class="content-form-bot">
-                        <form>
-                            <div class="form-group">
-                                <div class="profile">
-                                    <img src="../assets/img/AnhTin.jpg" alt="" class="img-fluid rounded-circle">
-                                    <button type="button" class="btn btn-user-img " >Chọn Ảnh</button>
-                                </div>
-                            </div>
-                            <div class="user-form-layout">
-                                <div class="form-group   ">
-                                    <label >Họ Tên</label>
-                                    <input type="text" class="form-control" id="userFormInputName1" aria-describedby="NameHelp" placeholder="Nhập Họ Tên">
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-2">
+                            <label for="category-2">
+                                <span></span>
+                                Sổ - Tập
 
-                                </div>
-                                <div class="form-group ">
-                                    <label >SĐT</label>
-                                    <input type="text" class="form-control" id="userFormInputPhone1" aria-describedby="PhoneHelp" placeholder="Nhập Số Điện Thoại">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label  >Email</label>
-                                <input type="email" class="form-control" id="userFormInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
+                            </label>
+                        </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label  >Địa Chỉ</label>
-                                <input type="email" class="form-control" id="userFormInputAddress1" aria-describedby="emailHelp" placeholder="Nhập Địa Chỉ">
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-3">
+                            <label for="category-3">
+                                <span></span>
+                                Bút - Bút Màu
 
-                            </div>
-                            <div class="user-form-layout">
-                                <label >Giới tính:</label>
-                                <div class="form-check user-form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Nam
-                                    </label>
-                                </div>
-                                <div class="form-check user-form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        Nữ
-                                    </label>
-                                </div>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-4">
+                            <label for="category-4">
+                                <span></span>
+                                Kéo - Dao
 
 
-                            </div>
-                            <div class="user-form-layout">
-                                <label class="form-label-day"  >Ngày Sinh:</label>
-                                <select class="form-control form-control-sm  form-control-day" >
+                            </label>
+                        </div>
 
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                                <select class="form-control form-control-sm form-control-day">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                                <select class="form-control form-control-sm form-control-day">
-                                    <option>1999</option>
-                                    <option>2000</option>
-                                    <option>2001</option>
-                                    <option>2002</option>
-                                </select>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-5">
+                            <label for="category-5">
+                                <span></span>
+                                Vật Dụng Văn Phòng
+
+                            </label>
+                        </div>
 
 
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-form-user">Sữa Hồ Sơ</button>
-
-                            </div>
-                        </form>
                     </div>
                 </div>
+                <!-- /aside Widget -->
+                <div class="aside">
+                    <button class="store-filter_btn btn">
+                        Lọc Sản Phẩm
+                    </button>
+                </div>
+                <!-- aside Widget -->
+
+                <!-- /aside Widget -->
+
+                <!-- aside Widget -->
+                <div class="aside">
+                    <h3 class="aside-title"> Sắp xếp</h3>
+                    <div class="store-sort">
+                        <label>
+                            Sắp xếp theo:
+                            <select class="input-select input-sort ">
+                                <option value="0">giá nhỏ đó lớn</option>
+                                <option value="1">giá từ lớn đền nhỏ</option>
+                                <option value="2">xếp từ A - Z</option>
+                                <option value="3">cếp từ Z - A</option>
+                            </select>
+                        </label>
+
+
+                    </div>
+
+                </div>
+                <div class="aside">
+                    <button class="store-filter_btn btn">
+                        Sắp Xếp Sản Phẩm
+                    </button>
+                </div>
+                <!-- /aside Widget -->
+
+                <!-- aside Widget -->
+                <div class="aside">
+
+                    <h3 class="aside-title">Sản Phẩm</h3>
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="../assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name"><a href="#">Giấy phân trang mũi tên 5 màu Pronoti
+                            </a></h3>
+                            <h4 class="product-price">180.000đ <del class="product-old-price">220.000đ</del></h4>
+                        </div>
+                    </div>
+                    <!-- product widget -->
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="../assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name"><a href="#">Lưỡi dao rọc giấy nhỏ 30 độ Deli - 2015
+                            </a></h3>
+                            <h4 class="product-price">180.000đ <del class="product-old-price">390.000đ</del></h4>
+                        </div>
+                    </div>
+                    <!-- /product widget -->
+
+                    <!-- product widget -->
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="../assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name"><a href="#">Kéo Thiên Long SC019 - 16cm
+                            </a></h3>
+                            <h4 class="product-price">280.000đ <del class="product-old-price">390.000đ</del></h4>
+                        </div>
+                    </div>
+                    <!-- /product widget -->
+                    <!-- product widget -->
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="../assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name"><a href="#">Decal số thứ tự
+                            </a></h3>
+                            <h4 class="product-price">180.000đ <del class="product-old-price">220.000đ</del></h4>
+                        </div>
+                    </div>
+                    <!-- /product widget -->
+
+                    <!-- product widget -->
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="../assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name"><a href="#">Giấy Note trình ký Sign here Pronoti
+                            </a></h3>
+                            <h4 class="product-price">280.000đ <del class="product-old-price">320.000đ</del></h4>
+                        </div>
+                    </div>
+                    <!-- /product widget -->
+
+
+                </div>
+                <!-- /aside Widget -->
             </div>
+            <!-- /ASIDE -->
+
+            <!-- STORE -->
+            <div id="store" class="col-md-9">
+
+
+              
+              </div>
+            <!-- /row -->
         </div>
+        <!-- /container -->
     </div>
-
-
-
 </div>
+    <!-- /SECTION -->
 
 
 <!-- FOOTER -->
@@ -396,6 +457,6 @@
 <script src="../assets/js/slick.min.js"></script>
 <script src="../assets/js/nouislider.min.js"></script>
 <script src="../assets/js/jquery.zoom.min.js"></script>
-<script src="../assets/js/main.js"></script>
+ <script src="../assets/js/main.js"></script>
 </body>
 </html>
