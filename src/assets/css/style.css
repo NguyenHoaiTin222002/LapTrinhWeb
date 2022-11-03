@@ -1351,6 +1351,9 @@ textarea.input {
   position: static;
   margin: 15px 0px;
 }
+.header-logo .logo > img{
+  height: 60px;
+}
 
 /*=========================================================
 	13 -> RESPONSIVE

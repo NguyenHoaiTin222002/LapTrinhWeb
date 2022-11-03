@@ -1,0 +1,219 @@
+.nav_left{
+    width: 100%;
+   
+    min-height: 800px;
+    background-color: #cf0b2c;
+}
+body{
+   
+}
+.content{
+    margin-top: 20px;
+    margin-bottom: 20px ;
+}
+.profile{
+    border-bottom: 1px solid #efefef;
+    height: 200px;
+    padding-top: 10px;
+}
+.profile img {
+    display: block;
+    width: 120px;
+    margin: 15px auto;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(44 47 63 / 38%);
+    border-image: initial;
+    
+}
+.rounded-circle{
+    border-radius: 50% !important;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-light {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    color: white;
+}
+
+.nav-menu {
+    padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu>ul>li {
+    position: relative;
+    white-space: nowrap;
+ 
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 12px 15px;
+    margin:8px 0;
+    transition: 0.3s;
+    font-size: 14px;
+    color: white;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+    font-size: 24px;
+    padding-right: 8px;
+    color: #6f7180;
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+    text-decoration: none;
+    color: black;
+}
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+    color: #149ddd;
+}
+.section-title-2 {
+    height: 50px;
+    background: #fff;
+    /* line-height: 50px; */
+    padding: 0 10px;
+}
+.section-title-2 .section-nav .section-tab-nav >li{ 
+    margin-top: 14px;
+}
+.section-title-2 .section-nav .section-tab-nav >li + li{ 
+    margin-left: 10px;
+}
+.bill-tabs{
+    width: 100%;
+    margin-top: 20px;
+    height: 400px;
+    background: white;
+}
+.bill-table-clo{
+    margin-top: 5px;
+    font-size: 12px;
+}
+.bill-table-address{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    height: 12px;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    margin-top: 8px;
+}
+.bill-table-seem{
+    background-color: #D10024;
+   
+}
+.bill-table-seem i{
+   color: #fff;
+   
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+.table-wrapper-scroll-y {
+    display: block;
+}
+.content-form{
+    width: 100%;
+    height: 800px;
+    background: #fff;
+    padding: 0 20px;
+}
+.btn-user-img{
+    margin: 15px auto;
+}
+.btn-user-img {
+    margin: 15px auto;
+    display: block;
+}
+.content-form-title{
+    padding: 10px 0;
+    margin: 0;
+}
+.content-form-top > span {
+    font-size: 12px;
+    color: #6f7180;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+}
+.user-form-check{
+    margin-left: 10px;
+}
+.user-form-check > input{
+    height: 15px;
+    width: 15px;
+}
+.form-label-day{
+    height: 35px;
+    line-height: 35px;
+}
+.form-control-day{
+    width: 80px;
+    margin: 0 10px;
+}
+.user-form-layout{
+    display: flex;
+}
+.user-form-layout > .form-group{
+    flex: 1;
+   }
+.form-group ~ .form-group{
+     margin-left: 5px;
+   }
+.user-form-layout ~ .user-form-layout {
+      margin: 10px 0;
+   }
+.btn-form-user{
+    display: block;
+    float: right;
+    background-color: #cf0b2c;
+    color: white;
+    border: none;
+    outline: none;
+  }
+  .btn-form-user{
+    display: block;
+    float: right;
+    background-color: #cf0b2c;
+    color: white;
+    border: none;
+    outline: none;
+  }
+  .btn-form-user:hover ,  .btn-form-user:focus ,  .btn-form-user:active{
+    background-color: #cf0b2c;
+    color: white;
+
+  }
+ .btn-modal-delete{
+    background: #D10024;
+    color: white;
+ }
