@@ -14040,8 +14040,8 @@ be a descendant of the grid when it is being dragged.
     display: none;
   }
   .sidebar-mini.sidenav-toggled .app-sidebar__user-avatar {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
   }
   .sidebar-mini.sidenav-toggled .app-content {
     margin-left: 50px;
