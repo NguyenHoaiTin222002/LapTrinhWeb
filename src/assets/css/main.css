@@ -4970,7 +4970,7 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
-.breadcrumb-item + .breadcrumb-item {
+.app-title + .breadcrumb-item {
   padding-left: 0.5rem;
 }
 
@@ -6635,6 +6635,8 @@ button.bg-dark:focus {
 
 .rounded-circle, .app-sidebar__user-avatar {
   border-radius: 50% !important;
+  width: 130px;
+  height: 70px;
 }
 
 .rounded-0 {
@@ -13604,7 +13606,7 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: rgb(0, 28, 64);
+  background-color: #1e1f29;
   z-index: 1;
   padding-right: 15px;
   padding-left: 15px;
@@ -13626,7 +13628,7 @@ be a descendant of the grid when it is being dragged.
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  color: #FFD43B !important;
+  color: #d10024 !important;
   text-align: center;
   padding: 0 15px;
   font-size: 18px;
@@ -13715,8 +13717,8 @@ be a descendant of the grid when it is being dragged.
   display: block;
   padding: 15px;
   line-height: 0px;
-  color: rgb(0, 28, 64);
-  background: rgb(255, 212, 59);
+  color: #ffff;
+  background: #d10024;
   -webkit-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
@@ -13724,7 +13726,7 @@ be a descendant of the grid when it is being dragged.
 
 .app-nav__item:hover, .app-nav__item:focus {
   background: rgba(0, 0, 0, 0.1);
-  color: #f6f6f6;
+  color: #d10024;
 }
 
 .app-search {
@@ -13855,7 +13857,7 @@ be a descendant of the grid when it is being dragged.
   padding-right: 10px;
   overflow: auto;
   z-index: 10;
-  background: rgb(0, 28, 64);
+  background:#1e1f29;
   /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
   /* border-bottom-right-radius: 50px; */
 }
@@ -13900,7 +13902,8 @@ be a descendant of the grid when it is being dragged.
 .app-sidebar__user-avatar {
   background: white;
   border-radius: .357rem;
-  width: 70px;
+  width: 100px;
+  height: 80px;
   border: 3px solid white;
   margin-bottom: 10px;
 }
@@ -13954,9 +13957,9 @@ be a descendant of the grid when it is being dragged.
 .app-menu__item.active, .app-menu__item:hover, .app-menu__item:focus {
   background: #c6defd;
   text-decoration: none;
-  color: rgb(22 22 72);
+  color: #1e1f29;
   box-shadow: none;
-  border: 1px solid rgb(22 22 72);
+  border: 1px solid #1e1f29;
 }
 
 .app-menu__icon {
@@ -14171,7 +14174,7 @@ be a descendant of the grid when it is being dragged.
   padding: 10px 30px;
   -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-  border-left: 6px solid #FFD43B;
+  border-left: 6px solid #d10024;
   margin-bottom: 20px;
 }
 
@@ -14286,7 +14289,7 @@ be a descendant of the grid when it is being dragged.
   margin-bottom: 30px;
   font-size: 20px;
   /* text-align: center; */
-  border-bottom: 2px solid #FFD43B;
+  border-bottom: 2px solid #d10024;
   padding-bottom: 10px;
   /* border-left: 3px solid black; */
   padding-left: 5px;
@@ -14763,7 +14766,7 @@ be a descendant of the grid when it is being dragged.
   margin: 0;
   margin-bottom: 5px;
   font-weight: 600;
-  color: #d20000;
+  color: #d10024;
   font-size: 15px;
 }
 
