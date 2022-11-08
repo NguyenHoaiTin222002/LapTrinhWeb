@@ -45,9 +45,18 @@
         <li><a href="#"><i class="fa fa-envelope-o"></i>20130436@email.com</a></li>
         <li><a href="#"><i class="fa fa-map-marker"></i>TH.Hồ Chí Minh</a></li>
       </ul>
-      <ul class="header-links pull-right">
-        <li><a href="#">Đăng Ký</a></li>
+      <ul class="header-links pull-right  header-links-login">
+        <li><a href="">Đăng Ký</a></li>
         <li><a href="#">Đăng Nhập</a></li>
+      </ul>
+      <ul class="header-links pull-right  ">
+        <li><a href="table-data-bill.html">
+          <div class="header-login-user">
+            <img class="header-login-user-img" src="../assets/img/AnhTin.jpg">
+            Tín Nguyễn
+          </div>
+        </a></li>
+        <li><a href="#">Đăng Xuất</a></li>
       </ul>
     </div>
   </div>
@@ -133,8 +142,8 @@
                   <h5>Tổng tiền: 2940.000d</h5>
                 </div>
                 <div class="cart-btns">
-                  <a href="#">Giỏ Hàng</a>
-                  <a href="#">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="cart.html">Giỏ Hàng</a>
+                  <a href="cart.html">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -160,78 +169,119 @@
 </header>
 <!-- /HEADER -->
 
+<!-- NAVIGATION -->
 <nav id="navigation">
-<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" style="background-image: url('images/bg-01.jpg');">
-  <div class="wrapper wrapper--w680">
-    <div class="card card-4">
-      <div class="card-body">
-        <h2 class="title">ĐĂNG KÍ</h2>
-        <form method="POST">
-          <div class="row row-space">
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">HỌ VÀ TÊN</label>
-                <input class="input--style-4" type="text" name="first_name" >
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">MẬT KHẨU</label>
-                <input class="input--style-4" type="text" name="last_name" >
-              </div>
-            </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">NGÀY SINH</label>
-                <div class="input-group-icon">
-                  <input class="input--style-4 js-datepicker" type="text" name="birthday" >
-                  <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">GIỚI TÍNH </label>
-                <div class="p-t-10">
-                  <label class="radio-container m-r-45">NAM
-                    <input type="radio" checked="checked" name="gender">
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="radio-container">NỮ
-                    <input type="radio" name="gender">
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">Email</label>
-                <input class="input--style-4" type="email" name="email" >
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="input-group">
-                <label class="la">SỐ ĐIỆN THOẠI</label>
-                <input class="input--style-4" type="text" name="phone" >
-              </div>
-            </div>
-          </div>
+  <!-- container -->
+  <div class="container">
+    <!-- responsive-nav -->
+    <div id="responsive-nav">
+      <!-- NAV -->
+      <ul class="main-nav nav navbar-nav">
+        <li class="active"><a href="index.html">Trang Chủ</a></li>
+        <li><a href="products.html">Sản Phẩm</a></li>
+        <li><a href="products.html">Giấy In - Photo</a></li>
+        <li><a href="products.html">Sổ - Tập</a></li>
+        <li><a href="products.html">Bút - Bút Màu</a></li>
+        <li><a href="products.html">Kéo - Dao</a></li>
+        <li><a href="products.html">Vật Dụng Văn Phòng</a></li>
+      </ul>
+      <!-- /NAV -->
+    </div>
+    <!-- /responsive-nav -->
+  </div>
+  <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
 
-          <div class="p-t-15">
-            <button class="btn btn--radius-2 btn--blue" type="submit">ĐĂNG KÍ</button>
-          </div>
-        </form>
+
+<div class="limiter">
+  <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" >
+    <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+        <div class="card-body">
+          <h2 class="title">ĐĂNG KÍ</h2>
+          <form method="POST">
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">TÊN TÀI KHOẢN</label>
+                  <input class="input--style-4" type="text" name="userName" >
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">MẬT KHẨU</label>
+                  <input class="input--style-4" type="password" name="password" >
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">HỌ VÀ TÊN</label>
+                  <input class="input--style-4" type="text" name="fullname" >
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">Địa Chỉ</label>
+                  <input class="input--style-4" type="text" name="address" >
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">NGÀY SINH</label>
+                  <div class="input-group-icon">
+                    <input class="input--style-4 js-datepicker" type="text" name="birthday" >
+                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">GIỚI TÍNH </label>
+                  <div class="p-t-10">
+                    <label class="radio-container m-r-45">NAM
+                      <input type="radio" checked="checked" name="gender">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">NỮ
+                      <input type="radio" name="gender">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">Email</label>
+                  <input class="input--style-4" type="email" name="email" >
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">SỐ ĐIỆN THOẠI</label>
+                  <input class="input--style-4" type="text" name="phone" >
+                </div>
+              </div>
+            </div>
+
+            <div class="p-t-15">
+              <button class="btn btn--radius-2 btn--blue" type="submit">ĐĂNG KÍ</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-</nav>
+
+
 <!-- FOOTER -->
 <footer id="footer">
   <!-- top footer -->
