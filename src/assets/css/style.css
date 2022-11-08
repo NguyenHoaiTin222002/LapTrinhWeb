@@ -1354,6 +1354,14 @@ textarea.input {
 .header-logo .logo > img{
   height: 60px;
 }
+.header-links-login{
+  display: none;
+}
+.header-login-user-img{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
 
 /*=========================================================
 	13 -> RESPONSIVE
