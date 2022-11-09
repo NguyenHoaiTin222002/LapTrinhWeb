@@ -27,7 +27,8 @@
 <body onload="time()" class="app sidebar-mini rtl">
   <!-- Navbar-->
   <header class="app-header">
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+    <!-- Sidebar toggle button-->
+    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
       aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -52,8 +53,10 @@
     <hr>
     <ul class="app-menu">
 
-<<<<<<< HEAD
-
+      <li><a class="app-menu__item" href="table-data-bill.html"><i class='app-menu__icon fa fa-file-invoice-dollar'></i>
+        <span class="app-menu__label">Hóa Đơn</span></a></li>
+      <li><a class="app-menu__item" href="#"><i class='app-menu__icon fa fa-user-tie'></i><span
+              class="app-menu__label">Hồ Sơ</span></a></li>
       <li><a class="app-menu__item active" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý nhân viên</span></a></li>
       <li><a class="app-menu__item" href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
@@ -64,22 +67,6 @@
       </li>
       <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
-
-<!--=======-->
-<!--     -->
-<!--      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>-->
-<!--          <span class="app-menu__label">Hóa Đơn</span></a></li>-->
-<!--      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span-->
-<!--            class="app-menu__label">Hồ Sơ</span></a></li>-->
-<!--      <li><a class="app-menu__item" href="../../../../LTW/doc/table-data-product.html">-->
-<!--        <i class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm </span></a>-->
-<!--      </li>-->
-<!--      <li><a class="app-menu__item" href="../../../../LTW/doc/table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span-->
-<!--            class="app-menu__label">Quan lý đơn hàng</span></a></li>-->
-<!--      <li><a class="app-menu__item active" href="../../../../LTW/doc/table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span-->
-<!--            class="app-menu__label">Quan lý nhân viên-->
-<!--      </span></a></li>-->
-<!--&gt;>>>>>> 4cd64b1f76cc14684bcef1c1ce6573281fa4ba6c-->
 
     </ul>
   </aside>
@@ -97,11 +84,11 @@
           <div class="tile-body">
 
             <div class="row element-button">
-              <div class="col-sm-2">
+<!--              <div class="col-sm-2">-->
 
-                <a class="btn btn-add btn-sm" href="form-add-nhan-vien.html" title="Thêm"><i class="fas fa-plus"></i>
-                  Tạo mới nhân viên</a>
-              </div>
+<!--                <a class="btn btn-add btn-sm" href="form-add-nhan-vien.html" title="Thêm"><i class="fas fa-plus"></i>-->
+<!--                  Tạo mới nhân viên</a>-->
+<!--              </div>-->
 
               <div class="col-sm-2">
                 <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
@@ -319,11 +306,6 @@
             </div>
           </div>
           <BR>
-          <a href="#" style="    float: right;
-        font-weight: 600;
-        color: #ea0000;">Chỉnh sửa nâng cao</a>
-          <BR>
-          <BR>
           <button class="btn btn-save" type="button">Lưu lại</button>
           <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
           <BR>
@@ -341,7 +323,7 @@
   <script src="../assets/js/bootstrap1.min.js"></script>
   <script src="../assets/js/jquery-3.2.1.min.js"></script>
   <script src="../assets/js/popper.min.js"></script>
-  <script src="../assets/js/bootstrap1.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="src/jquery.table2excel.js"></script>
   <script src="../assets/js/main1.js"></script>
@@ -381,16 +363,7 @@
       e.stopImmediatePropagation();
     });
 
-    //EXCEL
-    // $(document).ready(function () {
-    //   $('#').DataTable({
 
-    //     dom: 'Bfrtip',
-    //     "buttons": [
-    //       'excel'
-    //     ]
-    //   });
-    // });
 
     //Thời Gian
     function time() {
@@ -442,22 +415,7 @@
         win.print();
       }
     }
-    //     //Sao chép dữ liệu
-    //     var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
 
-    // copyTextareaBtn.addEventListener('click', function(event) {
-    //   var copyTextarea = document.querySelector('.js-copytextarea');
-    //   copyTextarea.focus();
-    //   copyTextarea.select();
-
-    //   try {
-    //     var successful = document.execCommand('copy');
-    //     var msg = successful ? 'successful' : 'unsuccessful';
-    //     console.log('Copying text command was ' + msg);
-    //   } catch (err) {
-    //     console.log('Oops, unable to copy');
-    //   }
-    // });
 
     //Modal
     $("#show-emp").on("click", function () {

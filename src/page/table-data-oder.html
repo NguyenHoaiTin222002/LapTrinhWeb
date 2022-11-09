@@ -49,13 +49,16 @@
     </div>
     <hr>
     <ul class="app-menu">
-
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
+      <li><a class="app-menu__item" href="table-data-bill.html"><i class='app-menu__icon fa fa-file-invoice-dollar'></i>
+        <span class="app-menu__label">Hóa Đơn</span></a></li>
+      <li><a class="app-menu__item" href="#"><i class='app-menu__icon fa fa-user-tie'></i><span
+              class="app-menu__label">Hồ Sơ</span></a></li>
+      <li><a class="app-menu__item" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý nhân viên</span></a></li>
       <li><a class="app-menu__item" href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
-            class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-product.html"><i
-            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
+              class="app-menu__label">Quản lý khách hàng</span></a></li>
+      <li><a class="app-menu__item" href="table-data-product.html"><i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+        <span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
       <li><a class="app-menu__item active" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
             class="app-menu__label">Quản lý đơn hàng</span></a></li>
@@ -75,13 +78,6 @@
             <div class="tile-body">
               <div class="row element-button">
                 <div class="col-sm-2">
-  
-                  <a class="btn btn-add btn-sm" href="form-add-don-hang.html" title="Thêm"><i class="fas fa-plus"></i>
-                    Tạo mới đơn hàng</a>
-                </div>
-
-  
-                <div class="col-sm-2">
                   <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
                       class="fas fa-print"></i> In dữ liệu</a>
                 </div>
@@ -93,11 +89,12 @@
                   <tr>
                     <th width="10"><input type="checkbox" id="all"></th>
                     <th>ID đơn hàng</th>
-                    <th>Khách hàng</th>
-                    <th>Đơn hàng</th>
-                    <th>Số lượng</th>
+                    <th>Tên khách hàng</th>
+                    <th>SĐT</th>
+                    <th>Địa chỉ</th>
                     <th>Tổng tiền</th>
                     <th>Tình trạng</th>
+                    <th>Thời gian đặt</th>
                     <th>Tính năng</th>
                   </tr>
                 </thead>
@@ -106,9 +103,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MD0837</td>
                     <td>Triệu Thanh Phú</td>
-                    <td>Vỉ 2 Bút Lông Bảng WB - 02</td>
-                    <td>20</td>
+                    <td>0354925338</td>
+                    <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
                     <td>312.000 đ</td>
+                    <td>02/02/1995</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -117,9 +115,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MD8265</td>
                     <td>Nguyễn Thị Ngọc Cẩm</td>
-                    <td>Hộp Bút Sắt - XiaoLingJing B - 672 - Màu Xanh Dương</td>
-                    <td>1</td>
+                    <td>0939703384</td>
+                    <td>Xuân Hiệp, Trà Ôn, Vĩnh Long</td>
                     <td>61.000 đ</td>
+                    <td>20/07/1998</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -128,9 +127,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>MT9835</td>
                     <td>Đặng Hoàng Phúc</td>
-                    <td>Bóp Viết Eva Spider - Man Black - HooHooHaHa</td>
-                    <td>3 </td>
+                    <td>0896172482</td>
+                    <td>KP 6, Linh Trung, Thủ Đức, Tp. HCM</td>
                     <td>435.000 đ</td>
+                    <td>15/07/2002</td>
                     <td><span class="badge bg-success">Hoàn thành</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -139,9 +139,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>ER3835</td>
                     <td>Nguyễn Thị Mỹ Yến</td>
-                    <td>Gôm Đất Sét Kneadable Art- Faber-Castell 127321 - Màu Vàng</td>
-                    <td>1 </td>
+                    <td>0334343917</td>
+                    <td>Cá Rô, Hòa Bình, Bạc Liêu</td>
                     <td>37.000 đ</td>
+                    <td>05/01/1994</td>
                     <td><span class="badge bg-info">Chờ thanh toán</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -150,9 +151,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>AL3947</td>
                     <td>Phạm Thị Ngọc</td>
-                    <td>Bàn ăn Vitali mặt đá, Ghế ăn gỗ Lucy màu trắng</td>
-                    <td>2 </td>
+                    <td>0354923174</td>
+                    <td>Đức Huệ, Đức Hòa, Long An</td>
                     <td>19.770.000 đ</td>
+                    <td>20/11/2000</td>
                     <td><span class="badge bg-warning">Đang giao hàng</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -161,9 +163,10 @@
                     <td width="10"><input type="checkbox" name="check1" value="1"></td>
                     <td>QY8723</td>
                     <td>Ngô Thái An</td>
-                    <td>Tập Học Sinh B5 4 Ô Ly 120 Trang Pokemon</td>
-                    <td>10 </td>
+                    <td>0735626128</td>
+                    <td>Phú Quới, Tam Bình, Đồng Tháp</td>
                     <td>180.000 đ</td>
+                    <td>27/12/1992</td>
                     <td><span class="badge bg-danger">Đã hủy</span></td>
                     <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i class="fa fa-edit"></i></button></td>
@@ -177,7 +180,7 @@
     </main>
   <!-- Essential javascripts for application to work-->
   <script src="../assets/js/jquery-3.2.1.min.js"></script>
-  <script src="../assets/js/bootstrap1.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
   <script src="../assets/js/popper.min.js"></script>
   <script src="../assets/js/bootstrap1.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
