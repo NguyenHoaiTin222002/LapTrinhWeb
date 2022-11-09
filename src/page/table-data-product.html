@@ -50,12 +50,14 @@
     </div>
     <hr>
     <ul class="app-menu">
-
-
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
+        <li><a class="app-menu__item " href="table-data-bill.html"><i class='app-menu__icon fa fa-file-invoice-dollar'></i>
+            <span class="app-menu__label">Hóa Đơn</span></a></li>
+        <li><a class="app-menu__item" href="#"><i class='app-menu__icon fa fa-user-tie'></i><span
+                class="app-menu__label">Hồ Sơ</span></a></li>
+      <li><a class="app-menu__item" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
           <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-      <li><a class="app-menu__item " href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
-            class="app-menu__label">Quản lý khách hàng</span></a></li>
+        <li><a class="app-menu__item" href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+                class="app-menu__label">Quản lý khách hàng</span></a></li>
       <li><a class="app-menu__item active" href="table-data-product.html"><i
             class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>
@@ -1716,7 +1718,7 @@ data-keyboard="false">
       <div class="row">
         <div class="form-group  col-md-12">
           <span class="thong-tin-thanh-toan">
-            <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
+            <h5>Chỉnh sửa thông tin sản phẩm</h5>
           </span>
         </div>
       </div>
@@ -1739,11 +1741,15 @@ data-keyboard="false">
               <option>Còn hàng</option>
               <option>Hết hàng</option>
               <option>Nhập hàng</option>
+              <option>Khóa</option>
             </select>
           </div>
           <div class="form-group col-md-6">
-            <label class="control-label">Giá bán</label>
+            <label class="control-label">Giá vốn</label>
             <input class="form-control" type="text" value="5.600.000">
+          </div><div class="form-group col-md-6">
+            <label class="control-label">Giảm giá (%)</label>
+            <input class="form-control" type="text" value="20">
           </div>
           <div class="form-group col-md-6">
             <label for="exampleSelect1" class="control-label">Danh mục</label>
@@ -1756,11 +1762,6 @@ data-keyboard="false">
             </select>
           </div>
       </div>
-      <BR>
-      <a href="#" style="    float: right;
-    font-weight: 600;
-    color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
-      <BR>
       <BR>
       <button class="btn btn-save" type="button">Lưu lại</button>
       <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
@@ -1777,9 +1778,9 @@ MODAL
 
 
      <script src="../assets/js/jquery-3.2.1.min.js"></script>
-     <script src="../assets/js/bootstrap1.js"></script>
+     <script src="../assets/js/bootstrap1.min.js"></script>
      <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="src/jquery.table2excel.js"></script>
    <script src="../assets/js/main1.js"></script>
@@ -1789,7 +1790,7 @@ MODAL
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <script type="text/javascript" src="../assets/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../.assets/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
         //Thời Gian
@@ -1860,11 +1861,7 @@ MODAL
             e.stopImmediatePropagation();
         });
         //Modal
-        // var modal = document.getElementById("ModalUP");
-        // var btn = document.getElementById("show-emp");
-        // btn.onclick = function(){
-        //     modal.style.display = "block";
-        // }
+
         $("#show-emp").on("click", function () {
             $("#ModalUP").modal({ backdrop: false, keyboard: false })
         });

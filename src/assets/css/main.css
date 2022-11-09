@@ -13902,7 +13902,7 @@ be a descendant of the grid when it is being dragged.
 .app-sidebar__user-avatar {
   background: white;
   border-radius: .357rem;
-  width: 100px;
+  width: 80px;
   height: 80px;
   border: 3px solid white;
   margin-bottom: 10px;
@@ -14079,7 +14079,7 @@ be a descendant of the grid when it is being dragged.
     line-height: 1;
     opacity: 0;
     color: black;
-    background: #FFD43B;
+    background: #d10024;
     border-top-right-radius: 10px;
     /* text-align: center; */
     border-radius: .357rem;
@@ -15532,16 +15532,16 @@ text-align:center;
   text-align: center;
   width: 100px;
 }
-.btn-them{
-  display: block;
-  width: auto;
-  padding: 10px;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgb(255, 212, 59);
-  background: #001C40;
-  border: 1px solid #001C40;
-}
+/*.btn-them{*/
+/*  display: block;*/
+/*  width: auto;*/
+/*  padding: 10px;*/
+/*  font-size: 15px;*/
+/*  line-height: 1.5;*/
+/*  color: rgb(255, 212, 59);*/
+/*  background: #001C40;*/
+/*  border: 1px solid #001C40;*/
+/*}*/
 .control-all-money{
   font-size: 25px;
   font-weight: 600;
