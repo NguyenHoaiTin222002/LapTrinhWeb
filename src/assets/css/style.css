@@ -1420,7 +1420,12 @@ textarea.input {
     margin-top: 10px;
   }
 }
-
+.wrap-login200{
+  height:  450px !important;
+}
+.input200{
+  padding-left: 0px  !important;
+}
 
 .cart-form-layout{
   display: flex;
