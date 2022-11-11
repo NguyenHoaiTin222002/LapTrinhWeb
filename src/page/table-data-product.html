@@ -41,18 +41,18 @@
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../assets/img/images/imgThong.jpg" width="50px"
-                                        alt="User Image">
-      <div>
-        <p class="app-sidebar__user-name"><b>Ngô Chí Thông</b></p>
-        <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../assets/img/AnhTin.jpg" width="50px"
+                                          alt="User Image">
+          <div>
+              <p class="app-sidebar__user-name"><b>Nguyễn Hoài Tín</b></p>
+              <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
+          </div>
       </div>
-    </div>
     <hr>
     <ul class="app-menu">
-        <li><a class="app-menu__item" href="user.html"><i class='app-menu__icon fa fa-user-tie'></i><span
+        <li><a class="app-menu__item" href="user.html"><i style ="font-size: 18px;" class='app-menu__icon fa fa-user-tie'></i><span
                 class="app-menu__label">Hồ Sơ</span></a></li>
-        <li><a class="app-menu__item " href="table-data-bill.html"><i class='app-menu__icon fa fa-file-invoice-dollar'></i>
+        <li><a class="app-menu__item " href="table-data-bill.html"><i style ="font-size: 18px;" class='app-menu__icon fa fa-file-invoice-dollar'></i>
             <span class="app-menu__label">Hóa Đơn</span></a></li>
 
       <li><a class="app-menu__item" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
@@ -1726,15 +1726,15 @@ data-keyboard="false">
       <div class="row">
         <div class="form-group col-md-6">
             <label class="control-label">Mã sản phẩm </label>
-            <input class="form-control" type="number" value="71309005">
+            <input class="form-control" type="number" value="613020">
           </div>
         <div class="form-group col-md-6">
             <label class="control-label">Tên sản phẩm</label>
-          <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
+          <input class="form-control" type="text" required value="Combo Nhãn Vở Campus + 2 Cuốn Bao Tập">
         </div>
         <div class="form-group  col-md-6">
             <label class="control-label">Số lượng</label>
-          <input class="form-control" type="number" required value="20">
+          <input class="form-control" type="number" required value="50">
         </div>
         <div class="form-group col-md-6 ">
             <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
@@ -1747,10 +1747,17 @@ data-keyboard="false">
           </div>
           <div class="form-group col-md-6">
             <label class="control-label">Giá vốn</label>
-            <input class="form-control" type="text" value="5.600.000">
+            <input class="form-control" type="text" value="215.000">
           </div><div class="form-group col-md-6">
             <label class="control-label">Giảm giá (%)</label>
             <input class="form-control" type="text" value="20">
+          </div>
+          <div class="form-group col-md-6 ">
+              <label for="exampleSelect1" class="control-label">Loại sản phẩm</label>
+              <select class="form-control" id="exampleSelect1">
+                  <option>Sản phẩm mới</option>
+                  <option>Sản phẩm yêu thích</option>
+              </select>
           </div>
           <div class="form-group col-md-6">
             <label for="exampleSelect1" class="control-label">Danh mục</label>
@@ -1786,7 +1793,6 @@ MODAL
     <script src="src/jquery.table2excel.js"></script>
    <script src="../assets/js/main1.js"></script>
 
-   <script src="../assets/js/plugins/pace.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
