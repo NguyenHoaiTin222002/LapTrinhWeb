@@ -1436,3 +1436,6 @@ textarea.input {
 .form-group ~ .form-group{
   margin-left: 5px;
 }
+.displayNone{
+  display: none;
+}

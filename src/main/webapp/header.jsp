@@ -1,4 +1,4 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 02/12/2022
@@ -6,8 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!-- HEADER -->
 <header>
+    <% String name = (String) request.getSession().getAttribute("fullName");%>
+    <% String img = (String) request.getSession().getAttribute("imgUser");%>
     <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
@@ -16,15 +19,15 @@
                 <li><a href="#"><i class="fa fa-envelope-o"></i>20130436@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>TP.Hồ Chí Minh</a></li>
             </ul>
-            <ul class="header-links pull-right  header-links-login">
+            <ul class="header-links pull-right <%=name == null?"":" header-links-login"%>">
                 <li><a href="sign_up.jsp">Đăng Ký</a></li>
                 <li><a href="sign_in.jsp">Đăng Nhập</a></li>
             </ul>
-            <ul class="header-links pull-right  ">
+            <ul class="header-links pull-right  <%=name != null?"":" header-links-login"%> ">
                 <li><a href="user.html">
                     <div class="header-login-user">
-                        <img class="header-login-user-img" src="../main/assets/img/AnhTin.jpg">
-                        Nguyễn Hoài Tín
+                        <img class="header-login-user-img" src="<%=img%>">
+                         <%=name%>
                     </div>
                 </a></li>
                 <li><a href="forgot_upPassword.html">Đặt Lại Mật Khẩu</a></li>

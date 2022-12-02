@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
-//import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import vn.edu.hcmuaf.fit.model.Img;
 import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.service.ImgService;
@@ -29,10 +29,14 @@ public class Login extends HttpServlet {
              HttpSession  session = request.getSession();
              Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
 
+             String md5Hex = DigestUtils.md5Hex(pass).toUpperCase();
              User user = UserService.getUserLogin(userName);
-             if(user.getPassword().trim().equals("HoaiTin")){
+             if(user.getPassword().trim().equals(md5Hex)){
 
-                 session.setAttribute("user",user);
+                 session.setAttribute("idUser",user.getIdUser());
+                 session.setAttribute("UserPassword",user.getPassword());
+                 session.setAttribute("imgUser",user.getImg());
+                 session.setAttribute("fullName",user.getFullName());
 
                  request.getRequestDispatcher("index.jsp").forward(request,response);
              }else {
