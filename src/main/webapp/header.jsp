@@ -17,8 +17,8 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i>TP.Hồ Chí Minh</a></li>
             </ul>
             <ul class="header-links pull-right  header-links-login">
-                <li><a href="">Đăng Ký</a></li>
-                <li><a href="#">Đăng Nhập</a></li>
+                <li><a href="sign_up.jsp">Đăng Ký</a></li>
+                <li><a href="sign_in.jsp">Đăng Nhập</a></li>
             </ul>
             <ul class="header-links pull-right  ">
                 <li><a href="user.html">
