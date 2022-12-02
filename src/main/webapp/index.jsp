@@ -1,8 +1,8 @@
 <%--<%@ page import="vn.edu.hcmuaf.fit.model.Category" %>--%>
-<%--<%@ page import="java.util.List" %>--%>
+<%@ page import="java.util.List" %>
 <%--<%@ page import="vn.edu.hcmuaf.fit.service.CategoryService" %>--%>
-<%--<%@ page import="vn.edu.hcmuaf.fit.model.Product" %>--%>
-<%--<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>--%>
+<%@ page import="vn.edu.hcmuaf.fit.model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%--<%@ page import="vn.edu.hcmuaf.fit.model.User" %>--%>
 <%@ page contentType="text/html;charset= UTF-8 " language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
@@ -273,32 +273,32 @@
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
-<%--                                <% List<Product> products = ProductService.getAllProduct();--%>
-<%--                                    for (Product item: products--%>
-<%--                                         ) { %>--%>
-<%--                                <!-- product -->--%>
-<%--                                <div class="product">--%>
-<%--                                    <div class="product-img">--%>
-<%--                                        <img src="<%=item.getImg()%>" alt="">--%>
-<%--                                        <div class="product-label">--%>
-<%--                                            <span class="sale <%=item.getSale() == 0 ? "displayNone":""%>">-<%= item.getSale() %>%</span>--%>
-<%--                                            <span class="new <%=item.getNewProduct() != 1 ? "displayNone":""%>">NEW</span>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="product-body">--%>
-<%--                                        <h3 class="product-name"><a href="Product?id=<%=item.getIdProduct()%>"><%=item.getNameProduct()%></a></h3>--%>
-<%--                                        <h4 class="product-price"><%= Math.floor(item.getPrice() - item.getPrice()*0.01*item.getSale()) %>đ--%>
-<%--                                            <del class="product-old-price <%=item.getSale() == 0 ? "displayNone":""%> "><%= item.getPrice() %> đ</del></h4>--%>
-<%--                                        <h4 class="product-sold">đã bán: <%= item.getAmountProduct()%> <div class="product-old-remaining">còn lại:<%= item.getAmountSoldProduct()%> </div></h4>--%>
+                                <% List<Product> products = ProductService.getAllProduct();
+                                    for (Product item: products
+                                         ) { %>
+                                <!-- product -->
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="<%=item.getImg()%>" alt="">
+                                        <div class="product-label">
+                                            <span class="sale <%=item.getSale() == 0 ? "displayNone":""%>">-<%= item.getSale() %>%</span>
+                                            <span class="new <%=item.getNewProduct() != 1 ? "displayNone":""%>">NEW</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <h3 class="product-name"><a href="Product?id=<%=item.getIdProduct()%>"><%=item.getNameProduct()%></a></h3>
+                                        <h4 class="product-price"><%= Math.floor(item.getPrice() - item.getPrice()*0.01*item.getSale()) %>đ
+                                            <del class="product-old-price <%=item.getSale() == 0 ? "displayNone":""%> "><%= item.getPrice() %> đ</del></h4>
+                                        <h4 class="product-sold">đã bán: <%= item.getAmountProduct()%> <div class="product-old-remaining">còn lại:<%= item.getAmountSoldProduct()%> </div></h4>
 
-<%--                                    </div>--%>
-<%--                                    <div class="add-to-cart">--%>
-<%--                                         <a href="/ServletInsetCart?idProductCart=<%=item.getIdProduct()%>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                                <!-- /product -->--%>
-<%--                                    <%}%>--%>
-<%--                            </div>--%>
+                                    </div>
+                                    <div class="add-to-cart">
+                                         <a href="/ServletInsetCart?idProductCart=<%=item.getIdProduct()%>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>
+                                    </div>
+                                </div>
+                                <!-- /product -->
+                                    <%}%>
+                            </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
                         <div id="tab2" class="tab-pane ">
