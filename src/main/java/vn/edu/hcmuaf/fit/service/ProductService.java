@@ -46,7 +46,38 @@ public class ProductService {
         return list;
     }
 
+    public static Product getProductById(int id){
+        Product product = new Product();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                ResultSet rs =
+                        statement.executeQuery("SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+                                ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct  where i.idImg%4=0 and p.idProduct = " + id);
+                while (rs.next()){
 
+                    product.setIdProduct(rs.getInt("idProduct"));
+                    product.setNameProduct(rs.getString("nameProduct"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setAmountProduct(rs.getInt("amountProduct"));
+                    product.setAmountSoldProduct(rs.getInt("amountSoldProduct"));
+                    product.setNewProduct(rs.getInt("new"));
+                    product.setSale(rs.getInt("sale"));
+                    product.setProducer(rs.getString("producer"));
+                    product.setBlockProduct(rs.getInt("blockProduct"));
+                    product.setDiscription(rs.getString("discription"));
+                    product.setImg(rs.getString("ImgLink"));
+
+
+                }
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return product;
+    }
     public static void main(String[] args) {
        List<Product> list = getAllProduct();
 
