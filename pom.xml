@@ -19,6 +19,18 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.28</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.jdbi/jdbi3-core -->
+    <dependency>
+      <groupId>org.jdbi</groupId>
+      <artifactId>jdbi3-core</artifactId>
+      <version>3.34.0</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>LapTrinhWeb</finalName>
