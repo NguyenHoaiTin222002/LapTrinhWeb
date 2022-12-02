@@ -71,6 +71,24 @@ public class UserService {
         }
         return user;
     }
+    public  static void updatePassWord(int idUser,String pass){
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `user` SET `password`=?  WHERE idUser = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,pass);
+                ps.setInt(2,idUser);
+                ps.executeUpdate();
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
     public static void main(String[] args) {
       User user = getUserLogin("HoaiTin70");
         System.out.println(user.getUserName());
