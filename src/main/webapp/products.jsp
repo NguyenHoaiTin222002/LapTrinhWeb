@@ -6,182 +6,25 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="../main/assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="../main/assets/css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="../main/assets/css/slick-theme.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/slick-theme.css"/>
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="../main/assets/css/nouislider.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/nouislider.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="../main/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="../main/assets/css/style.css"/>
-    <link rel="stylesheet" href="../main/assets/css/basic.css">
-    <link rel="stylesheet" href="../main/assets/css/product.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
+    <link rel="stylesheet" href="../assets/css/basic.css">
+    <link rel="stylesheet" href="../assets/css/product.css">
 </head>
 <body>
-<!-- HEADER -->
-<header>
-    <!-- TOP HEADER -->
-    <div id="top-header">
-        <div class="container">
-            <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i>0814734661</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i>20130436@email.com</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i>TP.Hồ Chí Minh</a></li>
-            </ul>
-            <ul class="header-links pull-right  header-links-login">
-                <li><a href="">Đăng Ký</a></li>
-                <li><a href="#">Đăng Nhập</a></li>
-            </ul>
-            <ul class="header-links pull-right  ">
-                <li><a href="user.html">
-                    <div class="header-login-user">
-                        <img class="header-login-user-img" src="../main/assets/img/AnhTin.jpg">
-                        Nguyễn Hoài Tín
-                    </div>
-                </a></li>
-                <li><a href="forgot_upPassword.html">Đặt Lại Mật Khẩu</a></li>
-                <li><a href="#">Đăng Xuất</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /TOP HEADER -->
-
-    <!-- MAIN HEADER -->
-    <div id="header">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- LOGO -->
-                <div class="col-md-3">
-                    <div class="header-logo">
-                        <a href="#" class="logo">
-                            <img src="../main/assets/img/Logo-2.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!-- /LOGO -->
-
-                <!-- SEARCH BAR -->
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form>
-                            <select class="input-select">
-                                <option value="0">Sản Phẩm</option>
-                                <option value="1">Giấy In</option>
-                                <option value="1">Keo - Dao</option>
-                            </select>
-                            <input class="input" placeholder="Tìm sản phẩm">
-                            <button class="search-btn">Tìm</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /SEARCH BAR -->
-
-                <!-- ACCOUNT -->
-                <div class="col-md-3 clearfix">
-                    <div class="header-ctn">
-                        <!-- Wishlist -->
-
-                        <!-- /Wishlist -->
-
-                        <!-- Cart -->
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Giỏ Hàng</span>
-                                <div class="qty">3</div>
-                            </a>
-                            <div class="cart-dropdown">
-                                <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn2.jpg" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="product.html">Decal A4 đế vàng giấy láng (xấp 100 tờ)
-                                            </a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span></h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="product.html">Giấy A4 Double A 70 Gsm
-                                            </a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>980.000đ</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-
-
-                                </div>
-                                <div class="cart-summary">
-                                    <small>Số lượng sản phẩm</small>
-                                    <h5>Tổng tiền: 2940.000d</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="cart.html">Giỏ Hàng</a>
-                                    <a href="cart.html">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Cart -->
-
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
-                        </div>
-                        <!-- /Menu Toogle -->
-                    </div>
-                </div>
-                <!-- /ACCOUNT -->
-            </div>
-            <!-- row -->
-        </div>
-        <!-- container -->
-    </div>
-    <!-- /MAIN HEADER -->
-</header>
-<!-- /HEADER -->
-
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="index.html">Trang Chủ</a></li>
-                <li><a href="products.html">Sản Phẩm</a></li>
-                <li><a href="products.html">Giấy In - Photo</a></li>
-                <li><a href="products.html">Sổ - Tập</a></li>
-                <li><a href="products.html">Bút - Bút Màu</a></li>
-                <li><a href="products.html">Kéo - Dao</a></li>
-                <li><a href="products.html">Vật Dụng Văn Phòng</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
+<jsp:include page="header.jsp"></jsp:include>
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -285,7 +128,7 @@
                     <h3 class="aside-title">Sản Phẩm</h3>
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
+                            <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name"><a href="product.html">Giấy phân trang mũi tên 5 màu Pronoti
@@ -296,7 +139,7 @@
                     <!-- product widget -->
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
+                            <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name"><a href="product.html">Lưỡi dao rọc giấy nhỏ 30 độ Deli - 2015
@@ -309,7 +152,7 @@
                     <!-- product widget -->
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
+                            <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name"><a href="product.html">Kéo Thiên Long SC019 - 16cm
@@ -321,7 +164,7 @@
                     <!-- product widget -->
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
+                            <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name"><a href="product.html">Decal số thứ tự
@@ -334,7 +177,7 @@
                     <!-- product widget -->
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
+                            <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
                         </div>
                         <div class="product-body">
                             <h3 class="product-name"><a href="product.html">Giấy Note trình ký Sign here Pronoti
@@ -360,7 +203,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -381,7 +224,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/But/But1.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/But/But1.jpg" alt="">
                                 <div class="product-label">
 
                                     <span class="new">NEW</span>
@@ -403,7 +246,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/But/But3.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/But/But3.jpg" alt="">
                                 <div class="product-label">
 
                                     <span class="new">NEW</span>
@@ -425,7 +268,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -447,7 +290,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -469,7 +312,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/But/But2.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/But/But2.jpg" alt="">
                                 <div class="product-label">
 
                                     <span class="new">NEW</span>
@@ -492,7 +335,7 @@
 
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao8.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao8.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -515,7 +358,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao9.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao9.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-5%</span>
                                     <span class="new">NEW</span>
@@ -540,7 +383,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/But/But7.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/But/But7.jpg" alt="">
                                 <div class="product-label">
 
                                     <span class="new">NEW</span>
@@ -563,7 +406,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn13.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn13.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-20%</span>
                                     <span class="new">NEW</span>
@@ -586,7 +429,7 @@
 
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/Tap/Tap12.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/Tap/Tap12.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-15%</span>
 
@@ -610,7 +453,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -636,7 +479,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/Tap/Tap6.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/Tap/Tap6.jpg" alt="">
                                 <div class="product-label">
 
                                     <span class="new">NEW</span>
@@ -660,7 +503,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn12.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn12.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-15%</span>
                                     <span class="new">NEW</span>
@@ -684,7 +527,7 @@
 
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn5.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn5.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -707,7 +550,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -730,7 +573,7 @@
                     <div class="col-md-3 col-xs-6">
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -752,7 +595,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/KeoDao/KeoDao12.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/KeoDao/KeoDao12.jpg" alt="">
                                 <div class="product-label">
                                     <span class="new">NEW</span>
                                 </div>
@@ -775,7 +618,7 @@
 
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/Tap/Tap13.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/Tap/Tap13.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-5%</span>
 
@@ -799,7 +642,7 @@
                         <!-- product -->
                         <div class="product">
                             <div class="product-img">
-                                <img src="../main/assets/img/ImgProduct/Tap/Tap11.jpg" alt="">
+                                <img src="../main/webapp/assets/img/ImgProduct/Tap/Tap11.jpg" alt="">
                                 <div class="product-label">
                                     <span class="sale">-15%</span>
                                     <span class="new">NEW</span>
@@ -846,105 +689,15 @@
     <!-- /SECTION -->
 
 
-<!-- FOOTER -->
-<footer id="footer">
-    <!-- top footer -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">LIÊN HỆ</h3>
-                        <p>Địa Chỉ Thông Tin Liên Lạc</p>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>TP. Hồ Chí Minh</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>0929831012</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>DH20DT@gmail.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">SẢN PHẨM</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Giấy In - Photo</a></li>
-                            <li><a href="#">Sổ - Tập</a></li>
-                            <li><a href="#">Bút - Bút Màu</a></li>
-                            <li><a href="#">Kéo - Dao</a></li>
-                            <li><a href="#">Vật Dụng Văn Phòng</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="clearfix visible-xs"></div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">THÔNG TIN</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Liên Hệ</a></li>
-                            <li><a href="#">Sản phẩm</a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="#">Đơn hàng và Trả hàng</a></li>
-                            <li><a href="#">Điều khoản và điều kiện</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">DỊCH VỤ</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Tài khoản Của Tôi</a></li>
-                            <li><a href="#">Xem Giỏ Hàng</a></li>
-                            <li><a href="#">Danh Sách Yêu Thích</a></li>
-                            <li><a href="#">Theo Dõi Đơn Hàng Của Tôi</a></li>
-                            <li><a href="#">Hỗ Trợ</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /top footer -->
-
-    <!-- bottom footer -->
-    <div id="bottom-footer" class="section">
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class="footer-payments">
-                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                    </ul>
-
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /bottom footer -->
-</footer>
-<!-- /FOOTER -->
+<jsp:include page="footer.jsp"></jsp:include>
 
 
 
-<script src="../main/assets/js/jquery.min.js"></script>
-<script src="../main/assets/js/bootstrap.min.js"></script>
-<script src="../main/assets/js/slick.min.js"></script>
-<script src="../main/assets/js/nouislider.min.js"></script>
-<script src="../main/assets/js/jquery.zoom.min.js"></script>
- <script src="../main/assets/js/main.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/slick.min.js"></script>
+<script src="../assets/js/nouislider.min.js"></script>
+<script src="../assets/js/jquery.zoom.min.js"></script>
+ <script src="../assets/js/main.js"></script>
 </body>
 </html>
