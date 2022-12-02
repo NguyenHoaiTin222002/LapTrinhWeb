@@ -78,9 +78,55 @@ public class ProductService {
         }
         return product;
     }
-    public static void main(String[] args) {
-       List<Product> list = getAllProduct();
 
+    public static List<Product> getAllProductByIdCategory(int size, int idCaterogy,String status){
+        List<Product> list = new ArrayList<>();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "";
+                int sta = 0;
+                if(status == "new"){
+                    sta =1;
+                    sql = "SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+                            ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct  where i.idImg%4=0 and p.idCategory = ? and p.new = ? ORDER BY p.idProduct DESC LIMIT 0, ?" ;
+                }else {
+                    sql = "SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+                            ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct  where i.idImg%4=0 and p.idCategory = ? and p.sale != ? ORDER BY p.idProduct DESC LIMIT 0, ?" ;
+                }
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idCaterogy);
+                ps.setInt(2,sta);
+                ps.setInt(3,size);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next() ){
+                    Product product = new Product();
+                    product.setIdProduct(rs.getInt("idProduct"));
+                    product.setNameProduct(rs.getString("nameProduct"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setAmountProduct(rs.getInt("amountProduct"));
+                    product.setAmountSoldProduct(rs.getInt("amountSoldProduct"));
+                    product.setNewProduct(rs.getInt("new"));
+                    product.setSale(rs.getInt("sale"));
+                    product.setProducer(rs.getString("producer"));
+                    product.setBlockProduct(rs.getInt("blockProduct"));
+                    product.setDiscription(rs.getString("discription"));
+                    product.setImg(rs.getString("ImgLink"));
+                    list.add(product);
+
+                }
+
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return list;
     }
+
 
 }

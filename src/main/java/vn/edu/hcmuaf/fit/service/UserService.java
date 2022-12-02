@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.db.DBConnect;
+import vn.edu.hcmuaf.fit.model.Email;
 import vn.edu.hcmuaf.fit.model.User;
 
 import java.sql.*;
@@ -89,9 +90,19 @@ public class UserService {
             System.out.println("lỗi kết nối");
         }
     }
+    public  static  boolean passwordRecovy(String userName, String email){
+        User user  = UserService.getUserLogin(userName);
+        if(user != null){
+            System.out.println(user.getPassword());
+            Email.sendMail(email,"Mật khẩu của bạn",user.getPassword());
+            return true;
+        }else {
+            System.out.println("no account");
+        }
+        return false;
+    }
     public static void main(String[] args) {
-      User user = getUserLogin("HoaiTin70");
-        System.out.println(user.getUserName());
+        System.out.println(passwordRecovy("HoaiTin70","kimcuong6200@gmail.com"));
 
 
     }
