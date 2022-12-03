@@ -1,11 +1,13 @@
 package vn.edu.hcmuaf.fit.service;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import vn.edu.hcmuaf.fit.db.DBConnect;
-import vn.edu.hcmuaf.fit.model.Email;
+import vn.edu.hcmuaf.fit.uilt.Email;
 import vn.edu.hcmuaf.fit.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class UserService {
@@ -72,6 +74,39 @@ public class UserService {
         }
         return user;
     }
+    public static User getUserByEmail(String email){
+        User user = new User();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` where email = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,email);
+                ResultSet rs =   ps.executeQuery();
+
+                while (rs.next()){
+
+                    user.setIdUser(rs.getInt("IdUser"));
+                    user.setUserName(rs.getString("userName"));
+                    user.setPassword(rs.getString("password"));
+                    user.setFullName(rs.getString("fullName"));
+                    user.setGender(rs.getInt("gender"));
+                    user.setAddress(rs.getString("address"));
+                    user.setEmail(rs.getString("email"));
+                    user.setPhone(rs.getString("phone"));
+                    user.setStutas(rs.getInt("stutas"));
+                    user.setImg(rs.getString("img"));
+                    user.setBirthday(rs.getDate("birthday"));
+
+                }
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return user;
+    }
     public  static void updatePassWord(int idUser,String pass){
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
@@ -90,11 +125,12 @@ public class UserService {
             System.out.println("lỗi kết nối");
         }
     }
-    public  static  boolean passwordRecovy(String userName, String email){
-        User user  = UserService.getUserLogin(userName);
+    public  static  boolean passwordRecovery( String email){
+        User user  = UserService.getUserByEmail(email);
+
         if(user != null){
-            System.out.println(user.getPassword());
-            Email.sendMail(email,"Mật khẩu của bạn",user.getPassword());
+            String md5Hex = DigestUtils.md5Hex(user.getPassword());
+            Email.sendMail(email,"Mật khẩu của bạn",md5Hex);
             return true;
         }else {
             System.out.println("no account");
@@ -102,7 +138,7 @@ public class UserService {
         return false;
     }
     public static void main(String[] args) {
-        System.out.println(passwordRecovy("HoaiTin70","kimcuong6200@gmail.com"));
+
 
 
     }

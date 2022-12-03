@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset= UTF-8 " language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +37,16 @@
 <div class="limiter">
   <div class="container-login100" >
     <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-      <form class="login100-form validate-form">
+      <form class="login100-form validate-form" method="post" action="PasswordRecovery">
 					<span class="login100-form-title p-b-49">
 						ĐẶT LẠI MẬT KHẨU
 					</span>
-
+        <%String err = (String) request.getAttribute("err");%>
+        <p style="color: red"><%= err != null?err:""%></p>
         <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-          <i class="fa fa-key" aria-hidden="true"></i>
-          <input class="input100" type="text" name="mail" placeholder="Email/số điện thoại" autocomplete="off" >
+          <i class="fa fa-envelope" style="font-size: 16px;position: absolute;
+  top: 26px;"   aria-hidden="true" ></i>
+          <input class="input100" type="text" name="email" placeholder="Nhập mật Khẩu" autocomplete="off" >
 
         </div>
 

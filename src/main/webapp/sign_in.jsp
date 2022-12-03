@@ -60,7 +60,7 @@
           </div>
 
           <div class="text-right p-t-8 p-b-31">
-            <a href="forgot_pw.html">
+            <a href="forgot_pw.jsp">
               Quên mật khẩu?
             </a>
           </div>

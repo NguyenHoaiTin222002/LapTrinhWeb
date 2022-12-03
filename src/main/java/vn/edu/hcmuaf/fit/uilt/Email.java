@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.model;
+package vn.edu.hcmuaf.fit.uilt;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

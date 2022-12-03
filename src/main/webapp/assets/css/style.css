@@ -1439,3 +1439,8 @@ textarea.input {
 .displayNone{
   display: none;
 }
+.icon-pw{
+  font-size: 16px;
+  position: absolute;
+  top: 26px;
+}
