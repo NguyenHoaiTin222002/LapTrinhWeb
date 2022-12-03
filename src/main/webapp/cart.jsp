@@ -6,7 +6,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.User" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="vn.edu.hcmuaf.fit.service.CartService" %>
+<%--<%@ page import="vn.edu.hcmuaf.fit.service.CartService" %>--%>
 <%@ page contentType="text/html;charset= UTF-8 " language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">

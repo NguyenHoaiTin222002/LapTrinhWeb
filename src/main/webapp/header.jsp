@@ -1,4 +1,7 @@
-<%@ page import="vn.edu.hcmuaf.fit.model.User" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.model.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.Category" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.CategoryService" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 02/12/2022
@@ -11,6 +14,7 @@
 <header>
     <% String name = (String) request.getSession().getAttribute("fullName");%>
     <% String img = (String) request.getSession().getAttribute("imgUser");%>
+     <% List< Category> categoryList =  CategoryService.getAllCatery(); %>
     <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
@@ -154,11 +158,9 @@
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="index.html">Trang Chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
-                <li><a href="products.html">Giấy In - Photo</a></li>
-                <li><a href="products.html">Sổ - Tập</a></li>
-                <li><a href="products.html">Bút - Bút Màu</a></li>
-                <li><a href="products.html">Kéo - Dao</a></li>
-                <li><a href="products.html">Vật Dụng Văn Phòng</a></li>
+                <% for (Category item: categoryList) { %>
+                <li><a href="products.html"><%=item.getNameCatogory()%></a></li>
+               <% } %>
             </ul>
             <!-- /NAV -->
         </div>
