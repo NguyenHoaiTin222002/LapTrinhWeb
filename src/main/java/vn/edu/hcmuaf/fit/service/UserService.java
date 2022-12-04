@@ -9,6 +9,7 @@ import vn.edu.hcmuaf.fit.uilt.EnCode;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 
 public class UserService {
@@ -138,9 +139,36 @@ public class UserService {
         }
         return false;
     }
+
+    public  static  boolean insertUser(String userName, String passWord, String fullname, String email, String phone, String address, int gender, String birthday){
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "INSERT INTO `user`( `userName`, `password`, `fullName`, `address`, `email`, `phone`, `stutas`, `img`, `gender`, `birthday`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,userName);
+                ps.setString(2,passWord);
+                ps.setString(3,fullname);
+                ps.setString(4,address);
+                ps.setString(5,email);
+                ps.setString(6,phone);
+                ps.setInt(7,1);
+                ps.setString(8,"../assets/img/AnhKhachHang.jpg");
+                ps.setInt(9,gender);
+                ps.setString(10,birthday);
+                ps.executeUpdate();
+                return  true;
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return  false;
+
+    }
     public static void main(String[] args) {
-
-
-
     }
 }
