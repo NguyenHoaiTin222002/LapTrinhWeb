@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.uilt.Email;
 import vn.edu.hcmuaf.fit.model.User;
+import vn.edu.hcmuaf.fit.uilt.EnCode;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -129,7 +130,7 @@ public class UserService {
         User user  = UserService.getUserByEmail(email);
 
         if(user != null){
-            String md5Hex = DigestUtils.md5Hex(user.getPassword());
+            String md5Hex = EnCode.getDecryptString(user.getPassword());
             Email.sendMail(email,"Mật khẩu của bạn",md5Hex);
             return true;
         }else {

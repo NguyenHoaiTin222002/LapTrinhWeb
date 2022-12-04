@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.controller;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import vn.edu.hcmuaf.fit.service.UserService;
+import vn.edu.hcmuaf.fit.uilt.EnCode;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,8 +26,8 @@ public class UpPassword extends HttpServlet {
         String passNew = request.getParameter("passNew");
         String passNewReset = request.getParameter("passNewReset");
 
-        String md5Hex = DigestUtils.md5Hex(passOld).toUpperCase();
-        String md5HexPass = DigestUtils.md5Hex(passNew).toUpperCase();
+        String md5Hex = EnCode.getEncryptString(passOld);
+        String md5HexPass = EnCode.getEncryptString(passNew);
 
         if(!pass.trim().equals(md5Hex)){
             request.setAttribute("err","Nhập Mật khẩu sai");

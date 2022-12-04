@@ -6,6 +6,7 @@ import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.service.ImgService;
 import vn.edu.hcmuaf.fit.service.ProductService;
 import vn.edu.hcmuaf.fit.service.UserService;
+import vn.edu.hcmuaf.fit.uilt.EnCode;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -29,7 +30,7 @@ public class Login extends HttpServlet {
              HttpSession  session = request.getSession();
              Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
 
-             String md5Hex = DigestUtils.md5Hex(pass).toUpperCase();
+             String md5Hex = EnCode.getEncryptString(pass);
              User user = UserService.getUserLogin(userName);
              if(user.getPassword().trim().equals(md5Hex)){
 
