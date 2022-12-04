@@ -35,7 +35,7 @@
                     </div>
                 </a></li>
                 <li><a href="forgot_upPassword.jsp">Đặt Lại Mật Khẩu</a></li>
-                <li><a href="#">Đăng Xuất</a></li>
+                <li><a href="/LogOut">Đăng Xuất</a></li>
             </ul>
         </div>
     </div>
