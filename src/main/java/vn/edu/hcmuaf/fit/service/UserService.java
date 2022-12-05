@@ -169,6 +169,34 @@ public class UserService {
         return  false;
 
     }
+
+    public  static  void updateUser(int idUser,String fullName, String address, String email, String phone, String img, int gender, String birthday){
+
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `user` SET `fullName`= ? ,`address`= ?,`email`=?,`phone`=?,`img`=?,`gender`=?,`birthday`=? WHERE `idUser`=?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,fullName);
+                ps.setString(2, address);
+                ps.setString(3 ,email);
+                ps.setString(4, phone);
+                ps.setString(5,img);
+                ps.setInt(6,gender);
+                ps.setString(7,birthday);
+                ps.setInt(8,idUser);
+                ps.executeUpdate();
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+
+    }
     public static void main(String[] args) {
     }
+
 }

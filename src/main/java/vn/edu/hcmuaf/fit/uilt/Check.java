@@ -37,6 +37,20 @@ public class Check {
         }
         return "";
     }
+    public static String checkUpdateUser(String fullName, String address, String email, String phone){
+        if(fullName.trim().equals("")||address.trim().equals("")||email.trim().equals("")||phone.trim().equals("")){
+            return "Nhập đầy đủ thông tin";
+
+        }
+        if (!checkEmail(email)){
+            return "Đặt lại email";
+        }
+        if (!checkPhone(phone)){
+            return "Xin nhập lại số điện thoại";
+        }
+        return "";
+
+    }
     public  static boolean checkPhone(String phone){
         pattern = Pattern.compile(PHONE_REGEX);
         matcher = pattern.matcher(phone);
