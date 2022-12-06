@@ -13,25 +13,25 @@
   <title>Đăng kí</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
   <!-- Bootstrap -->
-  <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
 
   <!-- Slick -->
-  <link type="text/css" rel="stylesheet" href="../assets/css/slick.css"/>
-  <link type="text/css" rel="stylesheet" href="../assets/css/slick-theme.css"/>
+  <link type="text/css" rel="stylesheet" href="./assets/css/slick.css"/>
+  <link type="text/css" rel="stylesheet" href="./assets/css/slick-theme.css"/>
 
   <!-- nouislider -->
-  <link type="text/css" rel="stylesheet" href="../assets/css/nouislider.min.css"/>
+  <link type="text/css" rel="stylesheet" href="./assets/css/nouislider.min.css"/>
 
   <!-- Font Awesome Icon -->
-  <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
 
   <!-- Custom stlylesheet -->
-  <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
-  <link rel="stylesheet" href="../assets/css/basic.css">
-  <link rel="stylesheet" href="../assets/css/product.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/material-design-iconic-font.min.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/daterangepicker.css">
-  <link href="../assets/css/signup.css" rel="stylesheet" media="all">
+  <link type="text/css" rel="stylesheet" href="./assets/css/style.css"/>
+  <link rel="stylesheet" href="./assets/css/basic.css">
+  <link rel="stylesheet" href="./assets/css/product.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/daterangepicker.css">
+  <link href="./assets/css/signup.css" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -51,13 +51,13 @@
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">TÊN TÀI KHOẢN</label>
-                  <input class="input--style-4" type="text" name="userName" >
+                  <input class="input--style-4" type="text" name="userName" placeholder="Nhập tên tài khoản" >
                 </div>
               </div>
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">MẬT KHẨU</label>
-                  <input class="input--style-4" type="password" name="password" >
+                  <input class="input--style-4" type="password" name="password" placeholder="Nhập mật khẩu">
                 </div>
               </div>
             </div>
@@ -65,13 +65,13 @@
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">HỌ VÀ TÊN</label>
-                  <input class="input--style-4" type="text" name="fullname" >
+                  <input class="input--style-4" type="text" name="fullname" placeholder="Nhập đầy đủ tên và Họ" >
                 </div>
               </div>
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">Địa Chỉ</label>
-                  <input class="input--style-4" type="text" name="address" >
+                  <input class="input--style-4" type="text" name="address" placeholder="Nhập địa chỉ của bạn" >
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
                 <div class="input-group">
                   <label class="la">NGÀY SINH</label>
                   <div class="input-group-icon">
-                    <input class="input--style-4 js-datepicker" type="text" name="birthday" >
+                    <input class="input--style-4 js-datepicker" type="text" name="birthday" placeholder="Nhập Ngày Sinh" >
                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                   </div>
                 </div>
@@ -105,13 +105,13 @@
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">Email</label>
-                  <input class="input--style-4" type="email" name="email" >
+                  <input class="input--style-4" type="email" name="email" placeholder="Nhập email vd: Nam@gmail.com" >
                 </div>
               </div>
               <div class="col-2">
                 <div class="input-group">
                   <label class="la">SỐ ĐIỆN THOẠI</label>
-                  <input class="input--style-4" type="text" name="phone" >
+                  <input class="input--style-4" type="text" name="phone"placeholder="Nhập số điên vd: Nam@gmail.com"  >
                 </div>
               </div>
             </div>
@@ -131,18 +131,18 @@
 <jsp:include page="footer.jsp"></jsp:include>
 
 <!-- Jquery JS-->
-<script src="../assets/js/jquery.min.js"></script>
+<script src="./assets/js/jquery.min.js"></script>
 <!-- Vendor JS-->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
-<script src="../assets/js/slick.min.js"></script>
-<script src="../assets/js/nouislider.min.js"></script>
-<script src="../assets/js/jquery.zoom.min.js"></script>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/moment.min.js"></script>
-<script src="../assets/js/daterangepicker.js"></script>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/slick.min.js"></script>
+<script src="./assets/js/nouislider.min.js"></script>
+<script src="./assets/js/jquery.zoom.min.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/moment.min.js"></script>
+<script src="./assets/js/daterangepicker.js"></script>
 <!-- Main JS-->
-<script src="../assets/js/global.js"></script>
+<script src="./assets/js/global.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

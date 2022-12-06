@@ -34,6 +34,7 @@ public class Login extends HttpServlet {
              User user = UserService.getUserLogin(userName);
              if(user.getPassword().trim().equals(md5Hex)){
 
+                  session.setAttribute("User",user);
                  session.setAttribute("idUser",user.getIdUser());
                  session.setAttribute("UserPassword",user.getPassword());
                  session.setAttribute("imgUser",user.getImg());

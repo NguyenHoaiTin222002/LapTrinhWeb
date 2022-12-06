@@ -1,7 +1,12 @@
 <%@ page import="vn.edu.hcmuaf.fit.model.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.Category" %>
-<%@ page import="vn.edu.hcmuaf.fit.service.CategoryService" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.service.CategoryService" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.CartService" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 02/12/2022
@@ -14,7 +19,13 @@
 <header>
     <% String name = (String) request.getSession().getAttribute("fullName");%>
     <% String img = (String) request.getSession().getAttribute("imgUser");%>
+    <% Integer id = (Integer)request.getSession().getAttribute("idUser") ;%>
      <% List< Category> categoryList =  CategoryService.getAllCatery(); %>
+    <% List<Cart> cartList = new ArrayList<>(); %>
+    <%if(id != null){ %>
+    <% cartList = CartService.getAllCartByIDUser(id); %>
+    <%}%>
+
     <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
@@ -28,7 +39,7 @@
                 <li><a href="sign_in.jsp">Đăng Nhập</a></li>
             </ul>
             <ul class="header-links pull-right  <%=name != null?"":" header-links-login"%> ">
-                <li><a href="user.html">
+                <li><a href="user.jsp">
                     <div class="header-login-user">
                         <img class="header-login-user-img" src="<%=img%>">
                          <%=name%>
@@ -51,7 +62,7 @@
                 <div class="col-md-3">
                     <div class="header-logo">
                         <a href="#" class="logo">
-                            <img src="../main/assets/img/Logo-2.png" alt="">
+                            <img src="./assets/img/Logo-2.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -80,40 +91,30 @@
 
                         <!-- /Wishlist -->
 
-                        <!-- Cart -->
+                        !-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Giỏ Hàng</span>
-                                <div class="qty">3</div>
+                                <div class="qty"><%=cartList.size()%></div>
                             </a>
-                            <div class="cart-dropdown">
+                            <div class="cart-dropdown <%=cartList.size()==0?"displayNone":""%>">
                                 <div class="cart-list">
-                                    <div class="product-widget">
+                                   <%
+                                       for (Cart item:cartList) { %>
+                                     <%Product  product = ProductService.getProductById(item.getIdProduct()); %>
+                                             <div class="product-widget">
                                         <div class="product-img">
-                                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn2.jpg" alt="">
+                                            <img src="<%=product.getImg()%>" alt="">
                                         </div>
                                         <div class="product-body">
-                                            <h3 class="product-name"><a href="product.html">Decal A4 đế vàng giấy láng (xấp 100 tờ)
-                                            </a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span></h4>
+                                            <h3 class="product-name"><a href="product.html"><%=product.getNameProduct()%>
+                                                   </a></h3>
+                                            <h4 class="product-price"><span class="qty"><%=item.getAmount()%></span>980.000đ</h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="../main/assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
                                         </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="product.html">Giấy A4 Double A 70 Gsm
-                                            </a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>980.000đ</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-
+                                      <% }%>
 
                                 </div>
                                 <div class="cart-summary">

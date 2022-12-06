@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,18 +39,22 @@ public class Check {
         }
         return "";
     }
-    public static String checkUpdateUser(String fullName, String address, String email, String phone){
-        if(fullName.trim().equals("")||address.trim().equals("")||email.trim().equals("")||phone.trim().equals("")){
-            return "Nhập đầy đủ thông tin";
 
+    public static Map<String,String> checkUpdateUser(String fullName, String address, String email, String phone){
+        Map<String,String> map = new HashMap<>();
+        if("".equals(fullName.trim())){
+            map.put("fullName","Chưa nhập Họ Tên");
+        }
+        if("".equals(address.trim())){
+            map.put("address","Chưa nhập địa chỉ");
         }
         if (!checkEmail(email)){
-            return "Đặt lại email";
+            map.put("email","chưa nhập email hoặc email sai");
         }
         if (!checkPhone(phone)){
-            return "Xin nhập lại số điện thoại";
+            map.put("phone","chưa nhập số điện thoại hoặc số điện thoại ko đúng");
         }
-        return "";
+        return map;
 
     }
     public  static boolean checkPhone(String phone){
@@ -72,6 +78,7 @@ public class Check {
     public static boolean checkPassWord(String password){
         return  password.length() >= 6;
     }
+
 
 
 
