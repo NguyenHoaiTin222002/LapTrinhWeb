@@ -6,7 +6,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.CartService" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.Product" %>
-<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.uilt.Fomat" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 02/12/2022
@@ -25,7 +26,7 @@
     <%if(id != null){ %>
     <% cartList = CartService.getAllCartByIDUser(id); %>
     <%}%>
-
+    <% double total = 0;%>
     <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
@@ -100,9 +101,12 @@
                             </a>
                             <div class="cart-dropdown ">
                                 <div class="cart-list">
+
                                    <%
                                        for (Cart item:cartList) { %>
                                      <%Product  product = ProductService.getProductById(item.getIdProduct()); %>
+                                    <%double moneyNew = Math.floor(product.getPrice() - product.getPrice()*0.01*product.getSale());%>
+                                    <%total += moneyNew*item.getAmount();%>
                                              <div class="product-widget">
                                         <div class="product-img">
                                             <img src="<%=product.getImg()%>" alt="">
@@ -110,7 +114,7 @@
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="product.html"><%=product.getNameProduct()%>
                                                    </a></h3>
-                                            <h4 class="product-price"><span class="qty"><%=item.getAmount()%></span>980.000đ</h4>
+                                            <h4 class="product-price"><span class="qty"><%=item.getAmount()%></span><%=Fomat.fomatCurrency(moneyNew*item.getAmount())%></h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                         </div>
@@ -119,7 +123,7 @@
                                 </div>
                                 <div class="cart-summary">
                                     <small>Số lượng sản phẩm</small>
-                                    <h5>Tổng tiền: 2940.000d</h5>
+                                    <h5>Tổng tiền: <%=Fomat.fomatCurrency(total)%></h5>
                                 </div>
                                 <div class="cart-btns">
                                     <a href="cart.html">Giỏ Hàng</a>
