@@ -89,7 +89,7 @@
                     <div class="header-ctn">
                         <!-- Wishlist -->
 
-                        <!-- /Wishlist -->
+
 
                         !-- Cart -->
                         <div class="dropdown">
@@ -98,7 +98,7 @@
                                 <span>Giỏ Hàng</span>
                                 <div class="qty"><%=cartList.size()%></div>
                             </a>
-                            <div class="cart-dropdown <%=cartList.size()==0?"displayNone":""%>">
+                            <div class="cart-dropdown ">
                                 <div class="cart-list">
                                    <%
                                        for (Cart item:cartList) { %>

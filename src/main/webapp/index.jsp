@@ -43,7 +43,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src=="./assets/img/QuangCao1.jpg" alt="">
+                        <img src="./assets/img/QuangCao1.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Bộ Sựu Tập<br> Giấy In</h3>
@@ -149,7 +149,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap1.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap1.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -172,7 +172,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap2.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap2.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -194,7 +194,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap3.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap3.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -216,7 +216,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap4.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap4.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -238,7 +238,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap5.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap5.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -260,7 +260,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap6.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap6.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -282,7 +282,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap7.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap7.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -311,7 +311,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But1.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But1.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -333,7 +333,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But2.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But2.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -355,7 +355,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But3.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But3.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -377,7 +377,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But4.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But4.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -399,7 +399,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But5.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But5.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -421,7 +421,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But6.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But6.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -443,7 +443,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But7.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But7.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -471,7 +471,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -493,7 +493,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-5%</span>
                                             <span class="new">NEW</span>
@@ -516,7 +516,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao3.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao3.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -538,7 +538,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao4.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao4.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -560,7 +560,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao5.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao5.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -580,7 +580,7 @@
                                 <!-- /product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -599,7 +599,7 @@
                                 </div>
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao7.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao7.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -686,7 +686,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn8.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn8.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-5%</span>
                                             <span class="new">NEW</span>
@@ -708,7 +708,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn9.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn9.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-10%</span>
                                             <span class="new">NEW</span>
@@ -730,7 +730,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn10.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn10.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
                                             <span class="new">NEW</span>
@@ -752,7 +752,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn11.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn11.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
                                             <span class="new">NEW</span>
@@ -774,7 +774,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn12.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn12.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
                                             <span class="new">NEW</span>
@@ -796,7 +796,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/GIayIn/GiayIn13.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/GIayIn/GiayIn13.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-20%</span>
                                             <span class="new">NEW</span>
@@ -827,7 +827,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap8.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap8.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-5%</span>
                                             <span class="new">NEW</span>
@@ -849,7 +849,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap9.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap9.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-10%</span>
                                             <span class="new">NEW</span>
@@ -871,7 +871,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap10.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap10.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
 
@@ -893,7 +893,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap11.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap11.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
                                             <span class="new">NEW</span>
@@ -915,7 +915,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap12.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap12.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-15%</span>
 
@@ -937,7 +937,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap13.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap13.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-5%</span>
 
@@ -959,7 +959,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/Tap/Tap14.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/Tap/Tap14.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-10%</span>
 
@@ -990,7 +990,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But1.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But1.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1012,7 +1012,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But2.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But2.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1034,7 +1034,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But3.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But3.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1056,7 +1056,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But4.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But4.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1078,7 +1078,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But5.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But5.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1100,7 +1100,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But6.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But6.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1122,7 +1122,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/But/But7.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/But/But7.jpg" alt="">
                                         <div class="product-label">
 
                                             <span class="new">NEW</span>
@@ -1153,7 +1153,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao8.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao8.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1175,7 +1175,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao9.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao9.jpg" alt="">
                                         <div class="product-label">
                                             <span class="sale">-5%</span>
                                             <span class="new">NEW</span>
@@ -1198,7 +1198,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao10.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao10.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1220,7 +1220,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao11.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao11.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1242,7 +1242,7 @@
                                 <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao12.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao12.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1262,7 +1262,7 @@
                                 <!-- /product -->
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao13.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao13.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1281,7 +1281,7 @@
                                 </div>
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src=="./assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
+                                        <img src="./assets/img/ImgProduct/KeoDao/KeoDao14.jpg" alt="">
                                         <div class="product-label">
                                             <span class="new">NEW</span>
                                         </div>
@@ -1332,7 +1332,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn1.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Giấy A4 Double A 70 Gsm
@@ -1345,7 +1345,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn2.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn2.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Decal A4 đế vàng giấy láng (xấp 100 tờ)
@@ -1358,7 +1358,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Giấy phân trang mũi tên 5 màu Pronoti
@@ -1373,7 +1373,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Decal số thứ tự
@@ -1386,7 +1386,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Giấy Note trình ký Sign here Pronoti
@@ -1399,7 +1399,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/GIayIn/GiayIn8.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/GIayIn/GiayIn8.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Giấy A4 Double A 80 Gsm
@@ -1425,7 +1425,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Lưỡi dao rọc giấy nhỏ 30 độ Deli - 2015
@@ -1438,7 +1438,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Kéo Thiên Long SC019 - 16cm
@@ -1451,7 +1451,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao3.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao3.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Cắt băng keo No. 2002 - vòng lớn
@@ -1466,7 +1466,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao4.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao4.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Băng keo dạ quang 2cm - 10m
@@ -1479,7 +1479,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao5.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao5.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Băng keo chống thấm siêu dính loại 10cm dài
@@ -1492,7 +1492,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/KeoDao/KeoDao6.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Cắt keo Cầm Tay 5F Deli - 823
@@ -1520,7 +1520,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But1.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But1.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Ruột bút bi Heri - Ruột bút dùng cho bút có
@@ -1533,7 +1533,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But2.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But2.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Bút bi bấm Uni Jetstream Sport
@@ -1546,7 +1546,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But3.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But3.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Bút Sáp Dầu Hình Cậu Heo Cho Bé Tô Trành
@@ -1561,7 +1561,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But4.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But4.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Bút sơn TOYO
@@ -1574,7 +1574,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But5.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But5.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Bút bi Aihao 555
@@ -1587,7 +1587,7 @@
                         <!-- product widget -->
                         <div class="product-widget">
                             <div class="product-img">
-                                <img src=="./assets/img/ImgProduct/But/But6.jpg" alt="">
+                                <img src="./assets/img/ImgProduct/But/But6.jpg" alt="">
                             </div>
                             <div class="product-body">
                                 <h3 class="product-name"><a href="product.html">Bút bi Aihao 555h đỏ
@@ -1613,11 +1613,11 @@
 
 
 
-<script src=="./assets/js/jquery.min.js"></script>
-<script src=="./assets/js/bootstrap.min.js"></script>
-<script src=="./assets/js/slick.min.js"></script>
-<script src=="./assets/js/nouislider.min.js"></script>
-<script src=="./assets/js/jquery.zoom.min.js"></script>
-<script src=="./assets/js/main.js"></script>
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/slick.min.js"></script>
+<script src="./assets/js/nouislider.min.js"></script>
+<script src="./assets/js/jquery.zoom.min.js"></script>
+<script src="./assets/js/main.js"></script>
 </body>
 </html>
