@@ -116,7 +116,7 @@
                                                    </a></h3>
                                             <h4 class="product-price"><span class="qty"><%=item.getAmount()%></span><%=Fomat.fomatCurrency(moneyNew*item.getAmount())%></h4>
                                         </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                         <a href="DeleteCart?idDeleteCart=<%=item.getIdCart()%>"> <button class="delete"><i class="fa fa-close"></i></button></a>
                                         </div>
                                       <% }%>
 

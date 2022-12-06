@@ -92,5 +92,24 @@ public class CartService {
         }
 
     }
+    public static void DeleteCart(int idCart){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+
+                String sql = "DELETE FROM `cart` WHERE IdCart = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idCart);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+
+    }
 
 }
