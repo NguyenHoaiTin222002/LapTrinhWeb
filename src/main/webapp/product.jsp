@@ -68,7 +68,7 @@
                         for (Img item: listImg
                         ) { %>
                     <div class="product-preview">
-                        <img style="height: 200px;" src="<%= item.getImgLink()%>" alt="">
+                        <img src="<%= item.getImgLink()%>" alt="">
                     </div>
                     <% }%>
                 </div>
@@ -89,8 +89,8 @@
                     </div>
                     <div>
                         <%double moneyNew = Math.floor(product.getPrice() - product.getPrice()*0.01*product.getSale());%>
-                        <h3 class="product-price"> <%=Fomat.fomatCurrency(moneyNew)%>%>đ
-                            <del class="product-old-price <%=product.getSale() == 0 ? "displayNone":""%>  ">Fomat.fomatCurrency(product.getPrice())%> đ</del></h3>
+                        <h3 class="product-price"> <%=Fomat.fomatCurrency(moneyNew)%>
+                            <del class="product-old-price <%=product.getSale() == 0 ? "displayNone":""%>  "><%=Fomat.fomatCurrency(product.getPrice())%> </del></h3>
 
                     </div>
                     <p class="product-details-description"><%= product.getDiscription() %></p>
@@ -114,7 +114,7 @@
 
                     </ul>
                     <ul class="product-btns">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm Giỏ Hàng</button>
+                         <a href="/InsetCart?idProductCart=<%=product.getIdProduct()%>" id="btn-add-cart"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm Giỏ Hàng</button></a>
                         <button class="add-to-card-btn"><i class="fa fa-credit-card"></i> Mua Ngay</button>
                     </ul>
 

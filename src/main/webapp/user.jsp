@@ -133,7 +133,7 @@
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-form-user">Sữa Hồ Sơ</button>
+                            <button type="submit" class="btn btn-primary btn-form-user">Sửa Hồ Sơ</button>
 
                         </div>
                     </form>

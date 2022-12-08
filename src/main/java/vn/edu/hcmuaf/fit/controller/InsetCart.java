@@ -15,15 +15,17 @@ public class InsetCart extends HttpServlet {
            Integer idUser = (Integer) session.getAttribute("idUser");
 
            Integer idProduct = Integer.valueOf(request.getParameter("idProductCart"));
-
-
+           Integer quatity = 1;
+            if(Integer.valueOf(request.getParameter("quatity")) !=null){
+                quatity = Integer.valueOf(request.getParameter("quatity"));
+            }
            Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
 
            if(idUser == null){
             request.getRequestDispatcher("sign_in.jsp").forward(request,response);
            }else {
 
-               CartService.addCart(idUser,idProduct,1);
+               CartService.addCart(idUser,idProduct,quatity);
                if(idInfoProduct !=null){
 
                    response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT );
