@@ -99,7 +99,7 @@
 	if (zoomMainProduct) {
 		$('#product-main-img .product-preview').zoom();
 	}
-
+    var btnAddCart = document.getElementById("btn-add-cart");
 	/////////////////////////////////////////
 
 	// Input number
@@ -108,21 +108,29 @@
 		$input = $this.find('input[type="number"]'),
 		up = $this.find('.qty-up'),
 		down = $this.find('.qty-down');
-
+		var value
+		var link = btnAddCart.getAttribute("href");
 		down.on('click', function () {
-			var value = parseInt($input.val()) - 1;
+			 value = parseInt($input.val()) - 1;
 			value = value < 1 ? 1 : value;
 			$input.val(value);
 			$input.change();
 			updatePriceSlider($this , value)
+			const href = link +"&quatity="+value;
+			btnAddCart.setAttribute("href",href);
+			console.log(btnAddCart.getAttribute("href"));
 		})
 
 		up.on('click', function () {
-			var value = parseInt($input.val()) + 1;
+			value = parseInt($input.val()) + 1;
 			$input.val(value);
 			$input.change();
 			updatePriceSlider($this , value)
+			const href = link +"&quatity="+value;
+			btnAddCart.setAttribute("href",href);
 		})
+
+
 	});
 
 	var priceInputMax = document.getElementById('price-max'),
