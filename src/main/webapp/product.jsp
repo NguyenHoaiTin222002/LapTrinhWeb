@@ -3,6 +3,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.ImgService" %>
 <%@ page import="vn.edu.hcmuaf.fit.model.Product" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.uilt.Fomat" %>
 <%@ page contentType="text/html;charset= UTF-8 " language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@
                         for (Img item: listImg
                         ) { %>
                     <div class="product-preview">
-                        <img src="<%= item.getImgLink()%>" alt="">
+                        <img style="height: 200px;" src="<%= item.getImgLink()%>" alt="">
                     </div>
                     <% }%>
                 </div>
@@ -87,8 +88,9 @@
                         <a class="review-link" href="#">đã bán: <%= product.getAmountSoldProduct()%> | còn lại: <%= product.getAmountProduct()%></a>
                     </div>
                     <div>
-                        <h3 class="product-price"><%= Math.floor(product.getPrice() - product.getPrice()*0.01*product.getSale()) %>đ
-                            <del class="product-old-price <%=product.getSale() == 0 ? "displayNone":""%>  "><%= product.getPrice() %> đ</del></h3>
+                        <%double moneyNew = Math.floor(product.getPrice() - product.getPrice()*0.01*product.getSale());%>
+                        <h3 class="product-price"> <%=Fomat.fomatCurrency(moneyNew)%>%>đ
+                            <del class="product-old-price <%=product.getSale() == 0 ? "displayNone":""%>  ">Fomat.fomatCurrency(product.getPrice())%> đ</del></h3>
 
                     </div>
                     <p class="product-details-description"><%= product.getDiscription() %></p>
@@ -99,7 +101,7 @@
                         <div class="qty-label">
                             Số lượng
                             <div class="input-number">
-                                <input type="number">
+                                <input type="number" value="1">
                                 <span class="qty-up">+</span>
                                 <span class="qty-down">-</span>
                             </div>
