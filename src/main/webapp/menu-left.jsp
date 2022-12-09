@@ -17,15 +17,15 @@
     </div>
     <hr>
     <ul class="app-menu">
-        <li><a class="app-menu__item active" href="user.html"><i style="font-size: 18px;" class='app-menu__icon  fas fa-user-tie'></i><span
+        <li><a class="app-menu__item active" href="user.jsp"><i style="font-size: 18px;" class='app-menu__icon  fas fa-user-tie'></i><span
                 class="app-menu__label ">Hồ sơ</span></a></li>
         <li><a class="app-menu__item " href="table-data-bill.html"><i style="font-size: 18px;" class='app-menu__icon  fas fa-file-invoice-dollar'></i>
             <span class="app-menu__label">Hóa đơn</span></a></li>
-        <li><a class="app-menu__item" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
+        <li><a class="app-menu__item" href="table-data-table.jsp"><i class='app-menu__icon bx bx-id-card'></i>
             <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-        <li><a class="app-menu__item" href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
+        <li><a class="app-menu__item" href="table-data-kh.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
                 class="app-menu__label">Quản lý khách hàng</span></a></li>
-        <li><a class="app-menu__item" href="table-data-product.html"><i class='app-menu__icon bx bx-purchase-tag-alt'></i>
+        <li><a class="app-menu__item" href="table-data-product.jsp"><i class='app-menu__icon bx bx-purchase-tag-alt'></i>
             <span class="app-menu__label">Quản lý sản phẩm</span></a>
         </li>
         <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
