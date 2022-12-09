@@ -1,3 +1,5 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page contentType="text/html;charset= UTF-8 " language="java" pageEncoding="utf-8" %>
@@ -36,53 +38,70 @@
 
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<%Integer gender = (Integer) request.getAttribute("gender"); %>
+<%String userName = (String) request.getAttribute("userName");%>
+<%String password = (String)request.getAttribute("password");%>
+<%String email = (String)request.getAttribute("email");%>
+<%String fullname = (String)request.getAttribute("fullname");%>
+<%String address  = (String)request.getAttribute("address");%>
+<%String phone = (String)request.getAttribute("phone");%>
+<% String birthday = (String)request.getAttribute("birthday");%>
 
-
+<%Map<String,String> err = null;%>
+<% Boolean isErr = (Boolean) request.getAttribute("isErr");%>
+ <% if(isErr!=null&&isErr==true)
+ { %>
+    <% err = (Map<String, String>) request.getAttribute("err"); %>
+ <%}%>
 <div class="limiter">
   <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" >
     <div class="wrapper wrapper--w680">
       <div class="card card-4">
         <div class="card-body">
           <h2 class="title">ĐĂNG KÍ</h2>
-          <%String err = (String) request.getAttribute("err");%>
-          <p class="label_err" style="color: red"><%= err != null?err:""%></p>
+
+
           <form method="post" action="Sign_Up">
             <div class="row row-space">
               <div class="col-2">
                 <div class="input-group">
-                  <label class="la">TÊN TÀI KHOẢN</label>
-                  <input class="input--style-4" type="text" name="userName" placeholder="Nhập tên tài khoản" >
+                  <label class="la">TÊN TÀI KHOẢN</label> <label style="color: red">*</label>
+                  <input class="input--style-4" type="text"  value="<%=userName!=null?userName:""%>" name="userName" placeholder="Nhập tên tài khoản" >
+                  <p class="label_err" style="color: red"><%= err != null &&err.containsKey("userName") ?err.get("userName"):""%></p>
                 </div>
               </div>
               <div class="col-2">
                 <div class="input-group">
-                  <label class="la">MẬT KHẨU</label>
-                  <input class="input--style-4" type="password" name="password" placeholder="Nhập mật khẩu">
-                </div>
-              </div>
-            </div>
-            <div class="row row-space">
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="la">HỌ VÀ TÊN</label>
-                  <input class="input--style-4" type="text" name="fullname" placeholder="Nhập đầy đủ tên và Họ" >
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="la">Địa Chỉ</label>
-                  <input class="input--style-4" type="text" name="address" placeholder="Nhập địa chỉ của bạn" >
+                  <label class="la">MẬT KHẨU</label><label style="color: red">*</label>
+                  <input class="input--style-4" type="password" value="<%=password!=null?password:""%>" name="password" placeholder="Nhập mật khẩu">
+                  <p class="label_err" style="color: red"><%= err != null&&err.containsKey("password") ?err.get("password"):""%></p>
                 </div>
               </div>
             </div>
             <div class="row row-space">
               <div class="col-2">
                 <div class="input-group">
-                  <label class="la">NGÀY SINH</label>
-                  <div class="input-group-icon">
-                    <input class="input--style-4 js-datepicker" type="text" name="birthday" placeholder="Nhập Ngày Sinh" >
-                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                  </div>
+                  <label class="la">HỌ VÀ TÊN</label><label style="color: red">*</label>
+                  <input class="input--style-4" type="text" value="<%=fullname!=null?fullname:""%>" name="fullname" placeholder="Nhập đầy đủ tên và Họ" >
+                  <p class="label_err" style="color: red"><%= err != null &&err.containsKey("fullName") ?err.get("fullName"):""%></p>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">Địa Chỉ</label><label style="color: red">*</label>
+                  <input class="input--style-4" type="text" value="<%=address!=null?address:""%>" name="address" placeholder="Nhập địa chỉ của bạn" >
+                  <p class="label_err" style="color: red"><%= err != null&&err.containsKey("address") ?err.get("address"):""%></p>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="la">NGÀY SINH</label><label style="color: red">*</label>
+
+                  <input class="input--style-4 " value="<%=birthday!=null?birthday:""%>" type="date" name="birthday" placeholder="Nhập Ngày Sinh" >
+
+
                 </div>
               </div>
               <div class="col-2">
@@ -90,11 +109,11 @@
                   <label class="la">GIỚI TÍNH </label>
                   <div class="p-t-10">
                     <label class="radio-container m-r-45">NAM
-                      <input type="radio" checked="checked" name="gender" value="0">
+                      <input type="radio" checked="<%=gender!=null&&gender==0?"checked":""%>" name="gender" value="0">
                       <span class="checkmark"></span>
                     </label>
                     <label class="radio-container">NỮ
-                      <input type="radio" name="gender" value="1">
+                      <input type="radio"checked="<%=gender!=null&&gender==1?"checked":""%>" name="gender" value="1">
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -104,14 +123,16 @@
             <div class="row row-space">
               <div class="col-2">
                 <div class="input-group">
-                  <label class="la">Email</label>
-                  <input class="input--style-4" type="email" name="email" placeholder="Nhập email vd: Nam@gmail.com" >
+                  <label class="la">Email</label><label style="color: red">*</label>
+                  <input class="input--style-4" type="email" name="email" value="<%=email!=null?email:""%>" placeholder="Nhập email vd: Nam@gmail.com" >
+                  <p class="label_err" style="color: red"><%= err != null&&err.containsKey("email") ?err.get("email"):""%></p>
                 </div>
               </div>
               <div class="col-2">
                 <div class="input-group">
-                  <label class="la">SỐ ĐIỆN THOẠI</label>
-                  <input class="input--style-4" type="text" name="phone"placeholder="Nhập số điên vd: Nam@gmail.com"  >
+                  <label class="la">SỐ ĐIỆN THOẠI</label><label style="color: red">*</label>
+                  <input class="input--style-4" type="text"  value="<%=phone!=null?phone:""%>"name="phone"placeholder="Nhập số điên vd: 0714734661"  >
+                  <p class="label_err" style="color: red"><%= err != null&&err.containsKey("phone") ?err.get("phone"):""%></p>
                 </div>
               </div>
             </div>
