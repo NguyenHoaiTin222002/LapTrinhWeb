@@ -102,36 +102,7 @@
     var btnAddCart = document.getElementById("btn-add-cart");
 	/////////////////////////////////////////
 
-	// Input number
-	$('.input-number').each(function() {
-		var $this = $(this),
-		$input = $this.find('input[type="number"]'),
-		up = $this.find('.qty-up'),
-		down = $this.find('.qty-down');
-		var value
-		var link = btnAddCart.getAttribute("href");
-		down.on('click', function () {
-			 value = parseInt($input.val()) - 1;
-			value = value < 1 ? 1 : value;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-			const href = link +"&quatity="+value;
-			btnAddCart.setAttribute("href",href);
-			console.log(btnAddCart.getAttribute("href"));
-		})
 
-		up.on('click', function () {
-			value = parseInt($input.val()) + 1;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-			const href = link +"&quatity="+value;
-			btnAddCart.setAttribute("href",href);
-		})
-
-
-	});
 
 	var priceInputMax = document.getElementById('price-max'),
 			priceInputMin = document.getElementById('price-min');
