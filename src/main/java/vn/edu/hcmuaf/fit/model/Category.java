@@ -3,35 +3,35 @@ package vn.edu.hcmuaf.fit.model;
 import java.io.Serializable;
 
 public class Category  implements Serializable {
-    private  int idCatpgory;
-    private  String nameCatogory;
+    private  int idCategory;
+    private  String nameCategory;
 
-    public Category(int idCatpgory, String nameCatogory) {
-        this.idCatpgory = idCatpgory;
-        this.nameCatogory = nameCatogory;
+    public Category(int idCategory, String nameCategory) {
+        this.idCategory = idCategory;
+        this.nameCategory = nameCategory;
     }
 
-    public int getIdCatpgory() {
-        return idCatpgory;
+    public int getIdCategory() {
+        return idCategory;
     }
 
-    public void setIdCatpgory(int idCatpgory) {
-        this.idCatpgory = idCatpgory;
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public String getNameCatogory() {
-        return nameCatogory;
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setNameCatogory(String nameCatogory) {
-        this.nameCatogory = nameCatogory;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 
     @Override
     public String toString() {
-        return "Catogory{" +
-                "idCatpgory=" + idCatpgory +
-                ", nameCatogory='" + nameCatogory + '\'' +
+        return "Category{" +
+                "idCategory=" + idCategory +
+                ", nameCategory='" + nameCategory + '\'' +
                 '}';
     }
 }
