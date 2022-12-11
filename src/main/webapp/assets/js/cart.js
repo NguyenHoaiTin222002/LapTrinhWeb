@@ -1,3 +1,6 @@
+
+
+
 (function($) {
     "use strict"
 
@@ -16,26 +19,73 @@
 
     $('.input-number').each(function() {
         var $this = $(this),
-            $input = $this.find('input[type="number"]'),
+
+            $input = $this.find('#valueNumber'),
+            $InputIdCart = $this.find('#valueIdCart'),
             up = $this.find('.qty-up'),
             down = $this.find('.qty-down');
-        var value
 
+
+        var value
+        var idCart = parseInt($InputIdCart.val());
         down.on('click', function () {
+            // thai đổi số lượng
             value = parseInt($input.val()) - 1;
             value = value < 1 ? 1 : value;
             $input.val(value);
             $input.change();
             updatePriceSlider($this , value)
 
+            //
+            var tatol = $('#tatol_'+ idCart);
+            // lây gia của sản phâm
+            var  Inprice =   $('#price_'+ idCart);
+            var  price =  parseFloat(Inprice.val());
+
+
+
+            $.ajax({
+                url: '/UpdateCart',
+                type: 'get',
+                cache: false,
+                data: { idCart:idCart , quatity : value,price:price} ,
+
+                success: function (data) {
+                    tatol.html(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         })
 
         up.on('click', function () {
+
+            // thai đổi số lượng
             value = parseInt($input.val()) + 1;
             $input.val(value);
             $input.change();
             updatePriceSlider($this , value)
+            //
+            var tatol = $('#tatol_'+ idCart);
+            // lây gia của sản phâm
+            var  Inprice =   $('#price_'+ idCart);
+            var  price =  parseFloat(Inprice.val());
 
+
+            $.ajax({
+                url: '/UpdateCart',
+                type: 'get',
+                cache: false,
+                data: { idCart:idCart , quatity : value,price:price} ,
+
+                success: function (data) {
+                    tatol.html(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         })
 
 
@@ -44,7 +94,7 @@
       const checkAllCart = $("#checkAllCart");
     const BtnBuy = $("#btn-buy");
       const listCheckCart = $('input[name="cartIds[]"]');
-      console.log(checkAllCart)
+
       checkAllCart.change(function (){
           var ischeckAll = $(this).prop("checked");
 

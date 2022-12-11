@@ -87,17 +87,19 @@
                 <td> <div class="cart-table-price"> <%= Fomat.fomatCurrency(moneyNew) %></div> </td>
                 <td><div class="qty-label">
                     <div style="width: 80px;" class="input-number">
-                        <input type="number" value="<%=cart.getAmount()%>">
-                        <span class="qty-up">+</span>
+                        <input id="valueNumber" type="number" value="<%=cart.getAmount()%>">
+                        <input id="valueIdCart" type="number" hidden value="<%=cart.getIdCart()%>">
+                        <span class="qty-up" >+</span>
                         <span class="qty-down">-</span>
                     </div>
                 </div>
 
                 </td>
-                <td> <div class="cart-table-tatol"><%= Fomat.fomatCurrency(moneyNew*cart.getAmount()) %></div></td>
+                <td>
+                    <p id="tatol_<%=cart.getIdCart()%>" class="cart-table-tatol"><%= Fomat.fomatCurrency(moneyNew*cart.getAmount()) %></p></td>
                 <td><button class=" btn cart-table-delete"><i class="fa fa-trash"></i></button></td>
             </tr>
-
+                <input id="price_<%=cart.getIdCart()%>" type="number" value="<%=moneyNew%>" hidden >
             <% } %>
 
             </tbody>
@@ -170,6 +172,7 @@
 <script src="./assets/js/slick.min.js"></script>
 <script src="./assets/js/nouislider.min.js"></script>
 <script src="./assets/js/jquery.zoom.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="./assets/js/cart.js"></script>
 </body>
 </html>

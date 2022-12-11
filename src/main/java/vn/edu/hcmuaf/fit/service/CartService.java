@@ -111,5 +111,25 @@ public class CartService {
         }
 
     }
+    public static void UpdateCart(int idCart,int quatity){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+
+                String sql = "UPDATE `cart` set amount = ? WHERE IdCart = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,quatity);
+                ps.setInt(2,idCart);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+
+    }
 
 }
