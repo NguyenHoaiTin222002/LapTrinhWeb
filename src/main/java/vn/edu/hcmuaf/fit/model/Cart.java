@@ -6,6 +6,10 @@ public class Cart {
     private int idProduct;
     private int amount;
 
+    private boolean isCheck;
+
+
+
     public  Cart(){};
     public int getIdCart() {
         return idCart;
@@ -13,6 +17,14 @@ public class Cart {
 
     public void setIdCart(int idCart) {
         this.idCart = idCart;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
     }
 
     public int getIdUser() {

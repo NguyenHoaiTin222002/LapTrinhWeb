@@ -41,7 +41,7 @@
             // lây gia của sản phâm
             var  Inprice =   $('#price_'+ idCart);
             var  price =  parseFloat(Inprice.val());
-
+            renderToTalPrice();
 
 
             $.ajax({
@@ -71,7 +71,7 @@
             // lây gia của sản phâm
             var  Inprice =   $('#price_'+ idCart);
             var  price =  parseFloat(Inprice.val());
-
+            renderToTalPrice();
 
             $.ajax({
                 url: '/UpdateCart',
@@ -90,6 +90,7 @@
 
 
     });
+
     // Check
       const checkAllCart = $("#checkAllCart");
     const BtnBuy = $("#btn-buy");
@@ -97,24 +98,64 @@
 
       checkAllCart.change(function (){
           var ischeckAll = $(this).prop("checked");
-
          listCheckCart.prop("checked",ischeckAll);
           renderCheckAllSumit();
+          renderToTalPrice();
+          $.ajax({
+              url: '/IsCheckAllCart',
+              type: 'get',
+              cache: false,
+              data: { isCheck : ischeckAll} ,
+
+              success: function (data) {
+
+              },
+              error: function () {
+                  alert("error");
+              }
+          });
+
       })
 
       listCheckCart.change(function () {
           var ischeckAll = listCheckCart.length === $('input[name="cartIds[]"]:checked').length;
           checkAllCart.prop("checked",ischeckAll);
           renderCheckAllSumit();
+          renderToTalPrice();
       })
       function renderCheckAllSumit(){
           var nemberCheck = $('input[name="cartIds[]"]:checked').length;
+
           if(nemberCheck > 0){
               BtnBuy.removeClass('disabled');
           }else {
               BtnBuy.addClass('disabled');
           }
+
       }
+    function formatVND(value) {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency',
+            currency: 'VND' }).format(value);
+    }
+     function renderToTalPrice(){
+         var listInputChecked = $('input[name="cartIds[]"]:checked');
+         var buyTotal = document.querySelector('#buy-total');
+         var total = 0.0;
+         for (let i = 0; i <listInputChecked.length ; i++) {
+             const  node = listInputChecked[i];
+             const  parent = node.parentNode.parentNode.parentNode
+             const InputIdCart =  parent.querySelector('#valueIdCart');
+
+             const  inputNumber = parent.querySelector('#valueNumber');
+             const  inputPrice =  parent.querySelector('#price_'+parseInt(InputIdCart.value));
+             const  quantity = parseInt(inputNumber.value);
+             const  price = parseFloat(inputPrice.value);
+             total += quantity*price;
+
+         }
+         buyTotal.innerHTML = formatVND(total);
+
+     }
 
 
     //   checkAllCart.on('change',)
@@ -250,3 +291,23 @@
     }
 
 })(jQuery);
+
+function handleCheck(element, type = 0) {
+    const isCheck = element.checked;
+    if(type == 0){
+        const idCart = parseInt(element.value);
+        $.ajax({
+            url: '/IsCheckCart',
+            type: 'get',
+            cache: false,
+            data: { idCart:idCart , isCheck : isCheck} ,
+
+            success: function (data) {
+
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+}

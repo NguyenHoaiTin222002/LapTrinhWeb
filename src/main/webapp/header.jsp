@@ -164,7 +164,7 @@
                 <li class="active"><a href="index.html">Trang Chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
                 <% for (Category item: categoryList) { %>
-                <li><a href="products.html"><%=item.getNameCategory()%></a></li>
+                <li><a href="/Products"><%=item.getNameCategory()%></a></li>
                <% } %>
             </ul>
             <!-- /NAV -->

@@ -45,14 +45,21 @@
     }
 %>
 <% Double total = 0.0;%>
+<%int numberCheck = 0;%>
+<% for (Cart cart : listCart) { %>
+<%if(cart.isCheck()){%>
+<% numberCheck += 1;%>
+<%}%>
+<%}%>
 <jsp:include page="header.jsp"></jsp:include>
 <!-- /BREADCRUMB -->
 <div class="cart_table">
     <div class="container">
+
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col"><input type="checkbox" name="" id="checkAllCart"></th>
+                <th scope="col"><input onchange="handleCheck(this, 1)" checked="<%=numberCheck==listCart.size()?"checked":""%>" type="checkbox" name="" id="checkAllCart"></th>
                 <th scope="col">Sản Phẩm</th>
 
                 <th scope="col">Đơn Giá</th>
@@ -62,6 +69,7 @@
             </tr>
             </thead>
             <tbody>
+
             <% for (Cart cart : listCart)
             { %>
             <% Product product = ProductService.getProductById(cart.getIdProduct()); %>
@@ -69,7 +77,7 @@
             <%total += moneyNew*cart.getAmount();%>
 
             <tr class="cart-set-row">
-                <th scope="row" ><div class="cart-table-check"><input type="checkbox" class="checkCart" name="cartIds[]" value="<%=cart.getIdCart()%>" ></div></th>
+                <th scope="row" ><div class="cart-table-check"><input onchange="handleCheck(this)" checked="<%=cart.isCheck()?"checked":""%> "  type="checkbox" class="checkCart" name="cartIds[]" value="<%=cart.getIdCart()%>" ></div></th>
                 <td >
                     <div class="cart-table-product">
                         <div class="product-widget">
@@ -96,10 +104,12 @@
 
                 </td>
                 <td>
+                    <input id="price_<%=cart.getIdCart()%>" type="number" value="<%=moneyNew%>" hidden >
                     <p id="tatol_<%=cart.getIdCart()%>" class="cart-table-tatol"><%= Fomat.fomatCurrency(moneyNew*cart.getAmount()) %></p></td>
                 <td><button class=" btn cart-table-delete"><i class="fa fa-trash"></i></button></td>
+
             </tr>
-                <input id="price_<%=cart.getIdCart()%>" type="number" value="<%=moneyNew%>" hidden >
+
             <% } %>
 
             </tbody>
@@ -109,7 +119,8 @@
 <div class="cart_buy">
     <div class="container">
         <div class="cart_buy-content">
-            <div class="cart_buy-total">Tổng Tiền: <%=Fomat.fomatCurrency(total)%></div>
+
+            <div  class="cart_buy-total"> <label>Tổng Tiền:</label> <label id="buy-total"><%=Fomat.fomatCurrency(0)%></label></div>
             <div class="cart_buy-btn">
                 <button  type="button" class="cart_buy-btn-buy  btn disabled" id="btn-buy" data-toggle="modal" data-target="#PurchaseModal">Mua Hàng</button>
 
