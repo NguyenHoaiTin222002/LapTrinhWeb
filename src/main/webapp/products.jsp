@@ -48,6 +48,7 @@
 <%List<Category> listC= (List<Category>) request.getAttribute("listc");%>
 <% Integer num = (Integer) request.getAttribute("num");%>
 <% Integer numberPage = (Integer) request.getAttribute("page");%>
+<% Integer id = (Integer) request.getAttribute("id");%>
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -63,7 +64,7 @@
                         <ul class="list-group  category-block"><h3 class="dm"><i class="fa fa-bars" aria-hidden="true"></i> Danh Mục</h3>
                             <% for (Category c: listC
                             ) {%>
-                        <li class="list-group-item text-white "><a href=""><%= c.getNameCategory()%></a></li>
+                            <li class="list-group-item text-white "><a   href="cate-control?id=<%= c.getIdCategory()%>"><%= c.getNameCategory()%></a></li>
                             <%}%>
                         </ul>
 
@@ -226,7 +227,7 @@
 
                             <%
                                 for (int i = 1; i <num ; i++)
-                                { %>
+                                {  %>
                                   <li class="<%=numberPage==i?"active":""%>" ><a href="list-product?page=<%=i%>"><%=i%></a></li>
                                 <%}%>
 
