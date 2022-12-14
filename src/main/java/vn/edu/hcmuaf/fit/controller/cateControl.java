@@ -13,13 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "listProduct", value = "/list-product")
-public class listProduct extends HttpServlet {
+@WebServlet(name = "cateControl", value = "/cate-control")
+public class cateControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cateID = request.getParameter("id");
+        int id;
+        if(cateID == null){
+            id=0;
+        }else{
+            id = Integer.parseInt(cateID);
+        }
+
+
         ProductService ps = new ProductService();
 
-        List<Product> list1 =ps.getAllProduct();
+        List<Product> list1 =ps.getByCateId(id);
         int page , numberPage=20;
         int size = list1.size();
         int num=(size%20==0 ?(size/20):((size/20)+1));
@@ -43,6 +52,7 @@ public class listProduct extends HttpServlet {
         request.setAttribute("listp",list);
         request.setAttribute("page",page);
         request.setAttribute("num",num);
+        request.setAttribute("id",id);
         request.getRequestDispatcher("products.jsp").forward(request,response);
     }
 
