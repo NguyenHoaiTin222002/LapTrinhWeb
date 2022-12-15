@@ -37,7 +37,7 @@
 
 
     <!-- User Menu-->
-    <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+    <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
     </li>
   </ul>
@@ -97,7 +97,7 @@
               <td><%=item.getPhone()%></td>
               <td>Bán hàng</td>
               <td class="table-td-center">
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdUser()%>"
                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                 </button>
                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
@@ -290,23 +290,25 @@ MODAL
 -->
 
 <!-- Essential javascripts for application to work-->
-<script src="../main/assets/js/bootstrap1.min.js"></script>
-<script src="../main/assets/js/jquery-3.2.1.min.js"></script>
-<script src="../main/assets/js/popper.min.js"></script>
-<script src="../main/assets/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="./assets/js/bootstrap1.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
-<script src="../main/assets/js/main1.js"></script>
-<!-- Page specific javascripts-->
+<script src="./assets/js/main1.js"></script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<!-- Data table plugin-->
-<script type="text/javascript" src="../main/assets/js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../main/assets/js/plugins/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
   function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("myTable").deleteRow(i);
+    console.log( document.getElementById("sampleTable"));
+    document.getElementById("sampleTable").deleteRow(i);
   }
   jQuery(function () {
     jQuery(".trash").click(function () {
@@ -318,11 +320,23 @@ MODAL
       })
               .then((willDelete) => {
                 if (willDelete) {
-                  swal("Đã xóa thành công!", {
+                  deleteRow(this);
+
+                  $.ajax({
+                    url: 'DeleteTableAdmin',
+                    type: 'get',
+                    cache: false,
+                    data: {idUser: idUser},
+
+                    success: function (data) {
+                      alert("Đã xóa thành công.!")
+                    },
+                    error: function () {
+                      alert("error");
+                    }
 
                   });
                 }
-              });
     });
   });
   oTable = $('#sampleTable').dataTable();

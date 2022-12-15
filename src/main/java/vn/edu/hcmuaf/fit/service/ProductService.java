@@ -8,11 +8,56 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ProductService {
+
+    public void updateProduct(int idProduct, String nameProduct, double price, int amountProduct, int blockProduct, int sale, int idCategory) {
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `product` SET `nameProdcut`= ? ,`amountProduct`= ?,`price`=?,`blockProduct`=?, 'sale'=?, 'idCategory'=? WHERE `idProduct`=?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1,nameProduct);
+                ps.setInt(2, amountProduct);
+                ps.setDouble(3 ,price);
+                ps.setInt(4, blockProduct);
+                ps.setInt(5,idProduct);
+                ps.setInt(6, idCategory);
+                ps.setInt(7, sale);
+                ps.executeUpdate();
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
+    public static void deleteProduct(int idProduct){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+                String sql = "UPDATE product set product.blockProduct = 0 WHERE product.idProduct = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idProduct);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+
+    }
+
+
     public static List<Product> getAllProduct(){
         List<Product> list = new ArrayList<>();
         Statement statement = DBConnect.getInstance().get();
@@ -20,7 +65,7 @@ public class ProductService {
             try {
                 ResultSet rs =
                         statement.executeQuery("SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
-                                ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct where i.idImg%4=0 ");
+                                ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct where i.idImg%4=0 and blockProduct != 0 ");
                 while (rs.next()){
                 Product product = new Product();
                 product.setIdProduct(rs.getInt("idProduct"));
@@ -127,6 +172,7 @@ public class ProductService {
         }
         return list;
     }
+
 
 
 }

@@ -36,13 +36,14 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
 </header>
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <jsp:include page="menu-left.jsp"></jsp:include>
+
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
@@ -93,7 +94,7 @@
                             <td><%=item.getPhone()%></td>
 
                             <td class="table-td-center">
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdUser()%>"
                                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                                 </button>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
@@ -294,7 +295,7 @@ MODAL
 <script src="./assets/js/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/popper.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="./assets/js/main1.js"></script>
 
@@ -307,20 +308,34 @@ MODAL
 <script>
     function deleteRow(r) {
         var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("myTable").deleteRow(i);
+        console.log( document.getElementById("sampleTable"));
+        document.getElementById("sampleTable").deleteRow(i);
     }
     jQuery(function () {
         jQuery(".trash").click(function () {
+            var idUser = $(this).data("id");
             swal({
                 title: "Cảnh báo",
 
-                text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
+                text: "Bạn có chắc chắn là muốn xóa khách hàng này?",
                 buttons: ["Hủy bỏ", "Đồng ý"],
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal("Đã xóa thành công!", {
+                        deleteRow(this);
 
+                        $.ajax({
+                            url: 'DeleteKHAdmin',
+                            type: 'get',
+                            cache: false,
+                            data: { idUser:idUser} ,
+
+                            success: function (data) {
+                                alert("Đã xóa thành công.!")
+                            },
+                            error: function () {
+                                alert("error");
+                            }
                         });
                     }
                 });
