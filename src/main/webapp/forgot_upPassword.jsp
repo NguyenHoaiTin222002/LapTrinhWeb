@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 21/11/2022
@@ -38,6 +38,15 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<%String passOld = (String) request.getAttribute("passOld");%>
+<%String passNew = (String)request.getAttribute("passNew");%>
+<%String passNewReset = (String)request.getAttribute("passNewReset");%>
+<%Map<String,String> err = null;%>
+<% Boolean isErr = (Boolean) request.getAttribute("isErr");%>
+<% if(isErr!=null&&isErr==true)
+{ %>
+<% err = (Map<String, String>) request.getAttribute("err"); %>
+<%}%>
 <div class="limiter">
     <div class="container-login100" >
         <div class="wrap-login100 wrap-login200 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -45,20 +54,21 @@
 					<span class="login100-form-title p-b-49">
 					     Đặt Lại Mặt Khẩu
 					</span>
-                <%String err = (String) request.getAttribute("err");%>
-                <p style="color: red"><%= err != null?err:""%></p>
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-                    <input class="input100 input200" type="text" name="passOld" placeholder="Mật  khẩu  cũ" autocomplete="off" >
+                <div class="wrap-input100 m-b-23">
+                    <label class="la">Nhập mật khẩu</label> <label style="color: red">*</label>
+                    <input class="input100 input200  "  value="<%=passOld!=null?passOld:""%>" type="text" name="passOld" placeholder="Mật  khẩu  cũ" autocomplete="off" >
+                    <p class="label_err" style="color: red"><%= err != null&&err.containsKey("passOld") ?err.get("passOld"):""%></p>
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-
-                    <input class="input100 input200" type="password" name="passNew" placeholder="Mật khẩu mới" autocomplete="off" >
+                <div class="iwrap-input100  m-b-23">
+                    <label class="la">Nhập mật khẩu mới</label> <label style="color: red">*</label>
+                    <input class="input100 input200 "  value="<%=passNew!=null?passNew:""%>" type="password" name="passNew" placeholder="Mật khẩu mới" autocomplete="off" >
+                    <p class="label_err" style="color: red"><%= err != null&&err.containsKey("passNew") ?err.get("passNew"):""%></p>
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-                    <input class="input100 input200 " type="text" name="passNewReset" placeholder="Nhập lại mật khẩu" autocomplete="off" >
+                <div class="wrap-input100  m-b-23">
+                    <label class="la">Nhập lại mật khẩu mới</label> <label style="color: red">*</label>
+                    <input class="input100 input200 "  value="<%=passNewReset!=null?passNewReset:""%>" type="text" name="passNewReset" placeholder="Nhập lại mật khẩu" autocomplete="off" >
+                    <p class="label_err" style="color: red"><%= err != null&&err.containsKey("passNewReset") ?err.get("passNewReset"):""%></p>
                 </div>
-
-
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>

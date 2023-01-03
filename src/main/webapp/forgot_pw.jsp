@@ -45,7 +45,7 @@
         <p style="color: red"><%= err != null?err:""%></p>
         <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
           <i class="fa fa-envelope" style="font-size: 16px;position: absolute;
-  top: 26px;"   aria-hidden="true" ></i>
+  top: 14px;"   aria-hidden="true" ></i>
           <input class="input100" type="text" name="email" placeholder="Nhập mật Khẩu" autocomplete="off" >
 
         </div>
@@ -59,9 +59,6 @@
             </button>
           </div>
         </div>
-
-
-
 
       </form>
     </div>

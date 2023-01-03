@@ -39,6 +39,48 @@ public class Check {
         }
         return "";
     }
+    public  static Map<String,String> checkUpPassWord(String userPassWord,String passOld,String passNew,String passNewReset){
+        Map<String,String>  map = new HashMap<>();
+        String md5Hex = EnCode.getEncryptString(passOld);
+        String md5HexPass = EnCode.getEncryptString(passNew);
+        if(!userPassWord.trim().equals(md5Hex)){
+            map.put("passOld","Nhập mật khẩu không đúng ");
+        }
+        if (!checkPassWord(passNew)){
+            map.put("passNew","Mật khấu quá ngắn, phải ít nhất 6 kí tự");
+        }
+        if(!passNewReset.equals(passNew)){
+            map.put("passNewReset","Nhập lại mật khẩu mới không đúng");
+
+        }
+        return map;
+    }
+    public static Map<String,String> checkSignUpMap(String fullName,String userName,String password,String email,String phone,String address){
+        Map<String,String>  map = new HashMap<>();
+         if("".equals(address.trim())){
+             map.put("address","Chưa nhập địa chỉ");
+         }
+        if("".equals(fullName.trim())){
+            map.put("fullName","Chưa nhập họ và tên");
+        }
+        User user = UserService.getUserLogin(userName.trim());
+        if(user!=null){
+            map.put("userName","Tên tài khoản đã có đã được đăng kí, xin chọn tên khác");
+        }
+        if (!checkPassWord(password)){
+            map.put("password","Mật khấu quá ngắn, phải ít nhất 6 kí tự");
+        }
+        if (!checkEmail(email)){
+            map.put("email","Email bạn đặt chưa đúng vd Nam@gmail.com");
+
+
+        }
+        if (!checkPhone(phone)){
+            map.put("phone","Số điện thoại bạn đặt chưa đúng vd 084734661");
+
+        }
+        return map;
+    }
 
     public static Map<String,String> checkUpdateUser(String fullName, String address, String email, String phone){
         Map<String,String> map = new HashMap<>();

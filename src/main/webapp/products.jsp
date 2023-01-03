@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+=======
 
 <%--<%@ page import="vn.edu.hcmuaf.fit.model.Category" %>--%>
 <%@ page import="java.util.List" %>
@@ -10,6 +13,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 
 
+>>>>>>> NguyenLeThuThao
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +36,7 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="./assets/css/style.css"/>
+
     <link rel="stylesheet" href="./assets/css/basic.css">
     <link rel="stylesheet" href="./assets/css/product.css">
 

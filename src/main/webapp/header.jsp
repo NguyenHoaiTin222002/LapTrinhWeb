@@ -126,8 +126,8 @@
                                     <h5>Tổng tiền: <%=Fomat.fomatCurrency(total)%></h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="cart.html">Giỏ Hàng</a>
-                                    <a href="cart.html">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="cart.jsp">Giỏ Hàng</a>
+                                    <a href="cart.jsp">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                 <li class="active"><a href="index.html">Trang Chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
                 <% for (Category item: categoryList) { %>
-                <li><a href="products.html"><%=item.getNameCatogory()%></a></li>
+                <li><a href="/Products"><%=item.getNameCategory()%></a></li>
                <% } %>
             </ul>
             <!-- /NAV -->
