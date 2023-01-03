@@ -170,5 +170,51 @@ public class ProductService {
         }
         return list;
     }
+    public static List<Product> getAllProduct_sort(int id, String sort){
+        List<Product> list = new ArrayList<>();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "";
+                int sta = 0;
+                if(sort == "Giam dan"){
+                    sta =0;
+                    sql = "SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+                            ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct  where i.idImg%4=0  ORDER BY p.price DESC " ;
+                }
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,id);
+                ps.setInt(2,sta);
+
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next() ){
+                    Product product = new Product();
+                    product.setIdProduct(rs.getInt("idProduct"));
+                    product.setNameProduct(rs.getString("nameProduct"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setAmountProduct(rs.getInt("amountProduct"));
+                    product.setAmountSoldProduct(rs.getInt("amountSoldProduct"));
+                    product.setNewProduct(rs.getInt("new"));
+                    product.setSale(rs.getInt("sale"));
+                    product.setProducer(rs.getString("producer"));
+                    product.setBlockProduct(rs.getInt("blockProduct"));
+                    product.setDiscription(rs.getString("discription"));
+                    product.setImg(rs.getString("ImgLink"));
+                    list.add(product);
+
+                }
+
+
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return list;
+    }
+
 
 }
