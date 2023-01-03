@@ -151,6 +151,45 @@ public class CartService {
             System.out.println("lỗi kết nối");
         }
     }
+    public static void UpdateCartIsCheckByIDCart(int idProduct,int idUser,boolean isCheck){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+
+                String sql = "UPDATE `cart` set isCheck = ? WHERE idUser = ? and idProduct = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setBoolean(1,isCheck);
+                ps.setInt(2,idUser);
+                ps.setInt(3,idProduct);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
+    public static void deleteAllByidUserAndIsCheck(int idUser,boolean isCheck){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+
+                String sql = "DELETE FROM `cart` WHERE idUser = ? and isCheck = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idUser);
+                ps.setBoolean(2,isCheck);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
     public static void UpdateCartIsCheckAllByIdUser(int idUser,boolean isCheck){
         Statement statement = DBConnect.getInstance().get();
 
@@ -169,6 +208,63 @@ public class CartService {
         }else {
             System.out.println("lỗi kết nối");
         }
+    }
+    public static double totalBill(int idUser){
+        Statement statement = DBConnect.getInstance().get();
+         double total = 0;
+        if(statement != null ){
+            try {
+
+                String sql = "SELECT sum((product.price - product.price*0.01*product.sale)*cart.amount) as total from cart JOIN product on product.idProduct = cart.idProduct WHERE cart.idUser = ? and cart.isCheck = true";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+
+                ps.setInt(1,idUser);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()){
+                    total = rs.getDouble("total");
+
+                }
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return  total;
+    }
+    public static List<Cart> GetAllCartByidUserAndIsCheck(int idUser, boolean isCheck){
+        List<Cart> list = new ArrayList<>();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `IdCart`, `idUser`, `idProduct`, `amount`,`isCheck` FROM `cart` where idUser = ? and isCheck = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idUser);
+                ps.setBoolean(2,isCheck);
+                ResultSet rs =   ps.executeQuery();
+                while (rs.next()){
+                    Cart cart = new Cart();
+                    cart.setIdCart(rs.getInt("IdCart"));
+                    cart.setIdUser(rs.getInt("idUser"));
+                    cart.setIdProduct(rs.getInt("idProduct"));
+                    cart.setAmount(rs.getInt("amount"));
+                    cart.setCheck(rs.getBoolean("isCheck"));
+                    list.add(cart);
+                }
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        List<Cart>  list = GetAllCartByidUserAndIsCheck(1,true);
+        System.out.println(list.size());
     }
 
 

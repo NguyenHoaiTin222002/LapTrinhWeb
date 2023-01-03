@@ -15,6 +15,8 @@ public class Product implements Serializable {
     private  String img;
     private  int blockProduct;
 
+    private  int idCategory;
+
     public Product(int idProduct, String nameProduct, double price, int amountProduct, int amountSoldProduct,
                    int newProduct, int sale, String producer, String discription, String img, int blockProduct) {
         this.idProduct = idProduct;
@@ -32,6 +34,14 @@ public class Product implements Serializable {
 
     public Product() {
 
+    }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
     public int getIdProduct() {

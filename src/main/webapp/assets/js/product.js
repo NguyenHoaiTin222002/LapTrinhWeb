@@ -100,6 +100,7 @@
         $('#product-main-img .product-preview').zoom();
     }
     var btnAddCart = document.getElementById("btn-add-cart");
+    var btnBuy = document.getElementById("btn-buy-product");
     /////////////////////////////////////////
 
     // Input number
@@ -109,16 +110,21 @@
             up = $this.find('.qty-up'),
             down = $this.find('.qty-down');
         var value
-        var link = btnAddCart.getAttribute("href");
+        var linkHref  =  btnAddCart.getAttribute("href");
+        var link = linkHref.substring(0,linkHref.length -1);
+        var linkHrefBuy  = btnBuy.getAttribute("href");
+        var linkBuy = linkHrefBuy.substring(0,linkHrefBuy.length -1);
         down.on('click', function () {
             value = parseInt($input.val()) - 1;
             value = value < 1 ? 1 : value;
             $input.val(value);
             $input.change();
             updatePriceSlider($this , value)
-            const href = link +"&quatity="+value;
+            const href = link + value;
+            const hrefBuy = linkBuy +value;
             btnAddCart.setAttribute("href",href);
-            console.log(btnAddCart.getAttribute("href"));
+            btnBuy.setAttribute("href",hrefBuy);
+
         })
 
         up.on('click', function () {
@@ -126,8 +132,10 @@
             $input.val(value);
             $input.change();
             updatePriceSlider($this , value)
-            const href = link +"&quatity="+value;
+            const hrefBuy = linkBuy +value;
+            const href = link +value;
             btnAddCart.setAttribute("href",href);
+            btnBuy.setAttribute("href",hrefBuy);
         })
 
 

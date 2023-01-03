@@ -11,7 +11,8 @@ import java.io.IOException;
 public class IsCheckAllCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer idUser = (Integer) request.getSession().getAttribute("idUser");
+        HttpSession session = request.getSession();
+        Integer idUser = (Integer) session.getAttribute("idUser");
         Boolean isCheck = Boolean.valueOf(request.getParameter("isCheck"));
         CartService.UpdateCartIsCheckAllByIdUser(idUser,isCheck);
     }

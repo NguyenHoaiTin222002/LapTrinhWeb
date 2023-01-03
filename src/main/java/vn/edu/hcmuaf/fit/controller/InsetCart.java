@@ -16,9 +16,7 @@ public class InsetCart extends HttpServlet {
 
            Integer idProduct = Integer.valueOf(request.getParameter("idProductCart"));
            Integer quatity = 1;
-            if(Integer.valueOf(request.getParameter("quatity")) !=null){
-                quatity = Integer.valueOf(request.getParameter("quatity"));
-            }
+
            Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
 
            if(idUser == null){

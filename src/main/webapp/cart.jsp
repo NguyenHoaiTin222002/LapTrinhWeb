@@ -39,27 +39,31 @@
 <body>
 <% Integer idUser = 0;
     idUser = (Integer) request.getSession().getAttribute("idUser"); %>
-<% List<Cart> listCart = new ArrayList<>();
-    if(idUser !=null){
-        listCart = CartService.getAllCartByIDUser((int)idUser);
-    }
-%>
+<% User user = (User)request.getSession().getAttribute("User"); %>
+<% List<Cart> listCart = (List<Cart>) request.getAttribute("listCart");%>
 <% Double total = 0.0;%>
 <%int numberCheck = 0;%>
 <% for (Cart cart : listCart) { %>
-<%if(cart.isCheck()){%>
+<%if(cart.isCheck()==true){%>
 <% numberCheck += 1;%>
 <%}%>
 <%}%>
+<%String mess = (String) request.getAttribute("mess");%>
 <jsp:include page="header.jsp"></jsp:include>
 <!-- /BREADCRUMB -->
+<div style="height: 60px;
+        line-height: 60px;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+        background:<%=mess.equals("Mua Hàng Thành Công")?"#76e15b;":"red;"%> " class=" span-mess <%="".equals(mess) ? "displayNone": ""%>"><%=mess%></div>
 <div class="cart_table">
     <div class="container">
 
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col"><input onchange="handleCheck(this, 1)" checked="<%=numberCheck==listCart.size()?"checked":""%>" type="checkbox" name="" id="checkAllCart"></th>
+                <th scope="col"><input  <%=numberCheck==listCart.size()?"checked":""%> type="checkbox" name="" id="checkAllCart"></th>
                 <th scope="col">Sản Phẩm</th>
 
                 <th scope="col">Đơn Giá</th>
@@ -74,10 +78,13 @@
             { %>
             <% Product product = ProductService.getProductById(cart.getIdProduct()); %>
             <%double moneyNew = Math.floor(product.getPrice() - product.getPrice()*0.01*product.getSale());%>
-            <%total += moneyNew*cart.getAmount();%>
+             <% if(cart.isCheck())
+             {%>
+                <%total += moneyNew*cart.getAmount();%>
+            <%}%>
 
             <tr class="cart-set-row">
-                <th scope="row" ><div class="cart-table-check"><input onchange="handleCheck(this)" checked="<%=cart.isCheck()?"checked":""%> "  type="checkbox" class="checkCart" name="cartIds[]" value="<%=cart.getIdCart()%>" ></div></th>
+                <th scope="row" ><div class="cart-table-check"><input onchange="handleCheck(this)" <%=cart.isCheck()==true?"checked":""%>   type="checkbox" class="checkCart" name="cartIds[]" value="<%=cart.getIdCart()%>" ></div></th>
                 <td >
                     <div class="cart-table-product">
                         <div class="product-widget">
@@ -120,9 +127,9 @@
     <div class="container">
         <div class="cart_buy-content">
 
-            <div  class="cart_buy-total"> <label>Tổng Tiền:</label> <label id="buy-total"><%=Fomat.fomatCurrency(0)%></label></div>
+            <div  class="cart_buy-total"> <label>Tổng Tiền:</label> <label id="buy-total"><%=Fomat.fomatCurrency(total)%></label></div>
             <div class="cart_buy-btn">
-                <button  type="button" class="cart_buy-btn-buy  btn disabled" id="btn-buy" data-toggle="modal" data-target="#PurchaseModal">Mua Hàng</button>
+                <button  type="button" class="cart_buy-btn-buy  btn <%=numberCheck==0?"disabled":""%>" id="btn-buy" data-toggle="modal" data-id="<%=idUser%>" data-target="#PurchaseModal">Mua Hàng</button>
 
             </div>
         </div>
@@ -138,25 +145,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="OutCheck" >
                     <div class="cart-form-layout">
                         <div class="form-group ">
                             <label>Họ Tên</label>
-                            <input type="text" class="form-control" id="cartFormInputName1" aria-describedby="NameHelp" placeholder="Nhập Họ Tên">
+                            <input type="text" value="<%=user.getFullName()%>" name="fullName" class="form-control" id="cartFormInputName1" aria-describedby="NameHelp" placeholder="Nhập Họ Tên">
 
                         </div>
                         <div class="form-group ">
                             <label >SĐT</label>
-                            <input type="text" class="form-control" id="cartFormInputPhone1" aria-describedby="PhoneHelp" placeholder="Nhập Số Điện Thoại">
+                            <input type="text" value="<%=user.getPhone()%>" name="phone" class="form-control" id="cartFormInputPhone1" aria-describedby="PhoneHelp" placeholder="Nhập Số Điện Thoại">
                         </div>
                     </div>
                     <div class="form-group ">
                         <label>Địa Chỉ</label>
-                        <input type="text" class="form-control" id="cartFormInputAddress1" aria-describedby="AddressHelp" placeholder="Nhập Địa Chỉ">
+                        <input type="text"  value="<%=user.getAddress()%>" name="address" class="form-control" id="cartFormInputAddress1" aria-describedby="AddressHelp" placeholder="Nhập Địa Chỉ">
                     </div>
                     <div class="form-group">
                         <label >Ghi chú</label>
-                        <textarea class="form-control" id="cartFormInputDecription1" rows="3" ></textarea>
+                        <textarea class="form-control" id="cartFormInputDecription1" name="decription" rows="3" ></textarea>
                     </div>
                     <div class="cart-form-btn">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Trở lại</button>
@@ -172,6 +179,7 @@
     </div>
 </div>
 
+
 <jsp:include page="footer.jsp"></jsp:include>
 
 
@@ -185,5 +193,9 @@
 <script src="./assets/js/jquery.zoom.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="./assets/js/cart.js"></script>
+<script>
+
+
+</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import vn.edu.hcmuaf.fit.model.Img;
+import vn.edu.hcmuaf.fit.model.Product;
 import vn.edu.hcmuaf.fit.service.ImgService;
 import vn.edu.hcmuaf.fit.service.ProductService;
 
@@ -18,8 +19,10 @@ import java.util.List;
        HttpSession session = request.getSession();
        List<Img> listImg = ImgService.getListImgByIdProduct(id);
         vn.edu.hcmuaf.fit.model.Product product = ProductService.getProductById(id);
+        List<Product> listProduct = ProductService.getAllProductByIdCategory(8,product.getIdCategory(),"sale");
         request.setAttribute("listImg",listImg);
         request.setAttribute("product",product);
+        request.setAttribute("listProduct",listProduct);
         request.getRequestDispatcher("product.jsp").forward(request,response);
     }
 

@@ -17,9 +17,7 @@ import java.util.List;
 public class listProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductService ps = new ProductService();
-
-        List<Product> list1 =ps.getAllProduct();
+        List<Product> list1 = ProductService.getAllProduct();
         int page , numberPage=12;
         int size = list1.size();
         int num=(size%12==0 ?(size/12):((size/12)+1));
@@ -32,11 +30,10 @@ public class listProduct extends HttpServlet {
         }
 
         int start, end;
-        start= (page-1)*numberPage;
+        start = (page-1)*numberPage;
         end = Math.min(page*numberPage, size);
-        List<Product> list= ps.getListByPage(list1,start,end);
-        CategoryService cates= new CategoryService();
-        List<Category> listC = cates.getAllCatery();
+        List<Product> list= ProductService.getListByPage(list1,start,end);
+        List<Category> listC = CategoryService.getAllCatery();
 
 
         request.setAttribute("listc",listC);

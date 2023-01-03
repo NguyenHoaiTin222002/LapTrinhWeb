@@ -92,7 +92,7 @@
 
 
 
-                        !-- Cart -->
+                        <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
@@ -126,8 +126,8 @@
                                     <h5>Tổng tiền: <%=Fomat.fomatCurrency(total)%></h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="cart.jsp">Giỏ Hàng</a>
-                                    <a href="cart.jsp">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/LoadCart">Giỏ Hàng</a>
+                                    <a href="/LoadCart">Thanh Toán <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                 <li class="active"><a href="index.html">Trang Chủ</a></li>
                 <li><a href="products.html">Sản Phẩm</a></li>
                 <% for (Category item: categoryList) { %>
-                <li><a href="/Products"><%=item.getNameCategory()%></a></li>
+                <li><a href="/list-product"><%=item.getNameCategory()%></a></li>
                <% } %>
             </ul>
             <!-- /NAV -->

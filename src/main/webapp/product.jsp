@@ -35,6 +35,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 <% List<Img> listImg = (List<Img>) request.getAttribute("listImg"); %>
 <% Product product = (Product) request.getAttribute("product"); %>
+<% List<Product> listProduct = (List<Product>) request.getAttribute("listProduct"); %>
 <% request.getSession().setAttribute("idInfoProduct",product.getIdProduct()); %>
 
 <!-- SECTION -->
@@ -114,8 +115,8 @@
 
                     </ul>
                     <ul class="product-btns">
-                         <a href="/InsetCart?idProductCart=<%=product.getIdProduct()%>" id="btn-add-cart"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm Giỏ Hàng</button></a>
-                        <button class="add-to-card-btn"><i class="fa fa-credit-card"></i> Mua Ngay</button>
+                         <a href="/InsetCartOnInfoProduct?idProductCart=<%=product.getIdProduct()%>&quatity=1" id="btn-add-cart"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm Giỏ Hàng</button></a>
+                         <a id="btn-buy-product" href="/BuyProductOnInfoProduct?idProductCart=<%=product.getIdProduct()%>&quatity=1"><button class="add-to-card-btn"><i class="fa fa-credit-card"></i> Mua Ngay</button></a>
                     </ul>
 
 
@@ -357,8 +358,8 @@
             <!-- product -->
             <div class="col-md-12 ">
                 <div class="products-slick" data-nav="#slick-nav-2">
-                    <% List<Product> products = ProductService.getAllProduct();
-                        for (Product item: products
+                    <%
+                        for (Product item: listProduct
                         ) { %>
                     <!-- product -->
                     <div class="product">
