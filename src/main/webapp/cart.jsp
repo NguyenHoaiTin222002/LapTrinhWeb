@@ -113,7 +113,10 @@
                 <td>
                     <input id="price_<%=cart.getIdCart()%>" type="number" value="<%=moneyNew%>" hidden >
                     <p id="tatol_<%=cart.getIdCart()%>" class="cart-table-tatol"><%= Fomat.fomatCurrency(moneyNew*cart.getAmount()) %></p></td>
-                <td><button class=" btn cart-table-delete"><i class="fa fa-trash"></i></button></td>
+                <td>
+                    <a href="DeleteCart?idDeleteCart=<%=cart.getIdCart()%>">  <button class=" btn cart-table-delete"><i class="fa fa-trash"></i>
+                    </button> </a>
+                </td>
 
             </tr>
 
