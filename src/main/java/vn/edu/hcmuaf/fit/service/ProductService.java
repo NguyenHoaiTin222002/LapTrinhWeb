@@ -136,18 +136,56 @@ public class ProductService {
         }
         return arr;
     }
+
     //;
-    public static boolean UpdateAmountProductByidProduct(int idProduct,int amount){
+    public static boolean UpdateAmountProductByidProduct(int idProduct,int amount) {
         Statement statement = DBConnect.getInstance().get();
-        if(statement != null ){
+        if (statement != null) {
             try {
                 String sql = "UPDATE `product` SET `amountProduct`= (amountProduct - ?) WHERE idProduct = ?";
-                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
                 ps.setInt(1, amount);
                 ps.setInt(2, idProduct);
                 ps.executeUpdate();
                 return true;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("lỗi kết nối");
+        }
+        return false;
+    }
 
+
+    public static List<Product> getByCateId(int id){
+        List<Product> list = new ArrayList<>();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql="SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+                        ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct where i.idImg%4=0 and p.idCategory = ?";
+
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,id);
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                    Product product = new Product();
+                    product.setIdProduct(rs.getInt("idProduct"));
+                    product.setNameProduct(rs.getString("nameProduct"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setAmountProduct(rs.getInt("amountProduct"));
+                    product.setAmountSoldProduct(rs.getInt("amountSoldProduct"));
+                    product.setNewProduct(rs.getInt("new"));
+                    product.setSale(rs.getInt("sale"));
+                    product.setProducer(rs.getString("producer"));
+                    product.setBlockProduct(rs.getInt("blockProduct"));
+                    product.setDiscription(rs.getString("discription"));
+                    product.setImg(rs.getString("ImgLink"));
+                    list.add(product);
+
+                }
 
             }catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -155,12 +193,10 @@ public class ProductService {
         }else {
             System.out.println("lỗi kết nối");
         }
-        return false;
+        return list;
 
     }
 
-    public static void main(String[] args) {
 
-    }
 
 }
