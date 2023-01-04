@@ -37,7 +37,7 @@
 
 
     <!-- User Menu-->
-    <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+    <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
     </li>
   </ul>
@@ -59,7 +59,7 @@
           <div class="row element-button">
             <div class="col-sm-2">
 
-              <a class="btn btn-add btn-sm" href="form-add-san-pham.html" title="Thêm"><i class="fas fa-plus"></i>
+              <a class="btn btn-add btn-sm" href="form-add-san-pham.jsp" title="Thêm"><i class="fas fa-plus"></i>
                 Tạo mới sản phẩm</a>
             </div>
 

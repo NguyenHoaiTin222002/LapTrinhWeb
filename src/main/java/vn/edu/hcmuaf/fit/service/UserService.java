@@ -19,7 +19,7 @@ public class UserService {
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                ResultSet rs =   statement.executeQuery("SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` ");
+                ResultSet rs =   statement.executeQuery("SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` WHERE user.stutas !=0");
                while (rs.next()){
                   User user = new User();
                   user.setIdUser(rs.getInt("IdUser"));

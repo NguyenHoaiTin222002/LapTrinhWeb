@@ -36,7 +36,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -92,13 +92,13 @@
                             <td><%=item.getGender()%></td>
                             <td><%=item.getPhone()%></td>
 
-                            <td class="table-td-center">
-                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                            <td>
+                                <button class="btn btn-primary btn-sm trash" type="button"  title="Xóa" data-id="<%=item.getIdUser()%>"
                                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                                 </button>
-                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                                </button>
+                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
+                                        data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
                             </td>
                         </tr>
                         <%}%>
@@ -295,6 +295,8 @@ MODAL
 <script src="./assets/js/popper.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="./assets/js/main1.js"></script>
 
@@ -307,25 +309,39 @@ MODAL
 <script>
     function deleteRow(r) {
         var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("myTable").deleteRow(i);
+        console.log( document.getElementById("sampleTable"));
+        document.getElementById("sampleTable").deleteRow(i);
     }
     jQuery(function () {
         jQuery(".trash").click(function () {
+            var idProduct = $(this).data("id");
             swal({
                 title: "Cảnh báo",
 
-                text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
+                text: "Bạn có chắc chắn là muốn xóa khách hàng này?" ,
                 buttons: ["Hủy bỏ", "Đồng ý"],
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal("Đã xóa thành công!", {
+                        deleteRow(this);
 
+                        $.ajax({
+                            url: 'DeleteKHAdmin',
+                            type: 'get',
+                            cache: false,
+                            data: { idProduct:idProduct} ,
+
+                            success: function (data) {
+                                alert("Đã xóa thành công.!")
+                            },
+                            error: function () {
+                                alert("error");
+                            }
                         });
                     }
+
                 });
         });
-    });
     oTable = $('#sampleTable').dataTable();
     $('#all').click(function (e) {
         $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
