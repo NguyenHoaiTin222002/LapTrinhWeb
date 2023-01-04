@@ -37,7 +37,7 @@
 
 
     <!-- User Menu-->
-    <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+    <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
     </li>
   </ul>
@@ -96,13 +96,18 @@
               <td><%=item.getGender()%></td>
               <td><%=item.getPhone()%></td>
               <td>Bán hàng</td>
+<<<<<<< HEAD
+              <td>
+                <button class="btn btn-primary btn-sm trash" type="button"  title="Xóa" data-id="<%=item.getIdUser()%>"
+=======
               <td class="table-td-center">
-                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdUser()%>"
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                 </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"
-                        data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i>
-                </button>
+                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
+                        data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+
               </td>
             </tr>
             <%}%>
@@ -110,7 +115,7 @@
               <td width="10"><input type="checkbox" name="check2" value="2"></td>
               <td>#SX22837</td>
               <td>Trần Khả Ái</td>
-              <td><img class="img-card-person" src="../main/assets/img/img-anhthe/2.jpg" alt=""></td>
+              <td><img class="img-card-person" src="./assets/img/img-anhthe/2.jpg" alt=""></td>
               <td>6 Nguyễn Lương Bằng, Tân Phú, Quận 7, Hồ Chí Minh</td>
               <td>22/12/1999</td>
               <td>Nữ</td>
@@ -290,26 +295,44 @@ MODAL
 -->
 
 <!-- Essential javascripts for application to work-->
-<script src="../main/assets/js/bootstrap1.min.js"></script>
-<script src="../main/assets/js/jquery-3.2.1.min.js"></script>
-<script src="../main/assets/js/popper.min.js"></script>
-<script src="../main/assets/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+<script src="./assets/js/bootstrap1.min.js"></script>
+<script src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
-<script src="../main/assets/js/main1.js"></script>
+<script src="./assets/js/main1.js"></script>
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
-<script type="text/javascript" src="../main/assets/js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../main/assets/js/plugins/dataTables.bootstrap.min.js"></script>
+=======
+<script src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="./assets/js/bootstrap1.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="src/jquery.table2excel.js"></script>
+<script src="./assets/js/main1.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
+<script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
   function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("myTable").deleteRow(i);
+    console.log( document.getElementById("sampleTable"));
+    document.getElementById("sampleTable").deleteRow(i);
   }
   jQuery(function () {
     jQuery(".trash").click(function () {
+      var idProduct = $(this).data("id");
       swal({
         title: "Cảnh báo",
 
@@ -318,77 +341,110 @@ MODAL
       })
               .then((willDelete) => {
                 if (willDelete) {
-                  swal("Đã xóa thành công!", {
+                  deleteRow(this);
+<<<<<<< HEAD
+=======
 
+                  $.ajax({
+                    url: 'DeleteTableAdmin',
+                    type: 'get',
+                    cache: false,
+                    data: {idUser: idUser},
+
+                    success: function (data) {
+                      alert("Đã xóa thành công.!")
+                    },
+                    error: function () {
+                      alert("error");
+                    }
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
+
+                  $.ajax({
+                    url: 'DeleteProductAdmin',
+                    type: 'get',
+                    cache: false,
+                    data: {idProduct: idProduct},
+
+                    success: function (data) {
+                      alert("Đã xóa thành công.!")
+                    },
+                    error: function () {
+                      alert("error");
+                    }
                   });
                 }
+<<<<<<< HEAD
+
               });
+=======
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
     });
-  });
-  oTable = $('#sampleTable').dataTable();
-  $('#all').click(function (e) {
-    $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
-    e.stopImmediatePropagation();
-  });
+  }
+    oTable = $('#sampleTable').dataTable();
+    $('#all').click(function (e) {
+      $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+      e.stopImmediatePropagation();
+    });
 
 
-
-  //Thời Gian
-  function time() {
-    var today = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Chủ Nhật";
-    weekday[1] = "Thứ Hai";
-    weekday[2] = "Thứ Ba";
-    weekday[3] = "Thứ Tư";
-    weekday[4] = "Thứ Năm";
-    weekday[5] = "Thứ Sáu";
-    weekday[6] = "Thứ Bảy";
-    var day = weekday[today.getDay()];
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    nowTime = h + " giờ " + m + " phút " + s + " giây";
-    if (dd < 10) {
-      dd = '0' + dd
-    }
-    if (mm < 10) {
-      mm = '0' + mm
-    }
-    today = day + ', ' + dd + '/' + mm + '/' + yyyy;
-    tmp = '<span class="date"> ' + today + ' - ' + nowTime +
-            '</span>';
-    document.getElementById("clock").innerHTML = tmp;
-    clocktime = setTimeout("time()", "1000", "Javascript");
-
-    function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i;
+    //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
       }
-      return i;
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+              '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
     }
-  }
-  //In dữ liệu
-  var myApp = new function () {
-    this.printTable = function () {
-      var tab = document.getElementById('sampleTable');
-      var win = window.open('', '', 'height=700,width=700');
-      win.document.write(tab.outerHTML);
-      win.document.close();
-      win.print();
+
+    //In dữ liệu
+    var myApp = new function () {
+      this.printTable = function () {
+        var tab = document.getElementById('sampleTable');
+        var win = window.open('', '', 'height=700,width=700');
+        win.document.write(tab.outerHTML);
+        win.document.close();
+        win.print();
+      }
     }
-  }
 
 
-  //Modal
-  $("#show-emp").on("click", function () {
-    $("#ModalUP").modal({ backdrop: false, keyboard: false })
-  });
+    //Modal
+    $("#show-emp").on("click", function () {
+      $("#ModalUP").modal({backdrop: false, keyboard: false})
+    });
+
 </script>
 </body>
 </html>

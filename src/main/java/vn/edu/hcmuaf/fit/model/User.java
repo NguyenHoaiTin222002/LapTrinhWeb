@@ -19,6 +19,9 @@ public class User implements Serializable {
 
     }
 
+    public User(String fullName, String address, String email, String phone, String imgs, int gender, String birthday, int idUser) {
+    }
+
     public int getIdUser() {
         return idUser;
     }

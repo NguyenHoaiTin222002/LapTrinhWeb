@@ -36,7 +36,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -61,44 +61,49 @@
 
                 </div>
                 <div class="content-form-bot">
-                    <form>
+                    <form action="/UpdateFileUser" method="post">
                         <div class="form-group">
                             <div class="profile">
-                                <img src="<%=user.getImg()%>" alt="" class="img-fluid rounded-circle">
+                                <img src="<%=user.getImg()%>"
+                                     alt="" class="img-fluid rounded-circle">
+<%--                                <form action="UploadImgAvatar" id="frmUploadPhoto"--%>
+<%--                                      enctype="multipart/form-data" method="post">--%>
                                 <button type="button" class="btn btn-user-img " >Chọn Ảnh</button>
+<%--                                <input class="input-cover-photo" type="file" id="userCoverPhoto" name="userCoverPhoto"/>--%>
+<%--                                </form>--%>
                             </div>
                         </div>
                         <div class="user-form-layout">
                             <div class="form-group   ">
                                 <label >Họ Tên</label>
-                                <input type="text" value="<%=user.getFullName()%>" class="form-control" id="userFormInputName1" aria-describedby="NameHelp" placeholder="Nhập Họ Tên">
+                                <input type="text" name="fullName" value="<%=user.getFullName()%>" class="form-control" id="userFormInputName1" aria-describedby="NameHelp" placeholder="Nhập Họ Tên">
 
                             </div>
                             <div class="form-group ">
                                 <label >SĐT</label>
-                                <input type="text" value="<%=user.getPhone()%>" class="form-control" id="userFormInputPhone1" aria-describedby="PhoneHelp" placeholder="Nhập Số Điện Thoại">
+                                <input type="text" name="phone" value="<%=user.getPhone()%>" class="form-control" id="userFormInputPhone1" aria-describedby="PhoneHelp" placeholder="Nhập Số Điện Thoại">
                             </div>
                         </div>
                         <div class="form-group">
                             <label >Email</label>
-                            <input type="email"  value="<%=user.getEmail()%>" class="form-control" id="userFormInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
+                            <input type="email" name="email" value="<%=user.getEmail()%>" class="form-control" id="userFormInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Email">
 
                         </div>
                         <div class="form-group">
                             <label >Địa Chỉ</label>
-                            <input type="email" value="<%=user.getAddress()%>" class="form-control" id="userFormInputAddress1" aria-describedby="emailHelp" placeholder="Nhập Địa Chỉ">
+                            <input type="text" name="address" value="<%=user.getAddress()%>" class="form-control" id="userFormInputAddress1" aria-describedby="emailHelp" placeholder="Nhập Địa Chỉ">
 
                         </div>
                         <div class="user-form-layout">
                             <label >Giới tính:</label>
                             <div class="form-check user-form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="option1" <%=user.getGender()==0? "checked":" "%>>
+                                <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="0" <%=user.getGender()==0? "checked":" "%>>
                                 <label class="form-check-label" for="exampleRadios1">
                                     Nam
                                 </label>
                             </div>
                             <div class="form-check user-form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="option2" <%=user.getGender()==0? "checked":" "%>>
+                                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="1" <%=user.getGender()==0? "checked":" "%>>
                                 <label class="form-check-label" for="exampleRadios2">
                                     Nữ
                                 </label>
@@ -127,16 +132,15 @@
                                 <% } %>
                             </select>
 
-
                         </div>
 
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-form-user">Sửa Hồ Sơ</button>
+                            <button name="action" value="update-profile" type="submit" class="btn btn-primary btn-form-user">Sửa Hồ Sơ</button>
 
                         </div>
-                    </form>]
+                    </form>
                 </div>
             </div>
         </div>
@@ -229,7 +233,13 @@ MODAL
 <script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
+
 <script>
+    $(function (){
+        $('#userCoverPhoto').change(function (){
+            $('#frmUploadPhoto').submit();
+        });
+    });
     function deleteRow(r) {
         var i = r.parentNode.parentNode.rowIndex;
         document.getElementById("myTable").deleteRow(i);

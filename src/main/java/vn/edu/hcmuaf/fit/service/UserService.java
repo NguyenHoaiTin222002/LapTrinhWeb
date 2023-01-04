@@ -1,15 +1,13 @@
 package vn.edu.hcmuaf.fit.service;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.uilt.Email;
 import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.uilt.EnCode;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Date;
 import java.util.List;
 
 public class UserService {
@@ -19,7 +17,11 @@ public class UserService {
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                ResultSet rs =   statement.executeQuery("SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` ");
+<<<<<<< HEAD
+                ResultSet rs =   statement.executeQuery("SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` WHERE user.stutas !=0");
+=======
+                ResultSet rs =   statement.executeQuery("SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` WHERE stutas!=0");
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                while (rs.next()){
                   User user = new User();
                   user.setIdUser(rs.getInt("IdUser"));
@@ -170,31 +172,104 @@ public class UserService {
 
     }
 
-    public  static  void updateUser(int idUser,String fullName, String address, String email, String phone, String img, int gender, String birthday){
+    public  static User updateUser(User user){
 
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                String sql = "UPDATE `user` SET `fullName`= ? ,`address`= ?,`email`=?,`phone`=?,`img`=?,`gender`=?,`birthday`=? WHERE `idUser`=?";
-                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
-                ps.setString(1,fullName);
-                ps.setString(2, address);
-                ps.setString(3 ,email);
-                ps.setString(4, phone);
-                ps.setString(5,img);
-                ps.setInt(6,gender);
-                ps.setString(7,birthday);
-                ps.setInt(8,idUser);
+//                String sql = "UPDATE `user` SET `fullName`= ? ,`address`= ?,`email`=?,`phone`=?,  `img`=?,`gender`=?,`birthday`=? WHERE `idUser`=?";
+//                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+//                ps.setString(1,fullName);
+//                ps.setString(2, address);
+//                ps.setString(3 ,email);
+//                ps.setString(4, phone);
+//
+//                ps.setString(5,img);
+//
+//                ps.setInt(6,gender);
+//                ps.setString(7,birthday);
+//                ps.setInt(8,idUser);
+                String sql = "UPDATE user SET fullName= ? ,address= ?,email=?,phone=?,img=?,gender=?,birthday=? WHERE idUser=?";
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
+                ps.setString(1, user.getFullName());
+                ps.setString(2, user.getAddress());
+                ps.setString(3, user.getEmail());
+                ps.setString(4, user.getPhone());
+                ps.setString(5, user.getImg());
+                ps.setInt(6, user.getGender());
+                ps.setDate(7, (Date) user.getBirthday());
+                ps.setInt(8, user.getIdUser());
+
+
                 ps.executeUpdate();
 
-
             }catch (SQLException e) {
-                throw new RuntimeException(e);
+               e.printStackTrace();
             }
         }else {
             System.out.println("lỗi kết nối");
         }
 
+        return null;
+    }
+    public static void deleteUser(int idUser) {
+        Statement statement = DBConnect.getInstance().get();
+        if (statement != null) {
+            try {
+                String sql = "UPDATE user SET user.stutas = 0 WHERE user.idUser=?";
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
+                ps.setInt(1, idUser);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("lỗi kết nối");
+        }
+    }
+    public static byte[] getImgageData(int idUser){
+        Statement statement = DBConnect.getInstance().get();
+        try{
+            String select = "select img from user where idUser=?";
+            PreparedStatement ps = statement.getConnection().prepareStatement(select);
+            ps.setInt(1, idUser);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return  rs.getBytes("img");
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    public static boolean updateAvatar(InputStream inputStream, int idUser){
+        Statement statement = DBConnect.getInstance().get();
+        try {
+            String update = "update user set img=? where idUser=?";
+            PreparedStatement ps = statement.getConnection().prepareStatement(update);
+            ps.setBlob(1, inputStream);
+            ps.setInt(2, idUser);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    public static void deleteUser(int idUser) {
+        Statement statement = DBConnect.getInstance().get();
+        if (statement != null) {
+            try {
+                String sql = "UPDATE user SET user.stutas = 0 WHERE user.idUser=?";
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
+                ps.setInt(1, idUser);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("lỗi kết nối");
+        }
     }
     public static void main(String[] args) {
     }

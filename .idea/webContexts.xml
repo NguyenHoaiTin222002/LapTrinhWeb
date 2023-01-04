@@ -6,8 +6,11 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/cart.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/forgot_upPassword.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/product.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/sign_up.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+=======
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
         <entry key="file://$PROJECT_DIR$/src/main/webapp/table-data-product.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
