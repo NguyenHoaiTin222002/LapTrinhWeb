@@ -86,7 +86,7 @@
                     <div class="store-sort">
                         <label>
                             Sắp xếp theo:
-                            <select class="input-select input-sort ">
+                            <select id="sort" class="input-select input-sort ">
                                 <option value="0">giá nhỏ đó lớn</option>
                                 <option value="1">giá từ lớn đền nhỏ</option>
                                 <option value="2">xếp từ A - Z</option>
