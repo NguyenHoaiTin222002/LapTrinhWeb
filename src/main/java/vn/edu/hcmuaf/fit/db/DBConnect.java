@@ -9,7 +9,7 @@ public class DBConnect {
     String password = "";
 
 
-    Connection connection;
+    static Connection connection;
     static DBConnect ins;
     private  DBConnect(){
 
@@ -28,6 +28,18 @@ public class DBConnect {
         return  ins;
 
     }
+
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        if(connection != null){
+            return connection;
+        } else {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop","root","");
+
+        }
+        return connection;
+    }
+
     public Statement get(){
         if(connection == null) return  null;
         try {

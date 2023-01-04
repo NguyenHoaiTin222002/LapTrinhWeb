@@ -21,7 +21,7 @@
     <% String name = (String) request.getSession().getAttribute("fullName");%>
     <% String img = (String) request.getSession().getAttribute("imgUser");%>
     <% Integer id = (Integer)request.getSession().getAttribute("idUser") ;%>
-     <% List< Category> categoryList =  CategoryService.getAllCatery(); %>
+    <% List< Category> categoryList =  CategoryService.getAllCatery(); %>
     <% List<Cart> cartList = new ArrayList<>(); %>
 <%--    <%if(id != null){ %>--%>
 <%--    <% cartList = CartService.getAllCartByIDUser(id); %>--%>

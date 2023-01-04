@@ -8,11 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ProductService {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
     public void updateProduct(int idProduct, String nameProduct, double price, int amountProduct, int blockProduct, int sale, int idCategory) {
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
@@ -54,6 +59,11 @@ public class ProductService {
         }
 
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
     public static List<Product> getAllProduct(){
         List<Product> list = new ArrayList<>();
         Statement statement = DBConnect.getInstance().get();
@@ -61,7 +71,11 @@ public class ProductService {
             try {
                 ResultSet rs =
                         statement.executeQuery("SELECT p.idProduct,p.nameProduct,p.price,p.amountProduct,p.amountSoldProduct,p.sale,p.new,p.producer,p.blockProduct" +
+<<<<<<< HEAD
                                 ",p.discription,p.idCategory,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct where i.idImg%4=0 and blockProduct != 0");
+=======
+                                ",p.discription,i.ImgLink from product as p JOIN img as i on p.idProduct = i.IdProduct where i.idImg%4=0 and blockProduct != 0 ");
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                 while (rs.next()){
                 Product product = new Product();
                 product.setIdProduct(rs.getInt("idProduct"));
@@ -237,6 +251,7 @@ public class ProductService {
         return list;
 
     }
+
 
 
 

@@ -96,8 +96,13 @@
               <td><%=item.getGender()%></td>
               <td><%=item.getPhone()%></td>
               <td>Bán hàng</td>
+<<<<<<< HEAD
               <td>
                 <button class="btn btn-primary btn-sm trash" type="button"  title="Xóa" data-id="<%=item.getIdUser()%>"
+=======
+              <td class="table-td-center">
+                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdUser()%>"
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                 </button>
                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
@@ -290,6 +295,7 @@ MODAL
 -->
 
 <!-- Essential javascripts for application to work-->
+<<<<<<< HEAD
 <script src="./assets/js/bootstrap1.min.js"></script>
 <script src="./assets/js/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/popper.min.js"></script>
@@ -302,6 +308,19 @@ MODAL
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
+=======
+<script src="./assets/js/jquery-3.2.1.min.js"></script>
+<script src="./assets/js/bootstrap1.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="src/jquery.table2excel.js"></script>
+<script src="./assets/js/main1.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
 <script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
@@ -323,6 +342,22 @@ MODAL
               .then((willDelete) => {
                 if (willDelete) {
                   deleteRow(this);
+<<<<<<< HEAD
+=======
+
+                  $.ajax({
+                    url: 'DeleteTableAdmin',
+                    type: 'get',
+                    cache: false,
+                    data: {idUser: idUser},
+
+                    success: function (data) {
+                      alert("Đã xóa thành công.!")
+                    },
+                    error: function () {
+                      alert("error");
+                    }
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
 
                   $.ajax({
                     url: 'DeleteProductAdmin',
@@ -338,8 +373,11 @@ MODAL
                     }
                   });
                 }
+<<<<<<< HEAD
 
               });
+=======
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
     });
   }
     oTable = $('#sampleTable').dataTable();

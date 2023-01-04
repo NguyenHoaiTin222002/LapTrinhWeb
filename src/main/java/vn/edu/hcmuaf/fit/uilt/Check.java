@@ -87,12 +87,13 @@ public class Check {
         if("".equals(fullName.trim())){
             map.put("fullName","Chưa nhập Họ Tên");
         }
-        if("".equals(address.trim())){
-            map.put("address","Chưa nhập địa chỉ");
-        }
         if (!checkEmail(email)){
             map.put("email","chưa nhập email hoặc email sai");
         }
+        if("".equals(address.trim())){
+            map.put("address","Chưa nhập địa chỉ");
+        }
+
         if (!checkPhone(phone)){
             map.put("phone","chưa nhập số điện thoại hoặc số điện thoại ko đúng");
         }

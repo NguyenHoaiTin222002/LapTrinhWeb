@@ -43,6 +43,7 @@
 </header>
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <jsp:include page="menu-left.jsp"></jsp:include>
+
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
@@ -92,8 +93,13 @@
                             <td><%=item.getGender()%></td>
                             <td><%=item.getPhone()%></td>
 
+<<<<<<< HEAD
                             <td>
                                 <button class="btn btn-primary btn-sm trash" type="button"  title="Xóa" data-id="<%=item.getIdUser()%>"
+=======
+                            <td class="table-td-center">
+                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdUser()%>"
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                                         onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                                 </button>
                                 <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
@@ -294,8 +300,11 @@ MODAL
 <script src="./assets/js/jquery-3.2.1.min.js"></script>
 <script src="./assets/js/popper.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+=======
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="./assets/js/main1.js"></script>
@@ -314,11 +323,19 @@ MODAL
     }
     jQuery(function () {
         jQuery(".trash").click(function () {
+<<<<<<< HEAD
             var idProduct = $(this).data("id");
             swal({
                 title: "Cảnh báo",
 
                 text: "Bạn có chắc chắn là muốn xóa khách hàng này?" ,
+=======
+            var idUser = $(this).data("id");
+            swal({
+                title: "Cảnh báo",
+
+                text: "Bạn có chắc chắn là muốn xóa khách hàng này?",
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
                 buttons: ["Hủy bỏ", "Đồng ý"],
             })
                 .then((willDelete) => {
@@ -329,7 +346,11 @@ MODAL
                             url: 'DeleteKHAdmin',
                             type: 'get',
                             cache: false,
+<<<<<<< HEAD
                             data: { idProduct:idProduct} ,
+=======
+                            data: { idUser:idUser} ,
+>>>>>>> 6439d1d2043f1a04f9c99a73f3213d304edf10a7
 
                             success: function (data) {
                                 alert("Đã xóa thành công.!")
