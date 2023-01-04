@@ -196,6 +196,21 @@ public class UserService {
         }
 
     }
+    public static void deleteUser(int idUser) {
+        Statement statement = DBConnect.getInstance().get();
+        if (statement != null) {
+            try {
+                String sql = "UPDATE user SET user.stutas = 0 WHERE user.idUser=?";
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
+                ps.setInt(1, idUser);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            System.out.println("lỗi kết nối");
+        }
+    }
     public static void main(String[] args) {
     }
 

@@ -99,10 +99,11 @@
               <td><%=item.getPrice()%> đ</td>
               <td>Tập</td>
 
-              <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" data-id="<%=item.getIdProduct()%>" data-toggle="modal" data-target="#ModalDelete"
-                         ><i class="fas fa-trash-alt"  ></i>
-              </button>
-                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"  id="e" data-toggle="modal"
+              <td>
+                <button class="btn btn-primary btn-sm trash" type="button"  title="Xóa" data-id="<%=item.getIdProduct()%>"
+                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                </button>
+                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal"
                         data-target="#ModalUP"><i class="fas fa-edit"></i></button>
 
               </td>
@@ -270,6 +271,7 @@
 <script src="./assets/js/popper.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="./assets/js/main1.js"></script>
 
@@ -282,32 +284,39 @@
 <script>
   function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
-    console.log("row" + i);
-    document.getElementById("myTable").deleteRow(i);
+    console.log( document.getElementById("sampleTable"));
+    document.getElementById("sampleTable").deleteRow(i);
   }
   jQuery(function () {
     jQuery(".trash").click(function () {
-      console.log($(this));
-      var CV_MA = $(this).data('id');
-      console.log(CV_MA)
-      deleteRow(this);
+      var idProduct = $(this).data("id");
       swal({
-
         title: "Cảnh báo",
 
-        text: "Bạn có chắc chắn là muốn xóa nhân viên này? " + id,
+        text: "Bạn có chắc chắn là muốn xóa sản phẩm này?" ,
         buttons: ["Hủy bỏ", "Đồng ý"],
       })
               .then((willDelete) => {
                 if (willDelete) {
+                  deleteRow(this);
 
-                  swal("Đã xóa thành công.!", {
+                  $.ajax({
+                    url: 'DeleteProductAdmin',
+                    type: 'get',
+                    cache: false,
+                    data: { idProduct:idProduct} ,
 
+                    success: function (data) {
+                      alert("Đã xóa thành công.!")
+                    },
+                    error: function () {
+                      alert("error");
+                    }
                   });
                 }
+
               });
     });
-  });
   oTable = $('#sampleTable').dataTable();
   $('#all').click(function (e) {
     $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));

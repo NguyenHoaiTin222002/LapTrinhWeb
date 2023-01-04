@@ -23,9 +23,9 @@
     <% Integer id = (Integer)request.getSession().getAttribute("idUser") ;%>
      <% List< Category> categoryList =  CategoryService.getAllCatery(); %>
     <% List<Cart> cartList = new ArrayList<>(); %>
-    <%if(id != null){ %>
-    <% cartList = CartService.getAllCartByIDUser(id); %>
-    <%}%>
+<%--    <%if(id != null){ %>--%>
+<%--    <% cartList = CartService.getAllCartByIDUser(id); %>--%>
+<%--    <%}%>--%>
     <% double total = 0;%>
     <!-- TOP HEADER -->
     <div id="top-header">
