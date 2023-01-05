@@ -87,10 +87,10 @@
                         <label>
                             Sắp xếp theo:
                             <select id="sort" class="input-select input-sort ">
-                                <option value="0">giá nhỏ đó lớn</option>
-                                <option value="1">giá từ lớn đền nhỏ</option>
-                                <option value="2">xếp từ A - Z</option>
-                                <option value="3">cếp từ Z - A</option>
+                                <option value="list-product?sort_by=tangdan">giá nhỏ đó lớn</option>
+                                <option value="list-product?sort_by=giamdan">giá từ lớn đền nhỏ</option>
+                                <option value="list-product?sort_by=kytu-az">xếp từ A - Z</option>
+                                <option value="list-product?sort_by=tangdan">Xếp từ Z - A</option>
                             </select>
                         </label>
 
@@ -109,66 +109,30 @@
                 <div class="aside">
 
                     <h3 class="aside-title">Sản Phẩm</h3>
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="../main/weba./assets/img/ImgProduct/GIayIn/GiayIn3.jpg" alt="">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name"><a href="product.html">Giấy phân trang mũi tên 5 màu Pronoti
-                            </a></h3>
-                            <h4 class="product-price">180.000đ <del class="product-old-price">220.000đ</del></h4>
-                        </div>
-                    </div>
-                    <!-- product widget -->
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="../main/weba./assets/img/ImgProduct/KeoDao/KeoDao1.jpg" alt="">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name"><a href="product.html">Lưỡi dao rọc giấy nhỏ 30 độ Deli - 2015
-                            </a></h3>
-                            <h4 class="product-price">180.000đ <del class="product-old-price">390.000đ</del></h4>
-                        </div>
-                    </div>
-                    <!-- /product widget -->
 
-                    <!-- product widget -->
+                    <% List<Product> products = ProductService.getAllProductByIdCategory(5,1,"new");
+                        for (Product item: products
+                        ) { %>
                     <div class="product-widget">
                         <div class="product-img">
-                            <img src="../main/weba./assets/img/ImgProduct/KeoDao/KeoDao2.jpg" alt="">
+                            <img src="<%=item.getImg()%>" alt="">
+                            <div class="product-label">
+                                <span class="sale <%=item.getSale() > 0 ?""  :"displayNone"%>">-<%= item.getSale() %>%</span>
+                                <span class="new <%=item.getNewProduct() != 1 ? "displayNone":""%>">NEW</span>
+                            </div>
                         </div>
                         <div class="product-body">
-                            <h3 class="product-name"><a href="product.html">Kéo Thiên Long SC019 - 16cm
-                            </a></h3>
-                            <h4 class="product-price">280.000đ <del class="product-old-price">390.000đ</del></h4>
-                        </div>
-                    </div>
-                    <!-- /product widget -->
-                    <!-- product widget -->
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="../main/weba./assets/img/ImgProduct/GIayIn/GiayIn6.jpg" alt="">
-                        </div>
-                        <div class="product-body">
-                            <h3 class="product-name"><a href="product.html">Decal số thứ tự
-                            </a></h3>
-                            <h4 class="product-price">180.000đ <del class="product-old-price">220.000đ</del></h4>
-                        </div>
-                    </div>
-                    <!-- /product widget -->
+                            <h3 class="product-name"><a href="Product?id=<%=item.getIdProduct()%>"><%=item.getNameProduct()%></a></h3>
+                            <%double moneyNew = Math.floor(item.getPrice() - item.getPrice()*0.01*item.getSale());%>
+                            <h4 class="product-price"><%=Fomat.fomatCurrency(moneyNew)%>
+                                <del class="product-old-price <%=item.getSale() > 0 ? "":"displayNone"%> "><%=Fomat.fomatCurrency(item.getPrice())%> </del></h4>
+                            <h4 class="product-sold">đã bán: <%= item.getAmountProduct()%> <div class="product-old-remaining">còn lại:<%= item.getAmountSoldProduct()%> </div></h4>
 
-                    <!-- product widget -->
-                    <div class="product-widget">
-                        <div class="product-img">
-                            <img src="../main/weba./assets/img/ImgProduct/GIayIn/GiayIn7.jpg" alt="">
                         </div>
-                        <div class="product-body">
-                            <h3 class="product-name"><a href="product.html">Giấy Note trình ký Sign here Pronoti
-                            </a></h3>
-                            <h4 class="product-price">280.000đ <del class="product-old-price">320.000đ</del></h4>
-                        </div>
+
                     </div>
-                    <!-- /product widget -->
+                    <!-- product widget -->
+                    <%}%>
 
 
                 </div>
@@ -187,30 +151,35 @@
                         for (Product p: listP
                         ) { %>
                     <div class="col-md-3 col-xs-6">
+
+
+                        <!-- product -->
+
                         <div class="product">
                             <div class="product-img">
-                                <img src="" alt="">
+                                <img src="<%=p.getImg()%>" alt="">
                                 <div class="product-label">
-                                    <span class="new">NEW</span>
+                                    <span class="sale <%=p.getSale() > 0 ?""  :"displayNone"%>">-<%= p.getSale() %>%</span>
+                                    <span class="new <%=p.getNewProduct() != 1 ? "displayNone":""%>">NEW</span>
                                 </div>
                             </div>
                             <div class="product-body">
-                                <h3 class="product-name"><a href="product.jsp"><%= p.getNameProduct()%></a></h3>
+                                <h3 class="product-name"><a href="Product?id=<%=p.getIdProduct()%>"><%= p.getNameProduct()%></a></h3>
+                                <%double moneyNew = Math.floor(p.getPrice() - p.getPrice()*0.01*p.getSale());%>
 
-
-                                <h4 class="product-price"><%= p.getPrice()%><span>đ</span> </h4>
+                                <h4 class="product-price"><%=Fomat.fomatCurrency(moneyNew)%>
+                                    <del class="product-old-price <%=p.getSale() > 0 ? "":"displayNone"%> "><%=Fomat.fomatCurrency(p.getPrice())%> </del></h4>
                                 <h4 class="product-sold">đã bán:<%= p.getAmountSoldProduct()%>  <div class="product-old-remaining">còn lại:<%=p.getAmountProduct()%></div></h4>
 
                             </div>
                             <div class="add-to-cart">
-                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-                            </div>
+                                <a href="/InsetCart?idProductCart=<%=p.getIdProduct()%>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button></a>                            </div>
                         </div>
+
+
+
                     </div>
                     <%}%>
-
-
-
 
                     <!-- /store products -->
 
