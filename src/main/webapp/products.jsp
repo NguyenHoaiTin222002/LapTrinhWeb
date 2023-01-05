@@ -87,10 +87,11 @@
                         <label>
                             Sắp xếp theo:
                             <select id="sort" class="input-select input-sort ">
-                                <option value="list-product?sort_by=tangdan">giá nhỏ đó lớn</option>
-                                <option value="list-product?sort_by=giamdan">giá từ lớn đền nhỏ</option>
-                                <option value="list-product?sort_by=kytu-az">xếp từ A - Z</option>
-                                <option value="list-product?sort_by=tangdan">Xếp từ Z - A</option>
+                                <option value="">Sắp xếp</option>
+                                <option value="?sort_by=tangdan">Giá nhỏ đến lớn</option>
+                                <option value="?sort_by=giamdan">Giá từ lớn đến nhỏ</option>
+                                <option value="?sort_by=kytu-az">Xếp từ A - Z</option>
+                                <option value="?sort_by=kytu-za">Xếp từ Z - A</option>
                             </select>
                         </label>
 
