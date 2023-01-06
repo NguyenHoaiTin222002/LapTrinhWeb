@@ -23,7 +23,7 @@ public class listProduct extends HttpServlet {
 
         ProductService ps = new ProductService();
 
-        list1 =ps.getAllProduct();
+        list1 = ps.getAllProduct();
         int page = 1 , numberPage=20;
 
         int size = list1.size();

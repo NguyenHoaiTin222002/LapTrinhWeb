@@ -25,9 +25,6 @@ public class cateControl extends HttpServlet {
             id = Integer.parseInt(cateID);
         }
 
-
-
-
         List<Product> list1 =ProductService.getByCateId(id);
         int page , numberPage=20;
         int size = list1.size();

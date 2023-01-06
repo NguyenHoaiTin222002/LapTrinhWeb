@@ -127,7 +127,7 @@
 			tooltipFillColor: "rgba(0,0,0,0.8)",
 
 			// String - Tooltip label font declaration for the scale label
-			tooltipFontFamily: "inherit",
+			tooltipFontFamily:  "'Work Sans',sans-serif",
 
 			// Number - Tooltip label font size in pixels
 			tooltipFontSize: 14,

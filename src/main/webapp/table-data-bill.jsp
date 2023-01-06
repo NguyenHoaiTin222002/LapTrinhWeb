@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.model.Bill" %>
+<%@ page import="vn.edu.hcmuaf.fit.uilt.Fomat" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,21 +12,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Main CSS-->
-  <link rel="stylesheet" href="../main/assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="./assets/css/navBarUser.css">
   <!-- or -->
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
   <!-- Font-icon css-->
-  <link rel="stylesheet" type="text/css"
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
-
 </head>
-
+<% List<Bill> listBill = (List<Bill>) request.getAttribute("listBill");%>
 <body onload="time()" class="app sidebar-mini rtl">
   <!-- Navbar-->
   <header class="app-header">
@@ -33,42 +38,14 @@
 
 
       <!-- User Menu-->
-      <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+      <li><a class="app-nav__item" href="index.jsp"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
       </li>
     </ul>
   </header>
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-  <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../main/assets/img/AnhTin.jpg" width="50px"
-                                        alt="User Image">
-      <div>
-        <p class="app-sidebar__user-name"><b>Nguyễn Hoài Tín</b></p>
-        <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
-      </div>
-    </div>
-    </div>
-    <hr>
-    <ul class="app-menu">
-      <li><a class="app-menu__item" href="user.html"><i style ="font-size: 18px;" class='app-menu__icon fa fa-user-tie'></i><span
-              class="app-menu__label">Hồ Sơ</span></a></li>
-      <li><a class="app-menu__item active" href="table-data-bill.html"><i style ="font-size: 18px;" class='app-menu__icon fa fa-file-invoice-dollar'></i>
-        <span class="app-menu__label">Hóa Đơn</span></a></li>
-
-      <li><a class="app-menu__item " href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
-        <span class="app-menu__label">Quản lý nhân viên</span></a></li>
-      <li><a class="app-menu__item" href="table-data-kh.html"><i class='app-menu__icon bx bx-user-voice'></i><span
-              class="app-menu__label">Quản lý khách hàng</span></a></li>
-      <li><a class="app-menu__item" href="table-data-product.html"><i
-              class='app-menu__icon bx bx-purchase-tag-alt'>
-      </i><span class="app-menu__label">Quản lý sản phẩm</span></a>
-      </li>
-      <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
-              class="app-menu__label">Quản lý đơn hàng</span></a></li>
-
-    </ul>
-  </aside>
+    <jsp:include page="menu-left.jsp"></jsp:include>
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
@@ -104,86 +81,24 @@
                 <th>Tính năng</th>
               </tr>
               </thead>
-              <tbody>
+              <tbody
+              <%for (Bill item: listBill) { %>
               <tr>
                 <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>312.000 đ</td>
-                <td><span class="badge bg-warning"></span></td>
-                <td>02/11/2022</td>
+                <td><%=item.getIdBill()%></td>
+                <td><%=item.getFullName()%></td>
+                <td><%=item.getPhone()%></td>
+                <td><%=item.getAddress()%></td>
+                <td><%=Fomat.fomatCurrency(item.getPrice())%></td>
+                <td><span class="badge <%=item.getBlockBill()==1?"bg-warning":"bg-success"%> "><%=item.getBlockBill()==0?"Đang giao hàng":"Hoàn thành"%></span></td>
+                <td><%=item.getDayBooking()%></td>
 
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
+                <td><button class="btn btn-primary btn-sm trash" data-id="" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                   <a href="infoBill.html">   <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></a>
                 </td>
               </tr>
-              <tr>
-                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>61.000 đ</td>
-                <td><span class="badge bg-danger">Đã hủy</span></td>
-                <td>20/10/2022</td>
+               <%}%>
 
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></td>
-              </tr>
-              <tr>
-                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>435.000 đ</td>
-                <td><span class="badge bg-success">Hoàn thành</span></td>
-                <td>15/07/2021</td>
-
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></td>
-              </tr>
-              <tr>
-                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>37.000 đ</td>
-                <td><span class="badge bg-info">Chờ thanh toán</span></td>
-                <td>05/01/2021</td>
-
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></td>
-              </tr>
-              <tr>
-                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>19.770.000 đ</td>
-                <td><span class="badge bg-success"></span></td>
-                <td>20/11/2020</td>
-
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></td>
-              </tr>
-              <tr>
-                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                <td>MD0837</td>
-                <td>Nguyễn Hoài Tín</td>
-                <td>0354925338</td>
-                <td>KP Đông Hòa, Tx. Dĩ An, Bình Dương</td>
-                <td>180.000 đ</td>
-                <td><span class="badge bg-danger">Đã hủy</span></td>
-                <td>27/12/2019</td>
-
-                <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></td>
-              </tr>
               </tbody>
             </table>
           </div>
@@ -259,18 +174,20 @@
 -->
 
   <!-- Essential javascripts for application to work-->
-  <script src="../main/assets/js/jquery-3.2.1.min.js"></script>
-  <script src="../main/assets/js/popper.min.js"></script>
-  <script src="../main/assets/js/bootstrap1.min.js"></script>
+  <script src="./assets/js/bootstrap1.min.js"></script>
+  <script src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="src/jquery.table2excel.js"></script>
-  <script src="js/main.js"></script>
+
+  <script src="./assets/js/main1.js"></script>
 
   <!-- Page specific javascripts-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
   <!-- Data table plugin-->
-  <script type="text/javascript" src="../main/assets/js/plugins/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="../main/assets/js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="./assets/js/plugins/chart.js"></script>
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
   <script>
     function deleteRow(r) {
@@ -282,13 +199,13 @@
         swal({
           title: "Cảnh báo",
          
-          text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
+          text: "Bạn có muốn hủy đơn hàng này?",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
           .then((willDelete) => {
             if (willDelete) {
+
               swal("Đã xóa thành công.!", {
-                
               });
             }
           });
