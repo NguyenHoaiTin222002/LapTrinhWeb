@@ -132,7 +132,7 @@ public class UserService {
 
         if(user != null){
 
-            Email.sendMail(email,"Mật khẩu của bạn",user.getPassword());
+//            Email.sendMail(email,"Mật khẩu của bạn",user.getPassword());
             return true;
         }else {
             System.out.println("no account");
