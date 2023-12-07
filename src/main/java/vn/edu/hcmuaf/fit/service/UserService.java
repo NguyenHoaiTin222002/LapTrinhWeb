@@ -131,8 +131,8 @@ public class UserService {
         User user  = UserService.getUserByEmail(email);
 
         if(user != null){
-            String md5Hex = EnCode.getDecryptString(user.getPassword());
-            Email.sendMail(email,"Mật khẩu của bạn",md5Hex);
+
+            Email.sendMail(email,"Mật khẩu của bạn",user.getPassword());
             return true;
         }else {
             System.out.println("no account");

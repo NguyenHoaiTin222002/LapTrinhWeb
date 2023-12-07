@@ -37,7 +37,7 @@ public class Sign_Up extends HttpServlet {
 
         HttpSession  session = request.getSession();
         Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
-        String md5Hex = EnCode.getEncryptString(password.trim());
+        String md5Hex =  EnCode.checkksum(password.trim());
         birthday = Check.UpDate(birthday);
         if(checkSignUp.size()==0&&UserService.insertUser(userName,md5Hex,fullname,email,phone,address,gender,birthday)){
             // câu insert

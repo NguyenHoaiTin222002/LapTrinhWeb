@@ -30,9 +30,9 @@ public class Login extends HttpServlet {
              HttpSession  session = request.getSession();
              Integer idInfoProduct = (Integer) session.getAttribute("idInfoProduct");
 
-             String md5Hex = EnCode.getEncryptString(pass);
+             String md5Hex = EnCode.checkksum(pass);
              User user = UserService.getUserLogin(userName);
-             if(user.getPassword().trim().equals(md5Hex)){
+             if(md5Hex.equals(user.getPassword())){
 
                   session.setAttribute("User",user);
                  session.setAttribute("idUser",user.getIdUser());

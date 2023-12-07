@@ -41,8 +41,8 @@ public class Check {
     }
     public  static Map<String,String> checkUpPassWord(String userPassWord,String passOld,String passNew,String passNewReset){
         Map<String,String>  map = new HashMap<>();
-        String md5Hex = EnCode.getEncryptString(passOld);
-        String md5HexPass = EnCode.getEncryptString(passNew);
+        String md5Hex = EnCode.checkksum(passOld);
+        String md5HexPass = EnCode.checkksum(passNew);
         if(!userPassWord.trim().equals(md5Hex)){
             map.put("passOld","Nhập mật khẩu không đúng ");
         }
@@ -63,10 +63,10 @@ public class Check {
         if("".equals(fullName.trim())){
             map.put("fullName","Chưa nhập họ và tên");
         }
-        User user = UserService.getUserLogin(userName.trim());
-        if(user!=null){
-            map.put("userName","Tên tài khoản đã có đã được đăng kí, xin chọn tên khác");
-        }
+//        User user = UserService.getUserLogin(userName.trim());
+//        if(user!=null){
+//            map.put("userName","Tên tài khoản đã có đã được đăng kí, xin chọn tên khác");
+//        }
         if (!checkPassWord(password)){
             map.put("password","Mật khấu quá ngắn, phải ít nhất 6 kí tự");
         }

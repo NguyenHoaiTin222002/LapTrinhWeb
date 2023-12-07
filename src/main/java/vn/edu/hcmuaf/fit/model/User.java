@@ -106,4 +106,21 @@ public class User implements Serializable {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + idUser +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", stutas=" + stutas +
+                ", img='" + img + '\'' +
+                ", birthday=" + birthday +
+                '}';
+    }
 }

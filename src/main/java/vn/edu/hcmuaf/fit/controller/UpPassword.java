@@ -29,7 +29,7 @@ public class UpPassword extends HttpServlet {
         String passNewReset = request.getParameter("passNewReset");
 
 //        String md5Hex = EnCode.getEncryptString(passOld);
-        String md5HexPass = EnCode.getEncryptString(passNew);
+        String md5HexPass = EnCode.checkksum(passNew);
         Map<String,String> checkUpPassWord = Check.checkUpPassWord(pass,passOld,passNew,passNewReset);
         if(checkUpPassWord.size()>0){
             request.setAttribute("passOld",passOld);

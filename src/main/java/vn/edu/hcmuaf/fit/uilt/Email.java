@@ -15,13 +15,13 @@ public class Email {
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("20130436@st.hcmuaf.edu.vn", "thao221722");
+                return new PasswordAuthentication("lucvy221722@gmail.com", "thao221722");
             }
         });
         try {
             Message message = new MimeMessage(session);
             message.setHeader("Content-Type", "text/plain; charset=UTF-8");
-            message.setFrom(new InternetAddress("20130436@st.hcmuaf.edu.vn"));
+            message.setFrom(new InternetAddress("lucvy221722@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             message.setSubject(subject);
             message.setText(text);
@@ -30,5 +30,9 @@ public class Email {
             return false;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        Email.sendMail("20130436@st.hcmuaf.edu.vn","mat khau","thao21722");
     }
 }

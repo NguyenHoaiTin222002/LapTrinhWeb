@@ -1,26 +1,20 @@
 package vn.edu.hcmuaf.fit.uilt;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+
 public class EnCode {
-    public static String getEncryptString(String text){
-        char[] chars = text.toCharArray();
-        String str = "";
-        for (int i = 0; i < chars.length ; i++) {
-            str += (chars[i] + 97) + ",";
+    public static String checkksum(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDiest = md.digest(input.getBytes());
+            BigInteger number = new BigInteger(1, messageDiest);
+
+            return number.toString(16);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-       return str;
-    }
-    public static String getDecryptString(String text){
-        String[] numbers = text.split(",");
-        String str = "";
-        for (int i = 0; i < numbers.length ; i++) {
-            int number = Integer.valueOf(numbers[i]);
-            str += (char)(number - 97);
-        }
-        return str;
     }
 
-    public static void main(String[] args) {
-        String text = getEncryptString("thao221722");
-        System.out.println(text);
-    }
+
 }

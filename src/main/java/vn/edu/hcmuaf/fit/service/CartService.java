@@ -74,12 +74,13 @@ public class CartService {
                     ps.executeUpdate();
 
                 }else {
-                    String sql = "INSERT INTO `cart`(`IdCart`, `idUser`, `idProduct`, `amount`) VALUES (null,?,?,?)";
+                    String sql = "INSERT INTO `cart`(`IdCart`, `idUser`, `idProduct`, `amount`,`isCheck`) VALUES (null,?,?,?,?)";
                     PreparedStatement ps = statement.getConnection().prepareStatement(sql);
 
                     ps.setInt(1, idUser);
                     ps.setInt(2, idProduct);
                     ps.setInt(3, amount);
+                    ps.setInt(4, 0);
                     ps.executeUpdate();
                 }
 
