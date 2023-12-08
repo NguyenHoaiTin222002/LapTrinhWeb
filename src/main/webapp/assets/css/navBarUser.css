@@ -218,3 +218,29 @@ body{
     background: #D10024;
     color: white;
  }
+ .form-btn-key{
+     height: 120px;
+     width: 100%;
+     background: white;
+     display: flex;
+     padding: 0 20px;
+     justify-content: space-between;
+ }
+ .list-btn-key{
+     display: flex;
+     gap: 10px;
+
+ }
+.list-btn-key > button{
+    height: 40px;
+    background-color: #cf0b2c;
+    color: white;
+    border: none;
+    outline: none;
+}
+.title-key {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 40px;
+}

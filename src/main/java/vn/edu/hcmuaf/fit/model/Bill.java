@@ -15,6 +15,8 @@ public class Bill implements Serializable {
     private Date dateDelivery;
     private int blockBill;
 
+
+
     public Bill() {
     }
 
@@ -97,4 +99,6 @@ public class Bill implements Serializable {
     public void setBlockBill(int blockBill) {
         this.blockBill = blockBill;
     }
+
+
 }
