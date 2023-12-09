@@ -15,7 +15,15 @@ public class Bill implements Serializable {
     private Date dateDelivery;
     private int blockBill;
 
+    private byte[] hash;
 
+    public byte[] getHash() {
+        return hash;
+    }
+
+    public void setHash(byte[] hash) {
+        this.hash = hash;
+    }
 
     public Bill() {
     }

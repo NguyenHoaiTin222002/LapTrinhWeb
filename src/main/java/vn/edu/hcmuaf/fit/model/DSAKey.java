@@ -14,15 +14,15 @@ public class DSAKey implements Serializable {
     private Date endDate;
     private int status;
 
-    public DSAKey(int idKey, int idUser, String publicKey, String privateKey, Date createDate, Date endDate, int status) {
-        this.idKey = idKey;
-        this.idUser = idUser;
-        this.publicKey = publicKey;
-        this.privateKey = privateKey;
-        this.createDate = createDate;
-        this.endDate = endDate;
-        this.status = status;
-    }
+//    public DSAKey(int idKey, int idUser, String publicKey, String privateKey, Date createDate, Date endDate, int status) {
+//        this.idKey = idKey;
+//        this.idUser = idUser;
+//        this.publicKey = publicKey;
+//        this.privateKey = privateKey;
+//        this.createDate = createDate;
+//        this.endDate = endDate;
+//        this.status = status;
+//    }
 
     public int getIdKey() {
         return idKey;

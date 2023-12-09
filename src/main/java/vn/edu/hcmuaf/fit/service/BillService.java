@@ -3,20 +3,22 @@ package vn.edu.hcmuaf.fit.service;
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.Bill;
 import vn.edu.hcmuaf.fit.model.User;
+import vn.edu.hcmuaf.fit.uilt.DSA;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BillService {
-    public  static  boolean insertBill(int idUser, String fullName, String phone, String address,double price,String description){
+    public  static  boolean insertBill(int idUser, String fullName, String phone, String address,double price,String description,byte[] hash){
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                String sql = "INSERT INTO `bill`( `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, `blockBill`, `description`) VALUES (?,?,?,?,?,CURDATE(),1,?)";
+                String sql = "INSERT INTO `bill`( `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, `blockBill`, `description`,`hash`) VALUES (?,?,?,?,?,CURDATE(),1,?,?)";
                 PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
                 ps.setInt(1,idUser);
                 ps.setString(2,fullName);
@@ -24,6 +26,7 @@ public class BillService {
                 ps.setString(4,phone);
                 ps.setDouble(5,price);
                 ps.setString(6,description);
+                ps.setBytes(7,hash);
 
                 ps.executeUpdate();
                 return  true;
@@ -62,7 +65,8 @@ public class BillService {
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                String sql = "SELECT `idBIll`, `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, `dateDelivery`, `blockBill`, `description` FROM `bill` WHERE idUser = ? and blockBill !=0" ;
+                String sql = "SELECT `idBIll`, `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, " +
+                        "`dateDelivery`, `blockBill`, `description`,`hash` FROM `bill` WHERE idUser = ? and blockBill !=0 order by idBill DESC" ;
                 PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
                 ps.setInt(1, idUser);
                 ResultSet rs = ps.executeQuery();
@@ -78,6 +82,7 @@ public class BillService {
                     bill.setDateDelivery(rs.getDate("dateDelivery"));
                     bill.setBlockBill(rs.getInt("blockBill"));
                     bill.setDescription(rs.getString("description"));
+                    bill.setHash(rs.getBytes("hash"));
                     list.add(bill);
                 }
 
@@ -95,7 +100,7 @@ public class BillService {
         if(statement != null ){
             try {
                 String sql = "SELECT `idBIll`, `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, `dateDelivery`, " +
-                        "`blockBill`, `description` FROM `bill` WHERE blockBill !=0 order by idBill DESC " ;
+                        "`blockBill`, `description`,`hash` FROM `bill` WHERE blockBill !=0 order by idBill DESC " ;
                 PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
 
                 ResultSet rs = ps.executeQuery();
@@ -111,6 +116,7 @@ public class BillService {
                     bill.setDateDelivery(rs.getDate("dateDelivery"));
                     bill.setBlockBill(rs.getInt("blockBill"));
                     bill.setDescription(rs.getString("description"));
+                    bill.setHash(rs.getBytes("hash"));
                     list.add(bill);
                 }
 
@@ -123,6 +129,7 @@ public class BillService {
         return list;
     }
     public static void main(String[] args) {
+
 
     }
 }

@@ -31,7 +31,8 @@ public class OutCheck extends HttpServlet {
             request.getRequestDispatcher("sign_in.jsp").forward(request,response);
         }else {
             double price = CartService.totalBill(idUser);
-             boolean isErr =  BillService.insertBill(idUser,fullName,phone,address,price,description) ;
+             boolean isErr =  true;
+//            BillService.insertBill(idUser,fullName,phone,address,price,description) ;
             if(isErr){
 
                 int idBill = BillService.getIdBillByIdUser(idUser);
