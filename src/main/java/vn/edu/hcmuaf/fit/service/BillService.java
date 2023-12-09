@@ -89,7 +89,39 @@ public class BillService {
         }
         return list;
     }
+    public static List<Bill> loadBill(){
+        List<Bill> list = new ArrayList<>();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `idBIll`, `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, `dateDelivery`, " +
+                        "`blockBill`, `description` FROM `bill` WHERE blockBill !=0 order by idBill DESC " ;
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
 
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                    Bill bill = new Bill();
+                    bill.setIdBill(rs.getInt("idBIll"));
+                    bill.setIdUser(rs.getInt("idUser"));
+                    bill.setFullName(rs.getString("fullName"));
+                    bill.setAddress(rs.getString("address"));
+                    bill.setPhone(rs.getString("phone"));
+                    bill.setPrice(rs.getDouble("price"));
+                    bill.setDayBooking(rs.getDate("dayBooking"));
+                    bill.setDateDelivery(rs.getDate("dateDelivery"));
+                    bill.setBlockBill(rs.getInt("blockBill"));
+                    bill.setDescription(rs.getString("description"));
+                    list.add(bill);
+                }
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return list;
+    }
     public static void main(String[] args) {
 
     }
