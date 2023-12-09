@@ -128,7 +128,42 @@ public class BillService {
         }
         return list;
     }
+    public static Bill getBillidBill(int idBill){
+        Bill bill = new Bill();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `idBIll`, `idUser`, `fullName`, `address`, `phone`, `price`, `dayBooking`, " +
+                        "`dateDelivery`, `blockBill`, `description`,`hash` FROM `bill` WHERE idBIll = ? and blockBill !=0 " ;
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1, idBill);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()){
+
+                    bill.setIdBill(rs.getInt("idBIll"));
+                    bill.setIdUser(rs.getInt("idUser"));
+                    bill.setFullName(rs.getString("fullName"));
+                    bill.setAddress(rs.getString("address"));
+                    bill.setPhone(rs.getString("phone"));
+                    bill.setPrice(rs.getDouble("price"));
+                    bill.setDayBooking(rs.getDate("dayBooking"));
+                    bill.setDateDelivery(rs.getDate("dateDelivery"));
+                    bill.setBlockBill(rs.getInt("blockBill"));
+                    bill.setDescription(rs.getString("description"));
+                    bill.setHash(rs.getBytes("hash"));
+
+                }
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return bill;
+    }
     public static void main(String[] args) {
+
 
 
     }
