@@ -32,8 +32,8 @@ public class DSA {
         try {
             keyPairGenerator = KeyPairGenerator.getInstance("DSA");
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
-            PrivateKey privateKey = keyPair.getPrivate();
-            PublicKey publicKey = keyPair.getPublic();
+            privateKey = keyPair.getPrivate();
+            publicKey = keyPair.getPublic();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

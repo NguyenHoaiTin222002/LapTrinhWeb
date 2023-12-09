@@ -146,7 +146,7 @@
                 <div class="list-btn-key">
                     <button type="button" class="btn btn-primary  btn-form-use ">Thêm Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-create-key" >Tạo Khóa</button>
-                    <button type="button" class="btn btn-primary  btn-form-use">Vô Hiệu Khóa</button>
+                    <button type="button" class="btn btn-primary  btn-form-use"  >Vô Hiệu Khóa</button>
                 </div>
                 <div class="title-key">
                    Tình Trạng Khóa:Bạn chưa có khóa
@@ -160,7 +160,7 @@
 <!--
 MODAL
 -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade form-show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -206,14 +206,27 @@ MODAL
             swal({
                 title: "Cảnh báo",
 
-                text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
+                text: "Bạn có muôn tạo khóa không?",
                 buttons: ["Hủy bỏ", "Đồng ý"],
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal("Đã xóa thành công.!", {
+                        $.ajax({
+                            url: '/createKey',
+                            type: 'post',
+                            cache: false,
 
+                            success: function (data) {
+                                swal(data, {
+
+                                });
+                            },
+                            error: function () {
+                                alert("error");
+                            }
                         });
+
+
                     }
                 });
         });

@@ -244,3 +244,6 @@ body{
     font-weight: 600;
     line-height: 40px;
 }
+.fade.in {
+    opacity: 1 !important;
+}
