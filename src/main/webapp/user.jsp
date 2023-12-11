@@ -147,7 +147,7 @@
                     <button type="button" class="btn btn-primary  btn-form-use ">Thêm Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-create-key" >Tạo Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-block-key"
-                            onclick="myFunction(this)">Vô Hiệu Khóa</button>
+                           >Vô Hiệu Khóa</button>
                 </div>
                 <div class="title-key">
                    Tình Trạng Khóa:Bạn chưa có khóa
@@ -242,16 +242,18 @@ MODAL
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        deleteRow(this);
+
 
                         $.ajax({
                             url: '/BlockKey',
-                            type: 'get',
+                            type: 'post',
                             cache: false,
-                            data: {idKey: IdKey},
+
 
                             success: function (data) {
-                                alert("Đã vô hiệu khóa thành công!")
+                                swal(data, {
+
+                                });
                             },
                             error: function () {
                                 alert("error");

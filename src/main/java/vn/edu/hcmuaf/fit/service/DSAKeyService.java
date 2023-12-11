@@ -7,8 +7,13 @@ import vn.edu.hcmuaf.fit.uilt.DSA;
 
 import java.security.PrivateKey;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
+
+import static java.time.LocalDateTime.*;
 
 public class DSAKeyService {
 //    INSERT INTO `dsakey`( `idUser`, `publicKey`, `privateKey`, `createDate`,  `status`) VALUES ('[value-2]','[value-3]','[value-4]','[value-5]','[value-6]',)
@@ -86,14 +91,16 @@ public class DSAKeyService {
         }
         return dsaKey;
     }
-    public static void updateDSAKey(int idKey, Date endDate){
+    public static void updateDSAKey(int idKey){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd");
+        LocalDate localDate = LocalDate.now();
 
         Statement statement = DBConnect.getInstance().get();
         if(statement != null ){
             try {
-                String sql = "UPDATE 'dsakey' SET 'endDate' = ?, 'status' = 0 WHERE 'idKey'=?";
+                String sql = "UPDATE `dsakey` SET `endDate` = ?, `status` = 0 WHERE `idKey`=?";
                 PreparedStatement ps = statement.getConnection().prepareStatement(sql);
-                ps.setDate(1, (Date) endDate);
+                ps.setDate(1, Date.valueOf(dtf.format(localDate)));
                 ps.setInt(2, idKey);
 
 
@@ -132,7 +139,10 @@ public class DSAKeyService {
 //          System.out.println(dsa.decrypt(hash,text));
 
 
+
     }
+
+
 
 
 }
