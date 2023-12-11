@@ -38,6 +38,12 @@ public class Fomat {
         return String.valueOf(sb);
 
     }
+    public  static  String getStringBil( String fullName,String phone,String address, String description, String price) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(String.format("Họ và Tên: %s, Số điện thoại: %s, Địa chỉ: %s, Mô tả: %s, Tổng tiền: %s",fullName,phone,address,description,price));
+        return String.valueOf(sb);
+
+    }
     public static void main(String[] args) {
 
 

@@ -30,7 +30,7 @@ public class OutCheck extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String description = request.getParameter("decription");
-        String[] contentBill =  {fullName,phone,address,description};
+
 
         if(idUser == null){
             request.getRequestDispatcher("sign_in.jsp").forward(request,response);
@@ -39,6 +39,8 @@ public class OutCheck extends HttpServlet {
 
 
             double price = CartService.totalBill(idUser);
+            String[] contentBill =  {fullName,phone,address,String.valueOf(price),description };
+
             String textHtml = Fomat.getStringHTML(fullName,phone,address,description,price,idUser);
             Email.sendMailHTML(user.getEmail(),"Hóa đơn",textHtml);
             session.setAttribute("contentBill",contentBill);
