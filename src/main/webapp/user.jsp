@@ -146,7 +146,8 @@
                 <div class="list-btn-key">
                     <button type="button" class="btn btn-primary  btn-form-use ">Thêm Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-create-key" >Tạo Khóa</button>
-                    <button type="button" class="btn btn-primary  btn-form-use"  >Vô Hiệu Khóa</button>
+                    <button type="button" class="btn btn-primary  btn-form-use btn-block-key"
+                            onclick="myFunction(this)">Vô Hiệu Khóa</button>
                 </div>
                 <div class="title-key">
                    Tình Trạng Khóa:Bạn chưa có khóa
@@ -227,6 +228,36 @@ MODAL
                         });
 
 
+                    }
+                });
+        });
+    });
+    jQuery(function () {
+        jQuery(".btn-block-key").click(function () {
+            swal({
+                title: "Thông báo",
+
+                text: "Bạn có chắc chắn là muốn vô hiệu khóa này?",
+                buttons: ["Hủy bỏ", "Đồng ý"],
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        deleteRow(this);
+
+                        $.ajax({
+                            url: '/BlockKey',
+                            type: 'get',
+                            cache: false,
+                            data: {idKey: IdKey},
+
+                            success: function (data) {
+                                alert("Đã vô hiệu khóa thành công!")
+                            },
+                            error: function () {
+                                alert("error");
+                            }
+
+                        });
                     }
                 });
         });

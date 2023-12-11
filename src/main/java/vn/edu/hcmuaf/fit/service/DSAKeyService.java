@@ -6,10 +6,7 @@ import vn.edu.hcmuaf.fit.model.DSAKey;
 import vn.edu.hcmuaf.fit.uilt.DSA;
 
 import java.security.PrivateKey;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -88,6 +85,27 @@ public class DSAKeyService {
             System.out.println("lỗi kết nối");
         }
         return dsaKey;
+    }
+    public static void updateDSAKey(int idKey, Date endDate){
+
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE 'dsakey' SET 'endDate' = ?, 'status' = 0 WHERE 'idKey'=?";
+                PreparedStatement ps = statement.getConnection().prepareStatement(sql);
+                ps.setDate(1, (Date) endDate);
+                ps.setInt(2, idKey);
+
+
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }else {
+            System.out.println("Lỗi kết nối");
+        }
+
     }
 
     public static void main(String[] args) throws Exception {
