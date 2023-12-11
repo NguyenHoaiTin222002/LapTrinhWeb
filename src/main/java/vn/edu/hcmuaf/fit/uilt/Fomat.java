@@ -29,7 +29,7 @@ public class Fomat {
                         "        </div>\n" +
                         "    \n" +
                         "        <div style=\"text-align: center; margin-top: 20px;\">\n" +
-                        "            <a href=\"http://localhost:8080/\" style=\"text-decoration: none; color: white; background-color: #cf0b2c; padding: 10px 20px; border-radius: 5px; display: inline-block;\">\n" +
+                        "            <a href=\"http://localhost:8080/checkOutByPritaveKey.jsp\" style=\"text-decoration: none; color: white; background-color: #cf0b2c; padding: 10px 20px; border-radius: 5px; display: inline-block;\">\n" +
                         "                Nhập Khóa\n" +
                         "            </a>\n" +
                         "        </div>\n" +

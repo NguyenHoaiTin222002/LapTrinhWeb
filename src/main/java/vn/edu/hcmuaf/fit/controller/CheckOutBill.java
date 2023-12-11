@@ -30,7 +30,7 @@ public class CheckOutBill extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession  session = request.getSession();
-        String prikey = request.getParameter("prikey");
+        String priKey = request.getParameter("priKey");
         Integer idUser = (Integer) session.getAttribute("idUser");
         String[] contentBill = (String[]) session.getAttribute("contentBill");
 
@@ -38,11 +38,11 @@ public class CheckOutBill extends HttpServlet {
             request.getRequestDispatcher("sign_in.jsp").forward(request,response);
         }else {
          DSAKey dsaKey =  DSAKeyService.getKeyidUser(idUser);
-         if(prikey.trim().equals(dsaKey.getPrivateKey())){
+         if(priKey.trim().equals(dsaKey.getPrivateKey())){
 
              try {
                  DSA dsa = new DSA();
-                 dsa.setPrivateKey(dsa.stringToPrivateKey(prikey.trim()));
+                 dsa.setPrivateKey(dsa.stringToPrivateKey(priKey.trim()));
                  String textPlan =  Fomat.getStringBil(contentBill[0],contentBill[1],contentBill[2],contentBill[4],contentBill[3]);
                  byte[] hash = dsa.encrypt(textPlan);
 
