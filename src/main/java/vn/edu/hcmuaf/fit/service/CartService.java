@@ -262,10 +262,49 @@ public class CartService {
         }
         return list;
     }
+    public static String getStringBill(int idUser){
+        Statement statement = DBConnect.getInstance().get();
+        StringBuffer sb = new StringBuffer();
+        sb.append("        <ul style=\"list-style: none; padding: 0;\">\n" +
+                "            <li style=\"display: flex; justify-content: space-between; font-weight: bold; margin: 10px 0;\">\n" +
+                "                <div style=\"width: 200px;\">Tên sản phẩm</div>\n" +
+                "                <div style=\"width: 200px; text-align: center;\">Số lượng</div>\n" +
+                "                <div style=\"width: 200px; text-align: center;\">Giá</div>\n" +
+                "            </li>\n");
+        if(statement != null ){
+            try {
+
+                String sql = "SELECT product.nameProduct,cart.amount," +
+                        "cart.amount*(product.price -product.price*product.sale/100) " +
+                        "as total from cart JOIN product on product.idProduct = cart.idProduct " +
+                        "WHERE cart.isCheck = true and cart.idUser = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+
+                ps.setInt(1,idUser);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()){
+                    sb.append(String.format("<li style=\"display: flex; justify-content: space-between; margin: 10px 0;\">\n" +
+                            "    <div style=\"width: 200px;\">%s</div>\n" +
+                            "    <div style=\"width: 200px; text-align: center;\">%d</div>\n" + // Corrected %i to %d
+                            "    <div style=\"width: 200px; text-align: center;\">%.2f đ</div>\n" + // Adjusted to "%.2f" for two decimal places
+                            "</li>\n", rs.getString("nameProduct"), rs.getInt("amount"), rs.getDouble("total")));
+
+                }
+                sb.append(    "        </ul>\n");
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+     return String.valueOf(sb);
+    }
 
     public static void main(String[] args) {
-        List<Cart>  list = GetAllCartByidUserAndIsCheck(1,true);
-        System.out.println(list.size());
+    String text = CartService.getStringBill(4);
+        System.out.println(text);
     }
 
 
