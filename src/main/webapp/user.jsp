@@ -36,7 +36,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="/"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -149,8 +149,9 @@
                     <button type="button" class="btn btn-primary  btn-form-use btn-block-key"
                            >Vô Hiệu Khóa</button>
                 </div>
+                <%String title = (String) request.getAttribute("title");%>
                 <div class="title-key">
-                   Tình Trạng Khóa:Bạn chưa có khóa
+                    <%=title%>
                 </div>
             </div>
 
@@ -201,9 +202,13 @@ MODAL
     function deleteRow(r) {
         var i = r.parentNode.parentNode.rowIndex;
         document.getElementById("myTable").deleteRow(i);
+
     }
     jQuery(function () {
+        var titleHtml = $(".title-key");
+
         jQuery(".btn-create-key").click(function () {
+
             swal({
                 title: "Cảnh báo",
 
@@ -218,9 +223,11 @@ MODAL
                             cache: false,
 
                             success: function (data) {
+                                titleHtml.html("Tình Trạng Khóa:Bạn đã có khóa")
                                 swal(data, {
 
                                 });
+
                             },
                             error: function () {
                                 alert("error");
@@ -252,6 +259,7 @@ MODAL
 
 
                             success: function (data) {
+                                titleHtml.html("Tình Trạng Khóa:Bạn chưa có khóa")
                                 swal(data, {
 
                                 });

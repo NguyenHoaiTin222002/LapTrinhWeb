@@ -2,8 +2,10 @@ package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.Bill;
+import vn.edu.hcmuaf.fit.model.DSAKey;
 import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.uilt.DSA;
+import vn.edu.hcmuaf.fit.uilt.Fomat;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -162,8 +164,13 @@ public class BillService {
         }
         return bill;
     }
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws  Exception {
+//        Bill bill = BillService.getBillidBill(3);
+//        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
+//        String text = Fomat.getStringBil(bill.getFullName(),bill.getPhone(),bill.getAddress(),bill.getDescription(),String.valueOf(bill.getPrice()));
+//        DSA dsa = new DSA();
+//        dsa.setPublicKey(dsa.stringToPublicKey(dsaKey.getPublicKey()));
+//        System.out.println(dsa.decrypt(bill.getHash(),text));
 
 
     }

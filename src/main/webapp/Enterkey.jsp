@@ -38,30 +38,24 @@
 </head>
 <body style="font-family: Tahoma, 'Calibri Light'">
 <jsp:include page="header.jsp"></jsp:include>
-<%String passOld = (String) request.getAttribute("passOld");%>
-<%String passNew = (String)request.getAttribute("passNew");%>
-<%String passNewReset = (String)request.getAttribute("passNewReset");%>
-<%Map<String,String> err = null;%>
-<% Boolean isErr = (Boolean) request.getAttribute("isErr");%>
-<% if(isErr!=null&&isErr==true)
-{ %>
-<% err = (Map<String, String>) request.getAttribute("err"); %>
-<%}%>
+
 <div class="limiter">
     <div class="container-login100" >
-        <div class="wrap-login100 wrap-login200 p-l-55 p-r-55 p-t-65 p-b-54">
+        <div style="height: 550px !important;" class="wrap-login100  p-l-55 p-r-55 p-t-65 p-b-54">
             <form class="login100-form validate-form" action="Enterkey" method="post">
 					<span class="login100-form-title p-b-49">
 					     NHẬP KEY
 					</span>
+                <%String err = (String) request.getAttribute("err");%>
+                <p style="color: red"><%= err != null?err:""%></p>
                 <div class="wrap-input100 m-b-23">
                     <label class="la">Nhập private key</label> <label style="color: red">*</label>
-                    <input class="input100 input200  "   type="text" name="ipprKey" placeholder="Nhập Private Key" autocomplete="off" >
+                    <textarea rows="3" style="height: 100px" class="input100 input200"   type="text" name="ipprKey" placeholder="Nhập Private Key" autocomplete="off" ></textarea>
                     <p class="label_err" style="color: red"></p>
                 </div>
                 <div class="iwrap-input100  m-b-23">
                     <label class="la">Nhập public key</label> <label style="color: red">*</label>
-                    <input class="input100 input200 "  type="text" name="ipplKey" placeholder="Nhập Public Key" autocomplete="off" >
+                    <textarea rows="3" style="height: 100px" class="input100 input200 "  type="text" name="ipplKey" placeholder="Nhập Public Key" autocomplete="off" ></textarea>
                     <p class="label_err" style="color: red"></p>
                 </div>
 

@@ -21,18 +21,19 @@ public class EnterKey extends HttpServlet {
         Integer idUser = (Integer) session.getAttribute("idUser");
         boolean isExistKey = DSAKeyService.checkKeyByisUser(idUser);
         if(!isExistKey){
-            String ipPrivateKey= request.getParameter("ipprKey");
-            String ipPublicKey=request.getParameter("ipplKey");
+            String ipPrivateKey = request.getParameter("ipprKey");
+            String ipPublicKey =request.getParameter("ipplKey");
             DSA dsa = new DSA();
             try {
                 if(dsa.checkKeyPairMatch(dsa.stringToPrivateKey(ipPrivateKey), dsa.stringToPublicKey(ipPublicKey))){
                    DSAKeyService.insertKey(idUser,ipPrivateKey, ipPublicKey);
-
-                    response.setContentType("text/plain");
-                    response.getWriter().write("Tạo khóa thành công");
+                    request.setAttribute("title","Tình Trạng Khóa:Bạn đã có khóa");
+                   request.getRequestDispatcher("user.jsp").forward(request,response);
 
                 }else {
-                    response.getWriter().write("Khóa nhập lỗi vui lòng nhập lại");
+                    request.setAttribute("err","2 khóa không cùng một khóa");
+                    request.getRequestDispatcher("Enterkey.jsp").forward(request,response);
+
 
                 }
             } catch (Exception e) {
@@ -41,23 +42,8 @@ public class EnterKey extends HttpServlet {
 
 
         }else {
-            String ipPrivateKey= request.getParameter("ipprKey");
-            String ipPublicKey=request.getParameter("ipplKey");
-            DSA dsa = new DSA();
-            try {
-                if(dsa.checkKeyPairMatch(dsa.stringToPrivateKey(ipPrivateKey), dsa.stringToPublicKey(ipPublicKey))){
-                    DSAKeyService.updateKey(idUser,ipPrivateKey, ipPublicKey);
-
-                    response.setContentType("text/plain");
-                    response.getWriter().write("Tạo khóa thành công");
-
-                }else {
-                    response.getWriter().write("Khóa nhập lỗi vui lòng nhập lại");
-
-                }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            request.setAttribute("err","Người dùng đã có khóa hãy vô hiệu khóa củ mới nhập khóa mới được");
+            request.getRequestDispatcher("Enterkey.jsp").forward(request,response);
 
         }
 

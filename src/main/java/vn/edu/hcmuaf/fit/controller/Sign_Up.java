@@ -46,6 +46,7 @@ public class Sign_Up extends HttpServlet {
                 Role role = RoleService.getRoleByName("Khách Hàng");
                 InfoRoleService.insertInfoRoleKH(user.getIdUser(),role.getIdRole());
 
+                session.setAttribute("User",user);
                 session.setAttribute("idUser",user.getIdUser());
                 session.setAttribute("UserPassword",user.getPassword());
                 session.setAttribute("imgUser",user.getImg());
