@@ -144,8 +144,8 @@
         <div class="col-md-12">
             <div class="form-btn-key">
                 <div class="list-btn-key">
-                    <button type="button" class="btn btn-primary  btn-form-use ">Thêm Khóa</button>
-                    <button type="button" class="btn btn-primary  btn-form-use btn-create-key" >Tạo Khóa</button>
+                    <a href="/Enterkey.jsp" style="text-align:center;padding: 8px; width: 100px; height: 40px; color: white; background: #cc0c2c; border-radius: 5px; font-weight: bold; "  >Thêm Khóa</a>
+                    <button type="button" class="btn btn-primary  btn-form-use btn-create-key">Tạo Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-block-key"
                            >Vô Hiệu Khóa</button>
                 </div>
@@ -232,6 +232,7 @@ MODAL
                 });
         });
     });
+
     jQuery(function () {
         jQuery(".btn-block-key").click(function () {
             swal({

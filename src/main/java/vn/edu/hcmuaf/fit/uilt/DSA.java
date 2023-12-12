@@ -31,6 +31,7 @@ public class DSA {
         KeyPairGenerator keyPairGenerator = null;
         try {
             keyPairGenerator = KeyPairGenerator.getInstance("DSA");
+            keyPairGenerator.initialize(1024);
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
             privateKey = keyPair.getPrivate();
             publicKey = keyPair.getPublic();
@@ -64,7 +65,7 @@ public class DSA {
     }
 
     // Kiểm tra xem khóa công khai và khóa riêng có thuộc về cùng một cặp không
-    private boolean checkKeyPairMatch(PrivateKey privateKey, PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    public boolean checkKeyPairMatch(PrivateKey privateKey, PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
 
         Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initSign(privateKey);
