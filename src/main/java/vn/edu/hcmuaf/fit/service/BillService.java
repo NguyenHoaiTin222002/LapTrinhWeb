@@ -38,7 +38,7 @@ public class BillService {
                 throw new RuntimeException(e);
             }
         }else {
-            System.out.println("lỗi kết nối");
+            System.out.println("Lỗi kết nối");
         }
         return  false;
 
@@ -164,14 +164,33 @@ public class BillService {
         }
         return bill;
     }
-    public static void main(String[] args) throws  Exception {
-//        Bill bill = BillService.getBillidBill(3);
-//        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
-//        String text = Fomat.getStringBil(bill.getFullName(),bill.getPhone(),bill.getAddress(),bill.getDescription(),String.valueOf(bill.getPrice()));
-//        DSA dsa = new DSA();
-//        dsa.setPublicKey(dsa.stringToPublicKey(dsaKey.getPublicKey()));
-//        System.out.println(dsa.decrypt(bill.getHash(),text));
 
+    public static void updateBill(int idBill, String fullName, String address, String phone,
+                                  double price, int blockBill) {
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `bill` SET `fullName`=?,`address`=?,`phone`=?,`price`=?,`blockBill`=? WHERE `idBill`=?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1, fullName);
+                ps.setString(2, address);
+                ps.setString(3, phone);
+                ps.setDouble(4, price);
+                ps.setInt(5, blockBill);
+                ps.setInt(6, idBill);
+
+                ps.executeUpdate();
+
+            }  catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
+    public static void main(String[] args) throws  Exception {
 
     }
 }

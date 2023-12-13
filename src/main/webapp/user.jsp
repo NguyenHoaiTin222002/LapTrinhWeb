@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <div class="profile">
                                 <img src="<%=user.getImg()%>" alt="" class="img-fluid rounded-circle">
-                                <button type="button" class="btn btn-user-img " >Chọn Ảnh</button>
+                                <button type="button" class="btn btn-user-img">Chọn Ảnh</button>
                             </div>
                         </div>
                         <div class="user-form-layout">
@@ -104,7 +104,6 @@
                                 </label>
                             </div>
 
-
                         </div>
                         <div class="user-form-layout">
                             <label class="form-label-day" >Ngày Sinh:</label>
@@ -126,15 +125,10 @@
                                     <option><%=i%></option>
                                 <% } %>
                             </select>
-
-
                         </div>
-
-
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-form-user">Sửa Hồ Sơ</button>
-
                         </div>
                     </form>
 

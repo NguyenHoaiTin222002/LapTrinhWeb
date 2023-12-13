@@ -188,7 +188,7 @@ body{
     flex: 1;
    }
 .form-group ~ .form-group{
-     margin-left: 5px;
+     margin-left: 10px;
    }
 .user-form-layout ~ .user-form-layout {
       margin: 10px 0;
