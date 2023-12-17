@@ -16,7 +16,7 @@ public class LoadBillUser extends HttpServlet {
         Integer idUser = (Integer) request.getSession().getAttribute("idUser");
         List<Bill> listBill = BillService.loadBillByIdUser(idUser);
         request.setAttribute("listBill",listBill);
-        request.getRequestDispatcher("table-data-bill.jsp").forward(request,response);
+        request.getRequestDispatcher("table-data-bill-user.jsp").forward(request,response);
     }
 
     @Override

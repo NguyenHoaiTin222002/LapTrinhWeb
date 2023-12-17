@@ -105,15 +105,9 @@
                 <td><%=item.getDayBooking()%></td>
 
                 <td>
-                  <button class="btn btn-primary btn-sm trash" data-id="" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <a href="infoBill.html">
+
                   <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></a>
-                  <button class="btn btn-primary btn-sm edit btn-edit" type="button" title="Sửa"
-                          data-toggle="modal" data-target="#ModalUP" data-name="<%=item.getFullName()%>" data-phone="<%=item.getPhone()%>"
-                          data-idbill="<%=item.getIdBill()%>" data-address="<%=item.getAddress()%>"
-                          data-price="<%=item.getPrice()%>" data-status="<%=item.getBlockBill()%>"><i class="fas fa-edit"></i>
-                  </button>
-                  <button   data-idbill="<%=item.getIdBill()%>"  data-status="<%=item.getBlockBill()%>" data-iduser="<%=item.getIdUser()%>" class="btn btn-primary btn-sm btn-check" type="button" title="Kiểm tra"><i class="fas fa-check"></i></button></a>
+
                 </td>
               </tr>
                <%}%>
