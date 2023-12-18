@@ -253,10 +253,16 @@
                       cache: false,
                       data: { idBill:idBill , idUser:idUser} ,
                       success: function (data) {
+                        if(data == "true"){
+                          swal("Đơn hàng không bị chỉnh sửa", {
 
-                        swal(data, {
+                          });
+                        }else {
+                          swal(data, {
 
-                        });
+                          });
+                        }
+
                       },
                       error: function () {
                         alert("error");

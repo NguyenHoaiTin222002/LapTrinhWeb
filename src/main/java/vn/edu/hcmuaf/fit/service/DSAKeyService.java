@@ -99,7 +99,7 @@ public class DSAKeyService {
         if(statement != null ){
             try {
 
-                String sql = "SELECT `idKey`, `idUser`, `publicKey`, `privateKey`, `createDate`, `endDate`, `status`FROM `dsakey`WHERE `idUser` = ? AND DATE(`createDate`) <= ? AND DATE(`endDate`) >= ?";
+                String sql = "SELECT `idKey`, `idUser`, `publicKey`, `privateKey`, `createDate`, `endDate`, `status`FROM `dsakey`WHERE `idUser` = ? AND DATE(`createDate`) <= ? AND DATE(`endDate`) > ?";
                 PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
                 ps.setInt(1,idUser);
                 ps.setDate(2, Date.valueOf(date));
@@ -198,7 +198,7 @@ public class DSAKeyService {
 //        System.out.println(Arrays.toString(hash1));
 //          System.out.println(dsa.decrypt(hash,text));
 
-        Bill bill = BillService.getBillidBill(4);
+        Bill bill = BillService.getBillidBill(8);
         DSAKey dsaKey =  DSAKeyService.getKeycheckBill(bill.getIdUser(), String.valueOf(bill.getDayBooking()));
         DSA dsa = new DSA();
         String text = Fomat.getStringBil(bill.getFullName(),bill.getPhone(),bill.getAddress(),bill.getDescription(), String.valueOf(bill.getPrice()));
