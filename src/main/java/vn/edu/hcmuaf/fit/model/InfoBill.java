@@ -40,4 +40,14 @@ public class InfoBill implements Serializable {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "InfoBill{" +
+                "idInfoBill=" + idInfoBill +
+                ", idBill=" + idBill +
+                ", idProduct=" + idProduct +
+                ", amount=" + amount +
+                '}';
+    }
 }
