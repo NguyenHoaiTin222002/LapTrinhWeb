@@ -2,8 +2,10 @@ package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.Bill;
+import vn.edu.hcmuaf.fit.model.DSAKey;
 import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.uilt.DSA;
+import vn.edu.hcmuaf.fit.uilt.Fomat;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +38,7 @@ public class BillService {
                 throw new RuntimeException(e);
             }
         }else {
-            System.out.println("lỗi kết nối");
+            System.out.println("Lỗi kết nối");
         }
         return  false;
 
@@ -162,9 +164,33 @@ public class BillService {
         }
         return bill;
     }
-    public static void main(String[] args) {
+
+    public static void updateBill(int idBill, String fullName, String address, String phone,
+                                  double price, int blockBill) {
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `bill` SET `fullName`=?,`address`=?,`phone`=?,`price`=?,`blockBill`=? WHERE `idBill`=?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setString(1, fullName);
+                ps.setString(2, address);
+                ps.setString(3, phone);
+                ps.setDouble(4, price);
+                ps.setInt(5, blockBill);
+                ps.setInt(6, idBill);
+
+                ps.executeUpdate();
+
+            }  catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
 
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+    }
+    public static void main(String[] args) throws  Exception {
 
     }
 }

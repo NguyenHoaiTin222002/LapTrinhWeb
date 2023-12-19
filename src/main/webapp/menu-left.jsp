@@ -17,9 +17,9 @@
     </div>
     <hr>
     <ul class="app-menu">
-        <li><a class="app-menu__item active" href="user.jsp"><i style="font-size: 18px;" class='app-menu__icon  fas fa-user-tie'></i><span
+        <li><a class="app-menu__item active" href="/Profile"><i style="font-size: 18px;" class='app-menu__icon  fas fa-user-tie'></i><span
                 class="app-menu__label ">Hồ sơ</span></a></li>
-        <li><a class="app-menu__item " href="LoadBillUser"><i style="font-size: 18px;" class='app-menu__icon  fas fa-file-invoice-dollar'></i>
+        <li><a class="app-menu__item " href="/LoadBillUser"><i style="font-size: 18px;" class='app-menu__icon  fas fa-file-invoice-dollar'></i>
             <span class="app-menu__label">Hóa đơn</span></a></li>
         <li><a class="app-menu__item" href="table-data-table.jsp"><i class='app-menu__icon bx bx-id-card'></i>
             <span class="app-menu__label">Quản lý nhân viên</span></a></li>

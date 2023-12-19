@@ -36,7 +36,7 @@
 
 
         <!-- User Menu-->
-        <li><a class="app-nav__item" href="index.html"><i class='bx bx-log-out bx-rotate-180'></i> </a>
+        <li><a class="app-nav__item" href="/"><i class='bx bx-log-out bx-rotate-180'></i> </a>
 
         </li>
     </ul>
@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <div class="profile">
                                 <img src="<%=user.getImg()%>" alt="" class="img-fluid rounded-circle">
-                                <button type="button" class="btn btn-user-img " >Chọn Ảnh</button>
+                                <button type="button" class="btn btn-user-img">Chọn Ảnh</button>
                             </div>
                         </div>
                         <div class="user-form-layout">
@@ -104,7 +104,6 @@
                                 </label>
                             </div>
 
-
                         </div>
                         <div class="user-form-layout">
                             <label class="form-label-day" >Ngày Sinh:</label>
@@ -126,15 +125,10 @@
                                     <option><%=i%></option>
                                 <% } %>
                             </select>
-
-
                         </div>
-
-
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-form-user">Sửa Hồ Sơ</button>
-
                         </div>
                     </form>
 
@@ -144,13 +138,14 @@
         <div class="col-md-12">
             <div class="form-btn-key">
                 <div class="list-btn-key">
-                    <button type="button" class="btn btn-primary  btn-form-use ">Thêm Khóa</button>
-                    <button type="button" class="btn btn-primary  btn-form-use btn-create-key" >Tạo Khóa</button>
+                    <a href="/Enterkey.jsp" style="text-align:center;padding: 8px; width: 100px; height: 40px; color: white; background: #cc0c2c; border-radius: 5px; font-weight: bold; "  >Thêm Khóa</a>
+                    <button type="button" class="btn btn-primary  btn-form-use btn-create-key">Tạo Khóa</button>
                     <button type="button" class="btn btn-primary  btn-form-use btn-block-key"
                            >Vô Hiệu Khóa</button>
                 </div>
+                <%String title = (String) request.getAttribute("title");%>
                 <div class="title-key">
-                   Tình Trạng Khóa:Bạn chưa có khóa
+                    <%=title%>
                 </div>
             </div>
 
@@ -201,9 +196,13 @@ MODAL
     function deleteRow(r) {
         var i = r.parentNode.parentNode.rowIndex;
         document.getElementById("myTable").deleteRow(i);
+
     }
     jQuery(function () {
+        var titleHtml = $(".title-key");
+
         jQuery(".btn-create-key").click(function () {
+
             swal({
                 title: "Cảnh báo",
 
@@ -218,9 +217,11 @@ MODAL
                             cache: false,
 
                             success: function (data) {
+                                titleHtml.html("Tình Trạng Khóa:Bạn đã có khóa")
                                 swal(data, {
 
                                 });
+
                             },
                             error: function () {
                                 alert("error");
@@ -232,6 +233,7 @@ MODAL
                 });
         });
     });
+
     jQuery(function () {
         jQuery(".btn-block-key").click(function () {
             swal({
@@ -251,6 +253,7 @@ MODAL
 
 
                             success: function (data) {
+                                titleHtml.html("Tình Trạng Khóa:Bạn chưa có khóa")
                                 swal(data, {
 
                                 });

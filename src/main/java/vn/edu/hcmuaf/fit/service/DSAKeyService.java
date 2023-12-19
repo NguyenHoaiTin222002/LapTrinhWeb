@@ -113,6 +113,28 @@ public class DSAKeyService {
             System.out.println("Lỗi kết nối");
         }
 
+
+    }
+    public static void updateKey(int idUser,String publicKey,String privateKey){
+        Statement statement = DBConnect.getInstance().get();
+
+        if(statement != null ){
+            try {
+
+                String sql = " UPDATE `dsakey`( `idUser`, `publicKey`, `privateKey`, `createDate` ,`status`) VALUES (?,?,?,CURDATE(),1)";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idUser);
+                ps.setString(2,publicKey);
+                ps.setString(3,privateKey);
+                ps.executeUpdate();
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -120,9 +142,11 @@ public class DSAKeyService {
 //                "\n" +
 //                "Tuy nhiên, cũng có người thừa nhận: \"Cá nhân mình thấy bạn ấy viết được như thế chứng tỏ kiến thức không hề ít. Nếu có thời gian sẽ có 1 bài văn mang tầm vĩ mô. Mình sẽ lưu đoạn văn này cho con mình tham khảo\".";
 //
-//        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
-//        DSA dsa = new DSA();
-//        dsa.genkey();
+        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
+        DSA dsa = new DSA();
+        dsa.genkey();
+        System.out.println(dsa.publicKeyToString(dsa.getPublicKey()));
+        System.out.println(dsa.privateKeyToString(dsa.getPrivateKey()));
 
 //        PrivateKey privateKey = dsa.stringToPrivateKey(dsaKey.getPrivateKey());
 //          dsa.setPrivateKey(dsa.stringToPrivateKey(dsaKey.getPrivateKey()));
