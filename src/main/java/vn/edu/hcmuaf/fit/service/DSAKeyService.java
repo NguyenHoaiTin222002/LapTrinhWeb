@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.db.DBConnect;
 import vn.edu.hcmuaf.fit.model.Bill;
 import vn.edu.hcmuaf.fit.model.DSAKey;
 import vn.edu.hcmuaf.fit.uilt.DSA;
+import vn.edu.hcmuaf.fit.uilt.Fomat;
 
 import java.security.PrivateKey;
 import java.sql.*;
@@ -91,6 +92,41 @@ public class DSAKeyService {
         }
         return dsaKey;
     }
+    public  static DSAKey getKeycheckBill(int idUser,String date){
+        DSAKey dsaKey = new DSAKey();
+        Statement statement = DBConnect.getInstance().get();
+//        SELECT `idKey`, `idUser`, `publicKey`, `privateKey`, `createDate`, `endDate`, `status` FROM `dsakey` WHERE 1
+        if(statement != null ){
+            try {
+
+                String sql = "SELECT `idKey`, `idUser`, `publicKey`, `privateKey`, `createDate`, `endDate`, `status`FROM `dsakey`WHERE `idUser` = ? AND DATE(`createDate`) <= ? AND DATE(`endDate`) > ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idUser);
+                ps.setDate(2, Date.valueOf(date));
+                ps.setDate(3, Date.valueOf(date));
+                ResultSet rs =  ps.executeQuery();
+                if(rs.next()){
+
+                    dsaKey.setIdKey(rs.getInt("idKey"));
+                    dsaKey.setIdUser(rs.getInt("idUser"));
+                    dsaKey.setPublicKey(rs.getString("publicKey"));
+                    dsaKey.setPrivateKey(rs.getString("privateKey"));
+                    dsaKey.setCreateDate(rs.getDate("createDate"));
+                    dsaKey.setStatus(rs.getInt("status"));
+
+                }else {
+                    dsaKey = DSAKeyService.getKeyidUser(idUser);
+                }
+                return dsaKey;
+
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return dsaKey;
+    }
     public static void updateDSAKey(int idKey){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd");
         LocalDate localDate = LocalDate.now();
@@ -142,11 +178,11 @@ public class DSAKeyService {
 //                "\n" +
 //                "Tuy nhiên, cũng có người thừa nhận: \"Cá nhân mình thấy bạn ấy viết được như thế chứng tỏ kiến thức không hề ít. Nếu có thời gian sẽ có 1 bài văn mang tầm vĩ mô. Mình sẽ lưu đoạn văn này cho con mình tham khảo\".";
 //
-        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
-        DSA dsa = new DSA();
-        dsa.genkey();
-        System.out.println(dsa.publicKeyToString(dsa.getPublicKey()));
-        System.out.println(dsa.privateKeyToString(dsa.getPrivateKey()));
+//        DSAKey dsaKey = DSAKeyService.getKeyidUser(4);
+//        DSA dsa = new DSA();
+//        dsa.genkey();
+//        System.out.println(dsa.publicKeyToString(dsa.getPublicKey()));
+//        System.out.println(dsa.privateKeyToString(dsa.getPrivateKey()));
 
 //        PrivateKey privateKey = dsa.stringToPrivateKey(dsaKey.getPrivateKey());
 //          dsa.setPrivateKey(dsa.stringToPrivateKey(dsaKey.getPrivateKey()));
@@ -162,9 +198,16 @@ public class DSAKeyService {
 //        System.out.println(Arrays.toString(hash1));
 //          System.out.println(dsa.decrypt(hash,text));
 
-
+        Bill bill = BillService.getBillidBill(8);
+        DSAKey dsaKey =  DSAKeyService.getKeycheckBill(bill.getIdUser(), String.valueOf(bill.getDayBooking()));
+        DSA dsa = new DSA();
+        String text = Fomat.getStringBil(bill.getFullName(),bill.getPhone(),bill.getAddress(),bill.getDescription(), String.valueOf(bill.getPrice()));
+        dsa.setPublicKey(dsa.stringToPublicKey(dsaKey.getPublicKey()));
+        System.out.println(dsaKey.getIdKey());
+        System.out.println(dsa.decrypt(bill.getHash(),text));
 
     }
+
 
 
 
