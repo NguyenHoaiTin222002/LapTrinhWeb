@@ -197,6 +197,11 @@ public class UserService {
 
     }
     public static void main(String[] args) {
+        for (User user: UserService.getAllUser()
+             ) {
+            System.out.println(user.toString());
+
+        }
     }
 
 }

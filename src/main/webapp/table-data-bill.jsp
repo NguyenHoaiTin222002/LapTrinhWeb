@@ -83,6 +83,7 @@
               </thead>
               <tbody
               <%for (Bill item: listBill) { %>
+
               <tr>
                 <td width="10"><input type="checkbox" name="check1" value="1"></td>
                 <td><%=item.getIdBill()%></td>
@@ -94,7 +95,7 @@
                 <td><%=item.getDayBooking()%></td>
 
                 <td><button class="btn btn-primary btn-sm trash" data-id="" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
-                  <a href="infoBill.html">   <button class="btn btn-primary btn-sm edit" type="button" title="Xem"><i class="fas fa-eye"></i></button></a>
+                  <a href="ifbill?idBill=<%=item.getIdBill()%>">   <button class="btn btn-primary btn-sm edit" type="button" title="Xem" ><i class="fas fa-eye"></i></button></a>
                 </td>
               </tr>
                <%}%>
