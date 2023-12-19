@@ -87,7 +87,7 @@
                 <td> <div class="cart-table-price"> <%= Fomat.fomatCurrency(moneyNew) %></div> </td>
                 <td><div class="qty-label">
                     <div style="width: 80px;" class="input-number">
-                        <input id="valueNumber" type="number" value="<%=infoBill.getAmount()%>">
+                        <input id="valueNumber" type="number" value="<%=infoBill.getAmount()%>" disabled>
                     </div>
                 </div>
 
@@ -95,10 +95,7 @@
                 <td>
                     <input id="price_<%=infoBill.getIdInfoBill()%>" type="number" value="<%=moneyNew%>" hidden >
                     <p id="tatol_<%=infoBill.getIdInfoBill()%>" class="cart-table-tatol"><%= Fomat.fomatCurrency(moneyNew*infoBill.getAmount()) %></p></td>
-                <td>
-                    <a href="DeleteCart?idDeleteCart=<%=infoBill.getIdInfoBill()%>">  <button class=" btn cart-table-delete"><i class="fa fa-trash"></i>
-                    </button> </a>
-                </td>
+
 
             </tr>
 
