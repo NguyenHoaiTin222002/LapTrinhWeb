@@ -236,7 +236,7 @@
         swal({
           title: "Cảnh báo",
 
-          text: "bạn có muốn kiểm tra lại hóa đơn",
+          text: "Bạn có muốn kiểm tra lại hóa đơn",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
                 .then((check) => {
@@ -248,9 +248,7 @@
                       data: { idBill:idBill , idUser:idUser} ,
                       success: function (data) {
 
-                        swal(data, {
 
-                        });
                       },
                       error: function () {
                         alert("error");
