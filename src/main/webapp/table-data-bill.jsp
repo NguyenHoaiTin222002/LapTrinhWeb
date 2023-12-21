@@ -7,7 +7,7 @@
 
 <head>
 
-  <title>Hóa Đơn</title>
+  <title>Đơn hàng</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -180,12 +180,8 @@
         </div>
       </div>
     </div>
-  </div
-  <!--
-  MODAL
--->
+  </div>
 
-  <!-- Essential javascripts for application to work-->
   <script src="./assets/js/bootstrap1.min.js"></script>
   <script src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="./assets/js/popper.min.js"></script>
@@ -204,7 +200,8 @@
   <script>
     function deleteRow(r) {
       var i = r.parentNode.parentNode.rowIndex;
-      document.getElementById("myTable").deleteRow(i);
+      console.log( document.getElementById("sampleTable"));
+      document.getElementById("sampleTable").deleteRow(i);
     }
     jQuery(function () {
       jQuery(".trash").click(function () {
@@ -231,7 +228,7 @@
         swal({
           title: "Cảnh báo",
 
-          text: "bạn có muốn kiểm tra lại hóa đơn",
+          text: "Bạn có muốn kiểm tra lại hóa đơn",
           buttons: ["Hủy bỏ", "Đồng ý"],
         })
                 .then((check) => {
@@ -242,18 +239,65 @@
                       cache: false,
                       data: { idBill:idBill , idUser:idUser} ,
                       success: function (data) {
+                        if(data == "true") {
+                          swal("Đơn hàng không bị chỉnh sửa", {
+                          });
+                        } else {
+                          if(status === 3){
+                            swal({
+                              title: "Cảnh báo",
 
-                        swal(data, {
+                              text: "Đơn hàng đã bị chỉnh sửa!/ Bạn có muốn hoàn tiền lại không?",
+                              buttons: ["Hủy bỏ", "Đồng ý"],
+                            })
+                                  .then((option) => {
+                                    if(option) {
+                                      $.ajax({
+                                        url: '/CheckOption1',
+                                        type: 'post',
+                                        cache: false,
+                                        data: {idBill: idBill},
+                                        success: function (data) {
+                                          swal(data, {
 
-                        });
+                                          });
+                                        }
+                                      });
+                                    }
+                                  });
+
+                          } else {
+                            swal({
+                              title: "Cảnh báo",
+
+                              text: "Đơn hàng đã bị chỉnh sửa!" + " " +
+                                      "Bạn có muốn hủy không?",
+                              buttons: ["Hủy bỏ", "Đồng ý"],
+                            })
+                                    .then((option) => {
+                                      if(option) {
+                                        $.ajax({
+                                          url: '/CheckOption2',
+                                          type: 'post',
+                                          cache: false,
+                                          data: {idBill: idBill},
+                                          success: function (data) {
+                                            swal(data, {
+
+                                            });
+                                          }
+                                        });
+                                      }
+                                    });
+                          }
+
+                        }
                       },
                       error: function () {
                         alert("error");
                       }
 
                     });
-
-
                   }
                 });
       });

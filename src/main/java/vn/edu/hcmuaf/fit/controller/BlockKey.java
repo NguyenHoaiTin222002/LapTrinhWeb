@@ -34,7 +34,7 @@ public class BlockKey extends HttpServlet {
             response.getWriter().write("Đã vô hiệu khóa thành công!");
         }else {
             response.setContentType("text/plain");
-            response.getWriter().write("Bạn không có khóa để chắn");
+            response.getWriter().write("Bạn không có khóa để chặn");
         }
     }
 }
