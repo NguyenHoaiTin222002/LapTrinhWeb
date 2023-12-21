@@ -94,8 +94,15 @@
                 <td><span class="badge <%=item.getBlockBill()==1?"bg-warning":"bg-success"%> "><%=item.getBlockBill()==0?"Đang giao hàng":"Hoàn thành"%></span></td>
                 <td><%=item.getDayBooking()%></td>
 
-                <td><button class="btn btn-primary btn-sm trash" data-id="" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
+                <td>
+                  <button class="btn btn-primary btn-sm trash" data-id="" type="button" title="Xóa"><i class="fas fa-trash-alt"></i> </button>
                   <a href="ifbill?idBill=<%=item.getIdBill()%>">   <button class="btn btn-primary btn-sm edit" type="button" title="Xem" ><i class="fas fa-eye"></i></button></a>
+                  <button class="btn btn-primary btn-sm edit btn-edit" type="button" title="Sửa"
+                          data-toggle="modal" data-target="#ModalUP" data-name="<%=item.getFullName()%>" data-phone="<%=item.getPhone()%>"
+                          data-idbill="<%=item.getIdBill()%>" data-address="<%=item.getAddress()%>"
+                          data-price="<%=item.getPrice()%>" data-status="<%=item.getBlockBill()%>"><i class="fas fa-edit"></i>
+                  </button>
+                  <button   data-idbill="<%=item.getIdBill()%>"  data-status="<%=item.getBlockBill()%>" data-iduser="<%=item.getIdUser()%>" class="btn btn-primary btn-sm btn-check" type="button" title="Kiểm tra"><i class="fas fa-check"></i></button>
                 </td>
               </tr>
                <%}%>
@@ -112,7 +119,7 @@
   MODAL
 -->
   <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
-    data-keyboard="false">
+       data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
 
@@ -120,56 +127,60 @@
           <div class="row">
             <div class="form-group  col-md-12">
               <span class="thong-tin-thanh-toan">
-                <h5>Chỉnh sửa thông tin nhân viên cơ bản</h5>
+                <h5>Chỉnh sửa thông tin đơn hàng</h5>
               </span>
             </div>
           </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label class="control-label">ID nhân viên</label>
-              <input class="form-control" type="text" required value="#CD2187" disabled>
+          <form action="/UpdateBill" method="post">
+            <div class="row">
+              <div class="user-form-layout">
+                <div class="form-group col-md-6">
+                  <label class="control-label">ID hóa đơn</label>
+                  <input style="width: 200px" class="form-control" type="text" name="idbill" id="idbill" readonly >
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Tên khách hàng</label>
+                  <input style="width: 210px" class="form-control" type="text" name="name" id="name" >
+                </div>
+              </div>
+
+              <div class="form-group  col-md-6">
+                <label class="control-label">Số điện thoại</label>
+                <input style="width: 450px" class="form-control" type="text" name="phone" id="phone">
+              </div>
+
+              <div class="user-form-layout">
+                <div class="form-group col-md-6">
+                  <label class="control-label">Tổng tiền</label>
+                  <input style="width: 200px" class="form-control" type="text" name="price" id="price">
+                </div>
+                <div class="form-group  col-md-6">
+                  <label for="exampleSelect1" class="control-label">Tình trạng</label>
+                  <select style="width: 210px" class="form-control" id="exampleSelect1" name="blockBill">
+                    <option value="0">Huỷ đơn</option>
+                    <option value="1">Đang xử lý</option>
+                    <option value="2">Đang giao hàng</option>
+                    <option value="3">Đã hoàn thành</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group col-md-5">
+                <label class="control-label">Địa chỉ</label>
+                <input style="width: 450px" class="form-control" type="text" name="address" id="address">
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Họ và tên</label>
-              <input class="form-control" type="text" required value="Võ Trường">
-            </div>
-            <div class="form-group  col-md-6">
-              <label class="control-label">Số điện thoại</label>
-              <input class="form-control" type="number" required value="09267312388">
-            </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Địa chỉ email</label>
-              <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
-            </div>
-            <div class="form-group col-md-6">
-              <label class="control-label">Ngày sinh</label>
-              <input class="form-control" type="date" value="15/03/2000">
-            </div>
-            <div class="form-group  col-md-6">
-              <label for="exampleSelect1" class="control-label">Chức vụ</label>
-              <select class="form-control" id="exampleSelect1">
-                <option>Bán hàng</option>
-                <option>Tư vấn</option>
-                <option>Dịch vụ</option>
-                <option>Thu Ngân</option>
-                <option>Quản kho</option>
-                <option>Bảo trì</option>
-                <option>Kiểm hàng</option>
-                <option>Bảo vệ</option>
-                <option>Tạp vụ</option>
-              </select>
-            </div>
-          </div>
-          <BR>
-          <button class="btn btn-save" type="button">Lưu lại</button>
-          <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-          <BR>
+            <BR>
+            <button class="btn btn-save" type="submit">Lưu lại</button>
+            <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+            <BR>
+          </form>
         </div>
         <div class="modal-footer">
         </div>
       </div>
     </div>
-  </div>
+  </div
   <!--
   MODAL
 -->
@@ -210,6 +221,41 @@
               });
             }
           });
+      });
+      jQuery(".btn-check").click(function () {
+        let idBill =    $(this).data("idbill");
+        let idUser =  $(this).data("iduser");
+        let status =  $(this).data("status");
+
+
+        swal({
+          title: "Cảnh báo",
+
+          text: "bạn có muốn kiểm tra lại hóa đơn",
+          buttons: ["Hủy bỏ", "Đồng ý"],
+        })
+                .then((check) => {
+                  if (check) {
+                    $.ajax({
+                      url: '/CheckTheBillAdmin',
+                      type: 'post',
+                      cache: false,
+                      data: { idBill:idBill , idUser:idUser} ,
+                      success: function (data) {
+
+                        swal(data, {
+
+                        });
+                      },
+                      error: function () {
+                        alert("error");
+                      }
+
+                    });
+
+
+                  }
+                });
       });
     });
     oTable = $('#sampleTable').dataTable();
@@ -301,6 +347,37 @@
     //Modal
     $("#show-emp").on("click", function () {
       $("#ModalUP").modal({ backdrop: false, keyboard: false })
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('.btn-edit').on('click', function () {
+        var buttonTextID = $(this).data("idbill");
+        var inputID = $('#idbill');
+        inputID.val(buttonTextID);
+
+        var buttonTextPrice = $(this).data("price");
+        var inputPrice = $('#price');
+        inputPrice.val(buttonTextPrice);
+
+        var buttonText = $(this).data("name");
+        var inputName = $('#name');
+        inputName.val(buttonText);
+
+        var buttonTextPhone = $(this).data("phone");
+        var inputPhone = $('#phone');
+        inputPhone.val(buttonTextPhone);
+
+        var buttonTextAddress = $(this).data("address");
+        var inputAddress = $('#address');
+        inputAddress.val(buttonTextAddress);
+
+        var status = $(this).data("status");
+        var selectValue = $('#exampleSelect1');
+        selectValue.val(status);
+
+
+      });
     });
   </script>
 </body>
