@@ -187,7 +187,27 @@ public class BillService {
 
 
         }else {
-            System.out.println("lỗi kết nối");
+            System.out.println("Lỗi kết nối");
+        }
+    }
+
+    public static void deleteBill(int idBill) {
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "UPDATE `bill` SET `blockBill`= 0 WHERE `idBill`=?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                 ps.setInt(1, idBill);
+
+                ps.executeUpdate();
+
+            }  catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+
+        }else {
+            System.out.println("Lỗi kết nối");
         }
     }
     public static void main(String[] args) throws  Exception {

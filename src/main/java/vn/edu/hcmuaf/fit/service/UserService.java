@@ -196,6 +196,40 @@ public class UserService {
         }
 
     }
+
+    public static User getEmailByIdUser(int idUser){
+        User user = new User();
+        Statement statement = DBConnect.getInstance().get();
+        if(statement != null ){
+            try {
+                String sql = "SELECT `IdUser`, `userName`, `password`, `fullName`, `gender`, `address`, `email`, `phone`, `stutas`, `img`, `birthday` FROM `user` where idUser = ?";
+                PreparedStatement ps =   statement.getConnection().prepareStatement(sql);
+                ps.setInt(1,idUser);
+                ResultSet rs =   ps.executeQuery();
+
+                while (rs.next()){
+
+                    user.setIdUser(rs.getInt("IdUser"));
+                    user.setUserName(rs.getString("userName"));
+                    user.setPassword(rs.getString("password"));
+                    user.setFullName(rs.getString("fullName"));
+                    user.setGender(rs.getInt("gender"));
+                    user.setAddress(rs.getString("address"));
+                    user.setEmail(rs.getString("email"));
+                    user.setPhone(rs.getString("phone"));
+                    user.setStutas(rs.getInt("stutas"));
+                    user.setImg(rs.getString("img"));
+                    user.setBirthday(rs.getDate("birthday"));
+
+                }
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            System.out.println("lỗi kết nối");
+        }
+        return user;
+    }
     public static void main(String[] args) {
         for (User user: UserService.getAllUser()
              ) {

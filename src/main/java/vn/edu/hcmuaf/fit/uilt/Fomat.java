@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.uilt;
 import vn.edu.hcmuaf.fit.service.CartService;
 
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class Fomat {
@@ -41,6 +42,22 @@ public class Fomat {
     public  static  String getStringBil( String fullName,String phone,String address, String description, String price) {
         StringBuffer sb = new StringBuffer();
         sb.append(String.format("Họ và Tên: %s, Số điện thoại: %s, Địa chỉ: %s, Mô tả: %s, Tổng tiền: %s",fullName,phone,address,description,price));
+        return String.valueOf(sb);
+
+    }
+
+    public static String getStringOption(String fullName, String phone, String address, double price, String dayBooking, String message){
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(String.format("<div style=\"max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif;\">\n" +
+                        "        <div style=\"font-weight: bold;\">Tên khách hàng: <span style=\"color: #cf0b2c;\">%s</span></div>\n" +
+                        "        <div style=\"font-weight: bold;\">Số điện thoại: <span style=\"color: #cf0b2c;\">%s</span></div>\n" +
+                        "        <div style=\"font-weight: bold;\">Địa chỉ: <span style=\"color: #cf0b2c;\">%s</span></div>\n" +
+                        "        <div style=\"font-weight: bold;\">Tổng tiền: <span style=\"color: #cf0b2c;\">%.2f đ</span></div>\n" +
+                        "        <div style=\"font-weight: bold;\">Thời gian đặt: <span style=\"color: #cf0b2c;\">%s</span></div>\n" +
+                        "        <div style=\"font-weight: bold;\">Thông báo: <span style=\"color: #cf0b2c;\">%s</span></div>\n" +
+                        "    </div>\n",
+                fullName,phone,address,price,dayBooking,message));
         return String.valueOf(sb);
 
     }

@@ -236,6 +236,7 @@ MODAL
 
     jQuery(function () {
         jQuery(".btn-block-key").click(function () {
+            var titleHtml = $(".title-key");
             swal({
                 title: "Thông báo",
 
@@ -250,8 +251,6 @@ MODAL
                             url: '/BlockKey',
                             type: 'post',
                             cache: false,
-
-
                             success: function (data) {
                                 titleHtml.html("Tình Trạng Khóa:Bạn chưa có khóa")
                                 swal(data, {
