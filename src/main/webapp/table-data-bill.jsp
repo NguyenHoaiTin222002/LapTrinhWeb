@@ -198,9 +198,9 @@
   <script type="text/javascript" src="./assets/js/plugins/chart.js"></script>
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
   <script>
-    function deleteRow(r) {
-      var i = r.parentNode.parentNode.rowIndex;
-      console.log( document.getElementById("sampleTable"));
+    function deleteRow(i) {
+
+
       document.getElementById("sampleTable").deleteRow(i);
     }
     jQuery(function () {
@@ -223,6 +223,9 @@
         let idBill =    $(this).data("idbill");
         let idUser =  $(this).data("iduser");
         let status =  $(this).data("status");
+        let i =  this.parentNode.parentNode.rowIndex;
+
+
 
 
         swal({
@@ -258,6 +261,7 @@
                                         cache: false,
                                         data: {idBill: idBill},
                                         success: function (data) {
+                                          deleteRow(i);
                                           swal(data, {
 
                                           });
@@ -282,6 +286,7 @@
                                           cache: false,
                                           data: {idBill: idBill},
                                           success: function (data) {
+                                            deleteRow(i);
                                             swal(data, {
 
                                             });
