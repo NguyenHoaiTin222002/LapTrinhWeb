@@ -40,7 +40,8 @@
                 <li><a href="sign_in.jsp">Đăng Nhập</a></li>
             </ul>
             <ul class="header-links pull-right  <%=name != null?"":" header-links-login"%> ">
-                <li><a href="/Profile">
+                <li>
+                    <a href="/Profile">
                     <div class="header-login-user">
                         <img class="header-login-user-img" src="<%=img%>">
                          <%=name%>

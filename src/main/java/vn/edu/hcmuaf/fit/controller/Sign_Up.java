@@ -52,7 +52,7 @@ public class Sign_Up extends HttpServlet {
                 session.setAttribute("imgUser",user.getImg());
                 session.setAttribute("fullName",user.getFullName());
 
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("createKey").forward(request,response);
 
         }else {
             request.setAttribute("gender",gender);
