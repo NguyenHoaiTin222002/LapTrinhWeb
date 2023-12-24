@@ -6,6 +6,8 @@ import vn.edu.hcmuaf.fit.model.Role;
 import vn.edu.hcmuaf.fit.model.User;
 import vn.edu.hcmuaf.fit.service.*;
 import vn.edu.hcmuaf.fit.uilt.Check;
+import vn.edu.hcmuaf.fit.uilt.DSA;
+import vn.edu.hcmuaf.fit.uilt.Email;
 import vn.edu.hcmuaf.fit.uilt.EnCode;
 
 import javax.servlet.*;
@@ -41,10 +43,21 @@ public class Sign_Up extends HttpServlet {
         birthday = Check.UpDate(birthday);
         if(checkSignUp.size()==0&&UserService.insertUser(userName,md5Hex,fullname,email,phone,address,gender,birthday)){
             // câu insert
-
                 User user = UserService.getUserLogin(userName);
+
+                 try {
+                     DSA dsa = new DSA();
+                     dsa.genkey();
+                     String publicKey = dsa.publicKeyToString(dsa.getPublicKey());
+                     String privateKey = dsa.privateKeyToString(dsa.getPrivateKey());
+                     DSAKeyService.insertKey(user.getIdUser(),publicKey,privateKey);
+                     Email.sendMail(user.getEmail(), "Khóa của bạn ",privateKey);
+                 }catch (Exception e){
+
+                 }
                 Role role = RoleService.getRoleByName("Khách Hàng");
                 InfoRoleService.insertInfoRoleKH(user.getIdUser(),role.getIdRole());
+
 
                 session.setAttribute("User",user);
                 session.setAttribute("idUser",user.getIdUser());
@@ -52,7 +65,8 @@ public class Sign_Up extends HttpServlet {
                 session.setAttribute("imgUser",user.getImg());
                 session.setAttribute("fullName",user.getFullName());
 
-                request.getRequestDispatcher("createKey").forward(request,response);
+
+                request.getRequestDispatcher("index.jsp").forward(request,response);
 
         }else {
             request.setAttribute("gender",gender);

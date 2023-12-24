@@ -43,7 +43,7 @@ public class createKey extends HttpServlet {
 
                 response.setContentType("text/plain");
                 response.getWriter().write("Tạo khóa thành công");
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
