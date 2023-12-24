@@ -91,7 +91,17 @@
                 <td><%=item.getPhone()%></td>
                 <td><%=item.getAddress()%></td>
                 <td><%=Fomat.fomatCurrency(item.getPrice())%></td>
-                <td><span class="badge <%=item.getBlockBill()==1?"bg-warning":"bg-success"%> "><%=item.getBlockBill()==0?"Đang giao hàng":"Hoàn thành"%></span></td>
+                <td><span class="badge <%=item.getBlockBill()==1?"bg-warning":"bg-success"%> ">
+
+                 <%if(item.getBlockBill()==1){ %>
+                  Đang xử lý
+                    <%}%>
+                     <%if(item.getBlockBill()==2){ %>
+                      Đang giao hàng
+                    <%}%>
+                     <%if(item.getBlockBill()==3){ %>
+                     Hoàn thành
+                    <%}%></span></td>
                 <td><%=item.getDayBooking()%></td>
 
                 <td>
