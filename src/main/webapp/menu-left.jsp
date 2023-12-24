@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%User user = (User) request.getSession().getAttribute("User");%>
+<%String nameRole = (String)request.getSession().getAttribute("nameRole");%>
 <aside class="app-sidebar">
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<%=user.getImg()%>" width="50px"
                                         alt="User Image">
@@ -21,6 +22,7 @@
                 class="app-menu__label ">Hồ sơ</span></a></li>
         <li><a class="app-menu__item " href="/LoadBillUser"><i style="font-size: 18px;" class='app-menu__icon  fas fa-file-invoice-dollar'></i>
             <span class="app-menu__label">Hóa đơn</span></a></li>
+        <%if(nameRole.equals("Admin")){ %>
         <li><a class="app-menu__item" href="table-data-table.jsp"><i class='app-menu__icon bx bx-id-card'></i>
             <span class="app-menu__label">Quản lý nhân viên</span></a></li>
         <li><a class="app-menu__item" href="table-data-kh.jsp"><i class='app-menu__icon bx bx-user-voice'></i><span
@@ -30,6 +32,6 @@
         </li>
         <li><a class="app-menu__item" href="/LoadBillAdmin"><i class='app-menu__icon bx bx-task'></i><span
                 class="app-menu__label">Quản lý đơn hàng</span></a></li>
-
+        <%}%>
     </ul>
 </aside>

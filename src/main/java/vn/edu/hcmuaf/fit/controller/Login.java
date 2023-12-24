@@ -7,6 +7,7 @@ import vn.edu.hcmuaf.fit.service.ImgService;
 import vn.edu.hcmuaf.fit.service.ProductService;
 import vn.edu.hcmuaf.fit.service.UserService;
 import vn.edu.hcmuaf.fit.uilt.EnCode;
+import vn.edu.hcmuaf.fit.service.InfoRoleService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -33,8 +34,10 @@ public class Login extends HttpServlet {
              String md5Hex = EnCode.checkksum(pass);
              User user = UserService.getUserLogin(userName);
              if(md5Hex.equals(user.getPassword())){
+                 String nameRole = InfoRoleService.getRole(user.getIdUser());
 
-                  session.setAttribute("User",user);
+                 session.setAttribute("nameRole",nameRole);
+                 session.setAttribute("User",user);
                  session.setAttribute("idUser",user.getIdUser());
                  session.setAttribute("UserPassword",user.getPassword());
                  session.setAttribute("imgUser",user.getImg());
